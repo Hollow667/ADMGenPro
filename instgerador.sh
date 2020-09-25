@@ -1,5 +1,4 @@
 #!/bin/bash
-
 IVAR="/etc/http-instas"
 SCPT_DIR="/etc/SCRIPT"
 SCPresq="aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL1Rob255RHJvaWRZVC9BRE1HZW5Qcm8vbWFzdGVyL1NDUklQVA=="
