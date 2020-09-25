@@ -380,4 +380,5 @@ echo -ne "\033[0m" && read -p "Enter"
 elif [[ ${varread} = 7 ]]; then
 message_gen
 fi
+}
 /usr/bin/gerar.sh
