@@ -249,7 +249,7 @@ killall http-server.sh
 fi
 }
 message_gen () {
-read -p "NUEVO MENSAJE:》" MSGNEW
+read -p "NUEVO MENSAJE: 》" MSGNEW
 echo "$MSGNEW" > ${SCPT_DIR}/message.txt
 echo -e "$BARRA"
 }
