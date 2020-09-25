@@ -21,7 +21,7 @@ shadowsocks.sh
 ssl.sh
 squid.sh
 fai2ban.sh
-GENERADOR_BIN.py
+GENERADOR_BIN.sh
 MasterBin.sh
 paysnd.sh
 payySND.sh
