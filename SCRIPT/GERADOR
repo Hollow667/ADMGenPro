@@ -22,6 +22,8 @@ ssl.sh
 squid.sh
 fai2ban.sh
 GENERADOR_BIN.sh
+monitor.sh
+estilos.css
 MasterBin.sh
 paysnd.sh
 payySND.sh
