@@ -117,7 +117,7 @@ fi
 funcao_idioma () {
 tput cuu1 && tput dl1
 msg -bar2
-declare -A idioma=( [1]="en English" [2]="fr Franch" [3]="de German" [4]="it Italian" [5]="pl Polish" [6]="pt Spanish" [7]="es Portuguese" [8]="tr Turkish" )
+declare -A idioma=( [1]="en Inglés" [2]="fr Frances" [3]="de Germano" [4]="it Italiano" [5]="pl Polish" [6]="pt Español" [7]="es Portugués" [8]="tr Turko" )
 for ((i=1; i<=12; i++)); do
 valor1="$(echo ${idioma[$i]}|cut -d' ' -f2)"
 [[ -z $valor1 ]] && break
@@ -415,8 +415,8 @@ rm -rf ${SCPinst} &>/dev/null
 [[ -e /usr/bin/adm ]] && rm /usr/bin/adm
 [[ -e /bin/menu ]] && rm /bin/menu
 [[ -e /usr/bin/menu ]] && rm /usr/bin/menu
-[[ -e /bin/menu ]] && rm /bin/thony
-[[ -e /usr/bin/menu ]] && rm /usr/bin/thony
+[[ -e /bin/menu ]] && rm /bin/plus
+[[ -e /usr/bin/menu ]] && rm /usr/bin/plus
 cd $HOME
 fi
 }
@@ -425,9 +425,9 @@ systen_info () {
 msg -ama "$(fun_trans "DETALLES DE SISTEMA")"
 null="\033[1;31m"
 msg -bar
-if [ ! /proc/cpuinfo ]; then msg -verm "$(fun_trans "Sistema Nao Suportado")" && msg -bar; return 1; fi
-if [ ! /etc/issue.net ]; then msg -verm "$(fun_trans "Sistema Nao Suportado")" && msg -bar; return 1; fi
-if [ ! /proc/meminfo ]; then msg -verm "$(fun_trans "Sistema Nao Suportado")" && msg -bar; return 1; fi
+if [ ! /proc/cpuinfo ]; then msg -verm "$(fun_trans "Sistema No Suportado")" && msg -bar; return 1; fi
+if [ ! /etc/issue.net ]; then msg -verm "$(fun_trans "Sistema No Suportado")" && msg -bar; return 1; fi
+if [ ! /proc/meminfo ]; then msg -verm "$(fun_trans "Sistema No Suportado")" && msg -bar; return 1; fi
 totalram=$(free | grep Mem | awk '{print $2}')
 usedram=$(free | grep Mem | awk '{print $3}')
 freeram=$(free | grep Mem | awk '{print $4}')
@@ -438,9 +438,9 @@ based=$(cat /etc/*release | grep ID_LIKE | awk -F "=" '{print $2}')
 processor=$(cat /proc/cpuinfo | grep "model name" | uniq | awk -F ":" '{print $2}')
 cpus=$(cat /proc/cpuinfo | grep processor | wc -l)
 [[ "$system" ]] && msg -ama "$(fun_trans "Sistema"): ${null}$system" || msg -ama "$(fun_trans "Sistema"): ${null}???"
-[[ "$based" ]] && msg -ama "$(fun_trans "Baseado"): ${null}$based" || msg -ama "$(fun_trans "Baseado"): ${null}???"
-[[ "$processor" ]] && msg -ama "$(fun_trans "Processador"): ${null}$processor x$cpus" || msg -ama "$(fun_trans "Processador"): ${null}???"
-[[ "$clock" ]] && msg -ama "$(fun_trans "Frequecia de Operacao"): ${null}$clock MHz" || msg -ama "$(fun_trans "Frequecia de Operacao"): ${null}???"
+[[ "$based" ]] && msg -ama "$(fun_trans "Baseado"): ${null}$based" || msg -ama "$(fun_trans "Basado"): ${null}???"
+[[ "$processor" ]] && msg -ama "$(fun_trans "Processador"): ${null}$processor x$cpus" || msg -ama "$(fun_trans "Procesador"): ${null}???"
+[[ "$clock" ]] && msg -ama "$(fun_trans "Frequecia de Operacao"): ${null}$clock MHz" || msg -ama "$(fun_trans "Frecuencia de Operación"): ${null}???"
 msg -ama "$(fun_trans "Uso de Procesador"): ${null}$(ps aux  | awk 'BEGIN { sum = 0 }  { sum += sprintf("%f",$3) }; END { printf " " "%.2f" "%%", sum}')"
 msg -ama "$(fun_trans "Memoria Virtual Total"): ${null}$(($totalram / 1024))"
 msg -ama "$(fun_trans "Memoria Virtual En Uso"): ${null}$(($usedram / 1024))"
@@ -583,7 +583,7 @@ local selection="null"
 local range
 for((i=0; i<=$1; i++)); do range[$i]="$i "; done
 while [[ ! $(echo ${range[*]}|grep -w "$selection") ]]; do
-echo -ne "\033[1;37m$(fun_trans "Selecione a Opcao"): " >&2
+echo -ne "\033[1;37m$(fun_trans "Selecione a Opción"): 》" >&2
 read selection
 tput cuu1 >&2 && tput dl1 >&2
 done
@@ -739,7 +739,7 @@ msg -ne "$(fun_trans "DIRECCIÓN DE MAQUINA"): " && msg -bra "$(meu_ip)"
 msg -bar
 msg -ama "$(fun_trans "ADMINISTRADOR") \033[1;31m[\033[1;32m [NEW-ULTIMATE-PLUS]  By @Thony_DroidYT \033[1;31m]"
 msg -bar
-menu_func "ADMINISTRAR USUARIOS" "HERRAMIENTAS" "MENU DE INSTALACIONES" "-vd ACTUALIZAR" "-vm DESINSTALAR" "-fi $AutoRun AUTO INICIAR" "CAMBIAR IDIOMA" "CAMBIAR COLORES" "MONITOR DE SERVICIOS -fi ${monitorservi}"
+menu_func "ADMINISTRAR USUARIOS" "HERRAMIENTAS" "MENU DE INSTALACIONES" "-vd ACTUALIZAR" "-vm DESINSTALAR" "-fi $AutoRun AUTO INICIAR" "CAMBIAR IDIOMA" "CAMBIAR COLORES" "-fi ${monitorservi} MONITOR DE SERVICIOS"
 msg -bar && echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") "&& msg -bra "SALIR DEL SCRIPT"
 msg -bar
 # FIM
