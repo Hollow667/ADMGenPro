@@ -6,7 +6,6 @@ ram3=$(free -h | grep -i mem | awk {'print $3'})
 
 _ram=$(printf ' %-9s' "$(free -h | grep -i mem | awk {'print $2'})")
 _usor=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
-
 # Funcoes Globais
 msg () {
 local colors="/etc/new-adm-color"
@@ -46,12 +45,10 @@ SEMCOR='\e[0m'
   "-bar2"|"-bar")cor="${COLOR[1]}=====================================================" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
  esac
 }
-
 os_system () {
 system=$(echo $(cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed 's/      //'))
 echo $system|awk '{print $1, $2}'
 }
-
 meu_ipe () {
 if [[ -e /etc/MEUIPADM ]]; then
 echo "$(cat /etc/MEUIPADM)"
@@ -62,8 +59,6 @@ MEU_IP2=$(wget -qO- ipv4.icanhazip.com)
 echo "$MEU_IP2" > /etc/MEUIPADM
 fi
 }
-meu_ip
-
 info_sys () {
 msg -bar
 echo -e "\e[97m\033[1;41m        =====>>►► 🐲 GEN VPS•MX 🐲 ◄◄<<=====         \033[1;37m"
