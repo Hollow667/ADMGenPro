@@ -51,7 +51,7 @@ INSTALADOR ALTERNATIVO
 
 ## Installation
 
-apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/PROYECTOS_DESCONTINUADOS/master/GENERADOR-NEW-ULTIMATE-ORIGINAL/instalar.sh; chmod 777 instalar.sh* && ./instalar.sh*
+apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/instalar.sh; chmod 777 instalar.sh* && ./instalar.sh*
 
 -------------------------------------------------------------------------------
 
