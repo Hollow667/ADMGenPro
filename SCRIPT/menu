@@ -46,7 +46,7 @@ SEMCOR='\e[0m'
   -azu)cor="${COLOR[6]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
   -verd)cor="${COLOR[2]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
   -bra)cor="${COLOR[0]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
-  "-bar2"|"-bar")cor="${COLOR[4]}======================================================" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
+  "-bar2"|"-bar")cor="${COLOR[4]}========================================================" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
  esac
 }
 canbio_color () {
@@ -737,7 +737,7 @@ msg -ne "$(fun_trans "DIRECCIÓN DE MAQUINA"): " && msg -bra "$(meu_ip)"
 [[ -e ${SCPdir}/key.txt ]] && msg -bar && msg -bra "USER-KEY: $(cat ${SCPdir}/key.txt)"
 # NOVO SISTEMA DE MENUS
 msg -bar
-msg -ama "$(fun_trans "ADMINISTRADOR") \033[1;31m[\033[1;32m NEW-ULTIMATE-PLUS v6.0 By @Thony_DroidYT \033[1;31m]"
+msg -ama "$(fun_trans "ADMINISTRADOR") \033[1;31m[\033[1;32mNEW-ULTIMATE-PLUS v6.0 By Thony_DroidYT\033[1;31m]"
 msg -bar
 menu_func "ADMINISTRAR USUARIOS" "HERRAMIENTAS" "MENU DE INSTALACIONES" "-vd ACTUALIZAR" "-vm DESINSTALAR" "-fi $AutoRun AUTO INICIAR" "CAMBIAR IDIOMA" "CAMBIAR COLORES" "MONITOR DE SERVICIOS"
 msg -bar && echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") "&& msg -bra "SALIR DEL SCRIPT"
