@@ -1,4 +1,4 @@
-﻿# GENERADOR-NEW-ULTIMATE-ORIGINAL
+﻿# GENERADOR-NEW-ULTIMATE-PLUS
 
 # By @Thony_DroidYT.--
 
@@ -11,7 +11,7 @@ O EJECUTAR EL COMANDO SIGUIENTE:
 
 -------------------------------------------------------------------------------
 
-**Generador De Key NEWADM**
+**Generador De Key NEWADM+**
 
 ## :heavy_exclamation_mark: Requerimientos
 
