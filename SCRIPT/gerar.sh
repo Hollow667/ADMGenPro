@@ -7,11 +7,11 @@ BARRA="\033[1;35m======================================================\033[0m"
 echo -e "$BARRA"
 figlet ADMGenPro | lolcat
 echo -e "$BARRA"
-echo -e "By: </Thony_DroidYT" 
+[[ -e ${SCPT_DIR}/message.txt ]] && msg -bar && msg -bra " \033[1;37mKEY BY \033[1;32m》\033[1;96m $(cat ${SCPT_DIR}/message.txt) "
 echo -e "$BARRA"
 cat << EOF
 
-           NEW KEY GENERADOR
+           NEW KEY GENERADOR PRO
            INSTALACIONES: $(cat $IVAR)
            
 EOF
