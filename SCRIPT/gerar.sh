@@ -1,4 +1,8 @@
 #!/bin/bash
+#PROCESSADOR
+_core=$(printf '%-1s' "$(grep -c cpu[0-9] /proc/stat)")
+_usop=$(printf '%-1s' "$(top -bn1 | awk '/Cpu/ { cpu = "" 100 - $8 "%" }; END { print cpu }')")
+
 #SISTEMA-USO DA CPU-MEMORIA RAM
 ram1=$(free -h | grep -i mem | awk {'print $2'})
 ram2=$(free -h | grep -i mem | awk {'print $4'})
@@ -32,43 +36,14 @@ esac
 let COL++
 done
 fi
-NEGRITO='\e[1m'
-SEMCOR='\e[0m'
- case $1 in
-  -ne)cor="${COLOR[1]}${NEGRITO}" && echo -ne "${cor}${2}${SEMCOR}";;
-  -ama)cor="${COLOR[3]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
-  -verm)cor="${COLOR[3]}${NEGRITO}[!] ${COLOR[1]}" && echo -e "${cor}${2}${SEMCOR}";;
-  -verm2)cor="${COLOR[1]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
-  -azu)cor="${COLOR[6]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
-  -verd)cor="${COLOR[2]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
-  -bra)cor="${COLOR[0]}${SEMCOR}" && echo -e "${cor}${2}${SEMCOR}";;
-  "-bar2"|"-bar")cor="${COLOR[1]}=====================================================" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
- esac
-}
-os_system () {
-system=$(echo $(cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed 's/      //'))
-echo $system|awk '{print $1, $2}'
-}
-meu_ipe () {
-if [[ -e /etc/MEUIPADM ]]; then
-echo "$(cat /etc/MEUIPADM)"
-else
-MEU_IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
-MEU_IP2=$(wget -qO- ipv4.icanhazip.com)
-[[ "$MEU_IP" != "$MEU_IP2" ]] && echo "$MEU_IP2" || echo "$MEU_IP"
-echo "$MEU_IP2" > /etc/MEUIPADM
-fi
-}
-info_sys () {
-msg -bar
-echo -e "\e[97m\033[1;41m        =====>>►► 🐲 GEN VPS•MX 🐲 ◄◄<<=====         \033[1;37m"
-msg -bar
-msg -ne "   S.O: " && echo -ne "\033[1;37m$(os_system)"
-msg -ne "       IP: " && echo -e "\033[1;37m$(meu_ipe)"
-echo -e "   \033[1;31mRAM: \033[1;32m$ram1                 \033[1;31mCPU: \033[1;32m $_core"
-echo -e "   \033[1;31mUSADA: \033[1;32m$ram3               \033[1;31mUSO DE CPU: \033[1;32m$_usop"
-echo -e "   \033[1;31mLIBRE: \033[1;32m$ram2               \033[1;31mFECHA: \033[1;37m$_fecha"
-echo -e "   \033[1;31mUSO DE RAM: \033[1;32m$_usor      \033[1;31mHORA: \033[1;37m$_hora"
+echo -e "\033[1;93m      INFORMACION DEL SISTEMA Y PUERTOS ACTIVOS"
+msg -e "$BARRA"
+echo -e "\033[1;31m PROCESADOR: \033[1;37mNUCLEOS: \033[1;32m$_core         \033[1;37mUSO DE CPU: \033[1;32m$_usop"
+echo -e "\033[1;31m LA MEMORIA RAM SE ENCUENTRA AL: \033[1;32m$_usor"
+echo -e "\033[1;31m DETALLE RAM: \033[1;37mTOTAL: \033[1;32m$ram1  \033[1;37mUSADO: \033[1;32m$ram3  \033[1;37mLIBRE: \033[1;32m$ram2"
+msg -ne " SO: " && echo -ne "\033[1;37m$(os_system)  "
+msg -ne " IP: " && echo -e "\033[1;37m$(meu_ip)"
+msg -e "$BARRA" 
 # INSTALACAO BASICA
 clear
 [[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh"
@@ -126,6 +101,10 @@ else
 echo "$BASICINST ${var[$value]}" > /etc/newadm-instalacao
 fi
 done
+}
+os_system () {
+system=$(echo $(cat -n /etc/issue |grep 1 |cut -d' ' -f6,7,8 |sed 's/1//' |sed 's/      //'))
+echo $system|awk '{print $1, $2}'
 }
 fun_list () {
 rm ${SCPT_DIR}/*.x.c &> /dev/null
