@@ -114,7 +114,7 @@ msg -bar
 		read -p "IP  Publica  / hostname: " -e PUBLICIP
 	fi
 msg -bar
-msg -ama "Que protocolo necesitas para las conexiones OpenVPN?"
+msg -ama "Que protocolo necesitas para la conexion de OpenVPN?"
 msg -bar
 	echo "   1) UDP (recomendado)"
 	echo "   2) TCP"
@@ -337,7 +337,7 @@ exit 0' > $RCLOCAL
 		IP=$PUBLICIP
 	fi
 	# 
-	echo "# OVPN_ACCESS_SERVER_PROFILE=VPS-MX
+	echo "# OVPN_ACCESS_SERVER_PROFILE=ADM-PLUS
 client
 dev tun
 proto $PROTOCOL
