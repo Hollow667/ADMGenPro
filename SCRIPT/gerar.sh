@@ -5,13 +5,13 @@ clear
 IVAR="/etc/http-instas"
 BARRA="\033[1;35m======================================================\033[0m"
 echo -e "$BARRA"
-echo -e "figlet ADMGenPro | lolcat"
+figlet ADMGenPro | lolcat
 echo -e "$BARRA"
-echo -e "" 
+echo -e "By: </Thony_DroidYT" 
 echo -e "$BARRA"
 cat << EOF
 
-           NEW KEY GENERADOR BY THONYDROID
+           NEW KEY GENERADOR
            INSTALACIONES: $(cat $IVAR)
            
 EOF
