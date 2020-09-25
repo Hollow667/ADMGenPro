@@ -7,7 +7,7 @@ BARRA="\033[1;35m======================================================\033[0m"
 echo -e "$BARRA"
 figlet ADMGenPro | lolcat
 echo -e "$BARRA"
-echo -e "Reseller: $(cat ${SCPT_DIR}/message.txt)"
+echo -e "Reseller: $(cat $/etc/SCRIPT/message.txt)"
 echo -e "$BARRA"
 cat << EOF
 
@@ -249,7 +249,7 @@ killall http-server.sh
 fi
 }
 message_gen () {
-read -p "NUEVO MENSAJE: " MSGNEW
+read -p "NUEVO MENSAJE:》" MSGNEW
 echo "$MSGNEW" > ${SCPT_DIR}/message.txt
 echo -e "$BARRA"
 }
