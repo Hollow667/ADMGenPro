@@ -68,8 +68,8 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/Th
 ```
 
 ```
-☆ https://t.me/admmanagerfree ☆
+☆ https://biy.ly/thonyblog ☆
 
 ```
 
-**By: [  ⃘⃤꙰✰ ]**
+**By: [@Thony_DroidYT]**
