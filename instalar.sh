@@ -1,5 +1,7 @@
 #!/bin/bash
 cd $HOME
+SCPMoncss="/var/www/html"
+SCPMonhtml="/bin"
 SCPdir="/etc/newadm"
 SCPinstal="$HOME/install"
 SCPidioma="${SCPdir}/idioma"
@@ -121,6 +123,8 @@ verificar_arq () {
 [[ ! -d ${SCPinst} ]] && mkdir ${SCPinst}
 case $1 in
 "menu"|"message.txt")ARQ="${SCPdir}/";; #Menu
+"estilos.css")ARQ="${SCPMoncss}/";; #Css
+"monitor.html")ARQ="${SCPMonhtml}/";; #Monitor
 "usercodes")ARQ="${SCPusr}/";; #User
 "openssh.sh")ARQ="${SCPinst}/";; #Instalacao
 "squid.sh")ARQ="${SCPinst}/";; #Instalacao
@@ -133,6 +137,8 @@ case $1 in
 esac
 mv -f ${SCPinstal}/$1 ${ARQ}/$1
 chmod +x ${ARQ}/$1
+chmod +x /bin/monitor.html
+chmod +x /var/www/html/estilos.css
 }
 fun_ip
 wget -O /usr/bin/trans https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/Install/trans &> /dev/null
