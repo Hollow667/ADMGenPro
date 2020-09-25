@@ -1,6 +1,6 @@
 ﻿# GENERADOR-NEW-ULTIMATE-ORIGINAL
 
-# ESTE PROYECTO A SIDO DESCONTINUADO.--
+# By @Thony_DroidYT.--
 
 ```
 SI TIENES PROBLEMAS DE TRADUCCION DEBES CAMBIAR A IDIOMA PORTUGUES MENU 7 OPCION 6
@@ -22,7 +22,7 @@ O EJECUTAR EL COMANDO SIGUIENTE:
 
 ## Installation
 
-apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/PROYECTOS_DESCONTINUADOS/master/GENERADOR-NEW-ULTIMATE-ORIGINAL/instgerador.sh; chmod 777 instgerador.sh* && ./instgerador.sh
+apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/instgerador.sh; chmod 777 instgerador.sh* && ./instgerador.sh
 
 -------------------------------------------------------------------------------
 
