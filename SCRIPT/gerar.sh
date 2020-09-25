@@ -7,7 +7,7 @@ BARRA="\033[1;35m======================================================\033[0m"
 echo -e "$BARRA"
 figlet ADMGenPro | lolcat
 echo -e "$BARRA"
-echo -e "Reseller: $(cat $/etc/SCRIPT/message.txt)"
+echo -e "Reseller: $(cat /etc/SCRIPT/message.txt)"
 echo -e "$BARRA"
 cat << EOF
 
