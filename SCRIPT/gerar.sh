@@ -42,7 +42,7 @@ echo -e "\033[1;31m PROCESADOR: \033[1;37mNUCLEOS: \033[1;32m$_core         \033
 echo -e "\033[1;31m LA MEMORIA RAM SE ENCUENTRA AL: \033[1;32m$_usor"
 echo -e "\033[1;31m DETALLE RAM: \033[1;37mTOTAL: \033[1;32m$ram1  \033[1;37mUSADO: \033[1;32m$ram3  \033[1;37mLIBRE: \033[1;32m$ram2"
 msg -ne " SO: " && echo -ne "\033[1;37m$(os_system)  "
-msg -ne " IP: " && echo -e "\033[1;37m$(meu_ip)"
+msg -ne " IP: " && echo -e "\033[1;37m$(meu_ipe)"
 msg -e "$BARRA" 
 # INSTALACAO BASICA
 clear
@@ -66,7 +66,7 @@ SCPT_DIR="/etc/SCRIPT"
 INSTA_ARQUIVOS="ADMVPS.zip"
 DIR="/etc/http-shell"
 LIST="lista-arq"
-meu_ip () {
+meu_ipe () {
 MIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
 MIP2=$(wget -qO- ipv4.icanhazip.com)
 [[ "$MIP" != "$MIP2" ]] && IP="$MIP2" || IP="$MIP"
