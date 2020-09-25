@@ -287,7 +287,7 @@ echo -e "[7] = CAMBIAR CREDITOS"
 echo -e "[0] = SALIR"
 echo -e "$BARRA"
 while [[ ${varread} != @([0-8]) ]]; do
-read -p "Opcion:》" varread
+read -p "Opcion: 》" varread
 done
 echo -e "$BARRA"
 if [[ ${varread} = 0 ]]; then
