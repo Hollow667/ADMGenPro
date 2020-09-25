@@ -110,6 +110,7 @@ fun_list () {
 rm ${SCPT_DIR}/*.x.c &> /dev/null
 unset KEY
 KEY="$1"
+}
 #CRIA DIR
 [[ ! -e ${DIR} ]] && mkdir ${DIR}
 #ENVIA ARQS
