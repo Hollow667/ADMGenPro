@@ -10,6 +10,7 @@ ram3=$(free -h | grep -i mem | awk {'print $3'})
 
 _ram=$(printf ' %-9s' "$(free -h | grep -i mem | awk {'print $2'})")
 _usor=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
+fi
 # Funcoes Globais
 msg () {
 local colors="/etc/new-adm-color"
@@ -358,4 +359,5 @@ cat /etc/gerar-sh-log 2>/dev/null || echo "NINGUN REGISTRO EN ESTE MOMENTO"
 echo -ne "\033[0m" && read -p "Enter"
 elif [[ ${varread} = 7 ]]; then
 message_gen
+fi
 /usr/bin/gerar.sh
