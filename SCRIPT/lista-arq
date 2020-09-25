@@ -3,8 +3,6 @@ PGet.py
 ports.sh
 ADMbot.sh
 message.txt
-monitor.sh
-estilos.css
 usercodes
 sockspy.sh
 POpen.py
@@ -20,3 +18,5 @@ openvpn.sh
 shadowsocks.sh
 ssl.sh
 squid.sh
+monitor.sh
+estilos.css
