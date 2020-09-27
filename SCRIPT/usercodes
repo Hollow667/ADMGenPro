@@ -800,9 +800,10 @@ echo -e " \033[1;32m[2] >\033[1;31m $(fun_trans "Rojo")"
 echo -e " \033[1;32m[3] >\033[1;34m $(fun_trans "Azul")"
 echo -e " \033[1;32m[4] >\033[1;33m $(fun_trans "Amarillo")"
 echo -e " \033[1;32m[5] >\033[1;35m $(fun_trans "Morado")"
-echo -e " \033[1;32m[6] >\033[95m $(fun_trans "Rosado")"
+echo -e " \033[1;32m[6] >\033[198m $(fun_trans "Rosado")"
 echo -e " \033[1;32m[7] >\033[44m $(fun_trans "Celeste")"
 echo -e " \033[1;32m[8] >\033[0;33m $(fun_trans "Marrón")"
+echo -e " \033[1;32m[8] >\033[202m $(fun_trans "Anaranjado")"
 msg -ne "$(fun_trans "Perfecto Ahora un Color"): " && read ban_ner_cor
 echo '<h2><font>★━━━━━━✩━━━━━━★</font></h2>' > $local
 if [[ "$ban_ner_cor" = "1" ]]; then
@@ -821,6 +822,8 @@ elif [ "$ban_ner_cor" = "7" ]; then
 echo '<h6><font color="#00aae4">' >> $local
 elif [ "$ban_ner_cor" = "8" ]; then
 echo '<h6><font color="#663b2a">' >> $local
+elif [ "$ban_ner_cor" = "9" ]; then
+echo '<h6><font color="#ff6600">' >> $local
 else
 echo '<h1><font color="blue">' >> $local
 fi
@@ -834,9 +837,10 @@ echo -e " \033[1;32m[2] >\033[1;31m $(fun_trans "Rojo")"
 echo -e " \033[1;32m[3] >\033[1;34m $(fun_trans "Azul")"
 echo -e " \033[1;32m[4] >\033[1;33m $(fun_trans "Amarelo")"
 echo -e " \033[1;32m[5] >\033[1;35m $(fun_trans "Morado")"
-echo -e " \033[1;32m[6] >\033[95m $(fun_trans "Rosado")"
+echo -e " \033[1;32m[6] >\033[198m $(fun_trans "Rosado")"
 echo -e " \033[1;32m[7] >\033[44m $(fun_trans "Celeste")"
 echo -e " \033[1;32m[8] >\033[0;33m $(fun_trans "Marrón")"
+echo -e " \033[1;32m[9] >\033[202m $(fun_trans "Anaranjado")"
 msg -ne "$(fun_trans "Perfecto Ahora un Color"): " && read ban_ner2_cor
 if [ "$ban_ner2_cor" = "1" ]; then
 echo '<h6><font color="green">' >> $local
@@ -854,6 +858,8 @@ elif [ "$ban_ner2_cor" = "7" ]; then
 echo '<h6><font color="#00aae4">' >> $local
 elif [ "$ban_ner2_cor" = "8" ]; then
 echo '<h6><font color="#663b2a">' >> $local
+elif [ "$ban_ner2_cor" = "9" ]; then
+echo '<h6><font color="#ff6600">' >> $local
 else
 echo '<h6><font color="red">' >> $local
 fi
