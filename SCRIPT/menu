@@ -20,7 +20,7 @@ COLOR[2]='\e[32m' #VERDE='\e[32m'
 COLOR[3]='\e[33m' #AMARELO='\e[33m'
 COLOR[4]='\e[34m' #AZUL='\e[34m'
 COLOR[5]='\e[35m' #MAGENTA='\e[35m'
-COLOR[6]='\033[1;35m' #MAG='\033[1;35m'
+COLOR[6]='\033[1;36m' #MAG='\033[1;36m'
 else
 local COL=0
 for number in $(cat $colors); do
@@ -31,7 +31,7 @@ case $number in
 4)COLOR[$COL]='\e[33m';;
 5)COLOR[$COL]='\e[34m';;
 6)COLOR[$COL]='\e[35m';;
-7)COLOR[$COL]='\033[1;35m';;
+7)COLOR[$COL]='\033[1;36m';;
 esac
 let COL++
 done
@@ -50,7 +50,7 @@ SEMCOR='\e[0m'
  esac
 }
 canbio_color () {
-msg -ama "$(fun_trans "Hola este es el  Administrador de Colores de") \033[1;31m[NEW-ULTIMATE]"
+msg -ama "$(fun_trans "Hola este es el  Administrador de Colores de") \033[1;31m[NEW-ULTIMATE-PLUS]"
 msg -bar2
 msg -ama "$(fun_trans "Selecione 7 colores"): "
 echo -e '\033[1;37m [1] ###\033[0m'
@@ -59,7 +59,7 @@ echo -e '\e[32m [3] ###\033[0m'
 echo -e '\e[33m [4] ###\033[0m'
 echo -e '\e[34m [5] ###\033[0m'
 echo -e '\e[35m [6] ###\033[0m'
-echo -e '\033[1;35m [7] ###\033[0m'
+echo -e '\033[1;36m [7] ###\033[0m'
 msg -bar2
 for number in $(echo {1..7}); do
 msg -ne "$(fun_trans "Digite un Color") [$number]: " && read corselect
