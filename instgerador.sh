@@ -42,7 +42,7 @@ apt-get install figlet -y
 apt-get install cowsay -y
 apt-get install lolcat -y
 echo -e "\033[1;35m======================================================\033[0m"
-echo -e "\033[1;31mPreparando Servidor... "
+echo -e "\033[1;32mPreparando Servidor... "
 echo -e "\033[1;35m======================================================\033[0m"
 meu_ip () {
 MIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
