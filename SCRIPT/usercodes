@@ -803,7 +803,7 @@ echo -e " \033[1;32m[5] >\033[1;35m $(fun_trans "Morado")"
 echo -e " \033[1;32m[6] >\033[198m $(fun_trans "Rosado")"
 echo -e " \033[1;32m[7] >\033[44m $(fun_trans "Celeste")"
 echo -e " \033[1;32m[8] >\033[0;33m $(fun_trans "Marrón")"
-echo -e " \033[1;32m[8] >\033[202m $(fun_trans "Anaranjado")"
+echo -e " \033[1;32m[9] >\033[202m $(fun_trans "Anaranjado")"
 msg -ne "$(fun_trans "Perfecto Ahora un Color"): " && read ban_ner_cor
 echo '<h2><font>★━━━━━━✩━━━━━━★</font></h2>' > $local
 if [[ "$ban_ner_cor" = "1" ]]; then
