@@ -747,7 +747,7 @@ SSH4="$(echo $SSH3)"
 on="\033[1;32m[ON]" && off="\033[1;31m[OFF]"
 [[ $(ps x | grep badvpn | grep -v grep | awk '{print $1}') ]] && badvpn=$on || badvpn=$off
 msg -bar
-msg -ama "$(fun_trans "PUERTOS ACTIVOS Y INFORMACION DEL SERVIDOR")"
+msg -ama "$(fun_trans "PUERTOS ACTIVOS Y INFORMACION DEL SERVIDOR VPS!")"
 msg -bar
 mine_port
 msg -bar
