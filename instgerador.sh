@@ -51,7 +51,7 @@ MIP2=$(wget -qO- ipv4.icanhazip.com)
 echo "$IP" > /usr/bin/vendor_code
 }
 meu_ip
-echo -e "\033[1;35mInstalando Archivos... "
+echo -e "\033[1;32mInstalando Archivos... "
 echo -e "\033[1;35m======================================================\033[0m"
 cd $HOME
 REQUEST=$(echo $SCPresq|$SUB_DOM)
