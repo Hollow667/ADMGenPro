@@ -737,6 +737,15 @@ if [[ "$1" = "moni2" ]]; then
 monitorport_fun
 exit
 fi
+#CUENTAS REGISTRAADAS APROX
+#msg -bar
+SSHN="$(grep -c home /etc/passwd)"
+SSH2="$(echo ${SSHN}|bc)-2"
+echo "${SSH2}"|bc > /etc/newadm/ger-user/SSH20.log
+SSH3="$(less /etc/newadm/ger-user/SSH20.log)"
+SSH4="$(echo $SSH3)"
+[[ $(ps x | grep badvpn | grep -v grep | awk '{print $1}') ]] && badvpn=$on || badvpn=$off
+on="\033[1;92m[ON]" && off="\033[1;31m[OFF]"
 msg -bar
 msg -ama "$(fun_trans "PUERTOS ACTIVOS Y INFORMACION DEL SERVIDOR")"
 msg -bar
@@ -744,12 +753,15 @@ mine_port
 msg -bar
 msg -ne "$(fun_trans "SISTEMA OPERATIVO"): " && msg -bra "$(os_system)  "
 msg -ne "$(fun_trans "DIRECCIÓN DE MAQUINA"): " && msg -bra "$(meu_ip)"
-echo -e "\033[1;31m PROCESADOR: \033[1;37mNUCLEOS: \033[1;32m$_core         \033[1;37mUSO DE CPU: \033[1;32m$_usop"
-echo -e "\033[1;31m DETALLE RAM: \033[1;37mTOTAL: \033[1;32m$ram1  \033[1;37mUSADO: \033[1;32m$ram3  \033[1;37mLIBRE: \033[1;32m$ram2"
-echo -e "\033[1;31m LA RAM SE ENCUENTRA AL: \033[1;32m$_usor"
+echo -e "\033[1;31mCPU: \033[1;37mN° DE NUCLEOS:\033[1;32m $_core \033[1;37m\033[1;31m FECHA: \033[1;37m$_hora"
+echo -e "\033[1;31mRAM: \033[1;37mTOTAL: \033[1;32m$ram1 \033[1;37m USADA: \033[1;32m$ram3 \033[1;37m LIBRE: \033[1;32m$ram2"
+echo -e "\033[1;31m USO DE RAM: \033[1;32m$_usor  \033[1;31m USO DE CPU: \033[1;32m$_usop"
 msg -bar
+echo -e "\033[1;97m BADVPN: $badvpn"
+echo -e "\033[1;97m SSH REG:\033[1;92m $SSH4 $(fun_trans "CUENTAS")"
 [[ -e ${SCPdir}/USRonlines ]] && msg -ne "$(fun_trans "USUARIOS CONECTADOS"): " && msg -bra "$(cat ${SCPdir}/USRonlines) $(fun_trans "Usuarios")"
 [[ -e ${SCPdir}/USRexpired ]] && msg -ne "$(fun_trans "USUARIOS EXPIRADOS"): " && msg -bra "$(cat ${SCPdir}/USRexpired) $(fun_trans "Usuarios")"
+msg -bar
 [[ -e ${SCPdir}/message.txt ]] && msg -bar && msg -bra "MENSAJE: $(cat ${SCPdir}/message.txt)"
 [[ -e ${SCPdir}/key.txt ]] && msg -bar && msg -bra "KEY: $(cat ${SCPdir}/key.txt)"
 # NOVO SISTEMA DE MENUS
