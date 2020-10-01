@@ -61,9 +61,9 @@ sleep 1s
 for arqx in `cat $HOME/lista-arq`; do
 echo -ne "\033[1;31mDescargando Archivos \033[0;34m[$arqx] "
 wget -O $HOME/$arqx ${REQUEST}/${arqx} > /dev/null 2>&1 && {
-echo -e "\033[0;34m- \033[1;31mRecebido Con Exito!"
+echo -e "\033[0;34m- \033[1;32mRecebido Con Exito!"
 [[ -e $HOME/$arqx ]] && veryfy_fun $arqx
-} || echo -e "\033[0;34m- \033[0;34mFalla (no recebido!)"
+} || echo -e "\033[0;34m- \033[1;31mFalla (no recebido!)"
 done
 [[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/Install/trans &> /dev/null
 [[ -e /bin/http-server.py ]] && mv -f /bin/http-server.py /bin/http-server.sh && chmod +x /bin/http-server.sh
