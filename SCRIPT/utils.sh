@@ -26,7 +26,7 @@ unset pid_badvpn
 TCPspeed () {
 if [[ `grep -c "^#ADM" /etc/sysctl.conf` -eq 0 ]]; then
 #INSTALA
-msg -ama "$(fun_trans "TCP Speed No Activado, Desea Activar Ahora")?"
+msg -ama "$(fun_trans "TCP Speed No esta Activado, Desea Activar Ahora")?"
 msg -bar
 while [[ ${resposta} != @(s|S|n|N|y|Y) ]]; do
 read -p " [S/N]: " -e -i s resposta
@@ -46,7 +46,7 @@ msg -ama "$(fun_trans "TCP Ativo Con Éxito")!"
 } || msg -ama "$(fun_trans "Cancelado")!"
  else
 #REMOVE
-msg -ama "$(fun_trans "TCP Speed ya Activado, Desea Parar Ahora")?"
+msg -ama "$(fun_trans "TCP Speed ya esta Activado, Desea Parar Ahora")?"
 msg -bar
 while [[ ${resposta} != @(s|S|n|N|y|Y) ]]; do
 read -p " [S/N]: " -e -i s resposta
@@ -67,8 +67,8 @@ msg -ama "$(fun_trans "TCP Parado Con Éxito")!"
 fi
 }
 SquidCACHE () {
-msg -ama "$(fun_trans "Squid Cache, Aplica cache en Squid")"
-msg -ama "$(fun_trans "mejora la velocidade de squid")"
+msg -ama "$(fun_trans "Cache de Squid, Aplicar cache en Squid")"
+msg -ama "$(fun_trans "mejora la velocidad de squid")"
 msg -bar
 if [ -e /etc/squid/squid.conf ]; then
 squid_var="/etc/squid/squid.conf"
@@ -127,10 +127,10 @@ NIC=$(ip -4 route ls | grep default | grep -Po '(?<=dev )(\S+)' | head -1)
 echo -e "$(fun_trans "Essas configuracoes so Devem ser adicionadas")"
 echo -e "$(fun_trans "apos a vps estar totalmente configurada!")"
 msg -bar
-echo -e "$(fun_trans "Deseja Prosseguir?")"
+echo -e "$(fun_trans "Deseja Proseguir?")"
 read -p " [S/N]: " -e -i n PROS
 [[ $PROS = @(s|S|y|Y) ]] || return 1
-fun_ip #Pega IP e armazena em uma variavel
+fun_ip #Pega IP y almacenar en una variable de datos
 #Inicia Procedimentos
 #Parametros iniciais
 echo 'iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
