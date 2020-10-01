@@ -60,7 +60,7 @@ cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 service stunnel4 restart > /dev/null 2>&1
 msg -bar
-msg -ama " $(fun_trans "INSTALADO COM SUCESSO")"
+msg -ama " $(fun_trans "INSTALADO CON ÉXITO")"
 msg -bar
 return 0
 }
