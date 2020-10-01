@@ -13,7 +13,7 @@ install_fun(){
     # sed -i 's@^short_open_tag = Off@short_open_tag = On@' /etc/php/7.2/apache2/php.ini
     # sed -i 's@^expose_php = On@expose_php = Off@' /etc/php/7.2/apache2/php.ini
     # sed -i 's@^request_order.*@request_order = "CGP"@' /etc/php/7.2/apache2/php.ini
-    sed -i 's@^;date.timezone.*@date.timezone = America/Mexico_City@' /etc/php/7.2/apache2/php.ini
+    sed -i 's@^;date.timezone.*@date.timezone = America/Sao_Paulo@' /etc/php/7.2/apache2/php.ini
     sed -i 's@^post_max_size.*@post_max_size = 100M@' /etc/php/7.2/apache2/php.ini
     sed -i 's@^upload_max_filesize.*@upload_max_filesize = 100M@' /etc/php/7.2/apache2/php.ini
     sed -i 's@^max_execution_time.*@max_execution_time = 600@' /etc/php/7.2/apache2/php.ini
@@ -191,7 +191,7 @@ fi
 cat << PHP
 set_time_limit(0);
 error_reporting(0);
-date_default_timezone_set('America/Mexico_City );
+date_default_timezone_set('America/Sao_Paulo');
 
 function GetStr(\$string, \$start, \$end)
 {
@@ -330,13 +330,13 @@ if(\$cbin == "5"){
 \$tipo = trim(strip_tags(getstr(\$bin,'},"type":"','"')));
 if (\$data!="") {echo "Consulta: \$data\n";}
 if (\$level!="") {echo "Nivel: \$level\n";}
-if (\$pais!="") {echo "Pais: \$pais\n";}
-if (\$brand!="") {echo "Bandeira: \$brand\n";}
-if (\$fone!="") {echo "Fone: \$fone\n";}
+if (\$pais!="") {echo "País: \$pais\n";}
+if (\$brand!="") {echo "Bandera: \$brand\n";}
+if (\$fone!="") {echo "Teléfono: \$fone\n";}
 if (\$tipo!="") {echo "Tipo: \$tipo\n";}
 PHP
 }
-echo -ne "Digite a bin: " && read UsrBin
+echo -ne "Digite un bin: 》" && read UsrBin
 while [[ ${#UsrBin} -lt 16 ]]; do UsrBin+="x"; done
 echo -ne "Cuántos Bins Quieres Generar: " && read GerBin
 [[ $GerBin != +([0-9]) ]] && GerBin=10
