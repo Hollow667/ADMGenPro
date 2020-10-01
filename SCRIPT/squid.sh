@@ -29,7 +29,7 @@ fun_squid  () {
   [[ -e $var_squid ]] && rm $var_squid
   return 0
   }
-msg -ama  " $(fun_trans "INSTALADOR SQUID ADM-ULTIMATE-PLUS By @Thony_DroidYT")"
+msg -ama  " $(fun_trans "INSTALADOR SQUID ADM-ULTIMATE-PLUS")"
 msg -bar
 fun_ip
 msg -ne " $(fun_trans "Confirme seu ip")"; read -p ": " -e -i $IP ip
