@@ -59,7 +59,7 @@ wget -O "$HOME/lista-arq" ${REQUEST}/GERADOR > /dev/null 2>&1
 sleep 1s
 [[ -e $HOME/lista-arq ]] && {
 for arqx in `cat $HOME/lista-arq`; do
-echo -ne "\033[1;35mDescargando Archivo \033[0;34m[$arqx] "
+echo -ne "\033[1;36mDescargando Archivo \033[0;34m[$arqx] "
 wget -O $HOME/$arqx ${REQUEST}/${arqx} > /dev/null 2>&1 && {
 echo -e "\033[0;34m- \033[1;32mRecebido Con Exito!"
 [[ -e $HOME/$arqx ]] && veryfy_fun $arqx
