@@ -352,7 +352,7 @@ echo -e "=============================="
  cvv=$(echo $bins|cut -d'|' -f2)
  BIN=$(php -r "$(php_fun $cc $mes $ano $cvv)" 2>/dev/null)
  if [[ -z $BIN ]]; then 
- echo -e "BIN: $cc INVALIDA"
+ echo -e "BIN: $cc INVALIDO"
  echo -e "=============================="
  else
  echo "BIN Encontrado!"
