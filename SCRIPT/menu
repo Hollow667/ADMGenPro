@@ -20,8 +20,8 @@ _hora=$(printf '%(%D-%H:%M:%S)T')
 _ram=$(printf ' %-9s' "$(free -h | grep -i mem | awk {'print $2'})")
 _usor=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
 
-[[ -z ${VERY3} ]] && monitorservi="\033[1;31m[ACTIVO]" || monitorservi="\033[1;32m[DESACTIVADO]"
-if [[ -e /etc/bash.bashrc-bakup ]]; then AutoRun="\033[1;32m[ACTIVO]"
+[[ -z ${VERY3} ]] && monitorservi="\033[1;31m[ACTIVADO]" || monitorservi="\033[1;32m[DESACTIVADO]"
+if [[ -e /etc/bash.bashrc-bakup ]]; then AutoRun="\033[1;32m[ACTIVADO]"
 elif [[ -e /etc/bash.bashrc ]]; then AutoRun="\033[1;31m[DESACTIVADO]"
 fi
 # Funcoes Globais
