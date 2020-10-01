@@ -109,7 +109,7 @@ atualiza_fun () {
 cd $HOME
 tput cuu1 && tput dl1
 msg -bar2
-msg -ama "$(fun_trans "ATUALIZADOR DE SCRIPT ADM"): \033[1;31m[NEW-ULTIMATE]"
+msg -ama "$(fun_trans "ACTUALIZADOR DE SCRIPT ADM-PLUS"): \033[1;31m[NEW-ULTIMATE]"
 msg -verm "$(fun_trans "Al Proseguir Datos como Tiempo de uso Serán Perdidos"): "
 msg -bar2
 while [[ $Key != @(s|S|y|Y|n|N) ]]; do
@@ -118,7 +118,7 @@ tput cuu1 && tput dl1
 done
 if [[ $Key = @(s|S|y|Y) ]]; then
 msg -verm "$(fun_trans "Perfecto Iniciando Procedimento"): "
-wget -O $HOME/instalar.sh https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/instalar.sh &>/dev/null
+wget -O $HOME/instalar.sh https://raw.githubusercontent.com/ThonyDroidYT/ADM-Ultimate-Plus/master/instalar.sh &>/dev/null
 chmod +x $HOME/instalar.sh*
 local LINGUAGE=$(cat ${SCPidioma})
 $HOME/instalar.sh "${LINGUAGE}"
