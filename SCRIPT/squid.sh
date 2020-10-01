@@ -57,7 +57,7 @@ fun_bar "apt-get install squid3 -y"
 msg -bar
 msg -ama  " $(fun_trans "INICIANDO CONFIGURACIÓN")"
 msg -bar
-echo -e ".bookclaro.com.br/\n.claro.com.ar/\n.claro.com.br/\n.claro.com.co/\n.claro.com.ec/\n.entel.p/\n.internetclaro.com.pe/\n.whatsapp.net/\n.kproxy.com/\n.autoatencion.entel.pe/\n.autoatencion.entel.pe/recarga/\n.entel.bo/\n.www.gob.pe/\n.www.gob.bo/\n.gob.mx/\n.gob.co/\n.gob.ar/\n.yomequedoencasa.pe/\aprendoencasa.pe/\n.bonouniversalfamiliar.pe/\n.bonoyomequedoencasa.pe/\n.gob.pe/coronavirus/\n.alfa.com.mx/\n.movistar.com.mx/\n.movistar.com.pe/\n.bitel.com.pe/\n.flashmobile.pe/\n.whatsapp.com/\n.mobile.terra.com/\n.claro.com.gt/\n.cloudfront.net/\n.claro.com.ni/\n.claro.com.pe/\n.claro.com.sv/\n.claro.cr/\n.clarocurtas.com.br/\n.claroideas.com/\n.claroideias.com.br/\n.claromusica.com/\n.clarosomdechamada.com.br/\n.clarovideo.com/\n.facebook.net/\n.facebook.com/\n.netclaro.com.br/\n.oi.com.br/\n.oimusica.com.br/\n.speedtest.net/\n.tim.com.br/\n.timanamaria.com.br/\n.vivo.com.br/\n.rdio.com/\n.compute-1.amazonaws.com/\n.portalrecarga.vivo.com.br/\n.vivo.ddivulga.com/" > /etc/payloads
+echo -e ".bookclaro.com.br/\n.claro.com.ar/\n.claro.com.br/\n.claro.com.co/\n.claro.com.ec/\n.entel.p/\n.internetclaro.com.pe/\n.whatsapp.net/\n.kproxy.com/\n.autoatencion.entel.pe/\n.autoatencion.entel.pe/recarga/\n.entel.bo/\n.www.gob.pe/\n.www.gob.bo/\n.gob.mx/\n.gob.co/\n.gob.ar/\n.yomequedoencasa.pe/\n.aprendoencasa.pe/\n.bonouniversalfamiliar.pe/\n.bonoyomequedoencasa.pe/\n.gob.pe/coronavirus/\n.alfa.com.mx/\n.movistar.com.mx/\n.movistar.com.pe/\n.bitel.com.pe/\n.flashmobile.pe/\n.whatsapp.com/\n.mobile.terra.com/\n.instagram.com/\n.claro.com.gt/\n.cloudfront.net/\n.claro.com.ni/\n.claro.com.pe/\n.claro.com.sv/\n.claro.cr/\n.clarocurtas.com.br/\n.claroideas.com/\n.claroideias.com.br/\n.claromusica.com/\n.clarosomdechamada.com.br/\n.clarovideo.com/\n.facebook.net/\n.facebook.com/\n.netclaro.com.br/\n.oi.com.br/\n.oimusica.com.br/\n.speedtest.net/\n.tim.com.br/\n.timanamaria.com.br/\n.vivo.com.br/\n.rdio.com/\n.compute-1.amazonaws.com/\n.portalrecarga.vivo.com.br/\n.vivo.ddivulga.com/" > /etc/payloads
 msg -ama " $(fun_trans "Ahora Escoja Una Conf Para Su Proxy")"
 msg -bar
 msg -ama  "|1| $(fun_trans "Comum")"
@@ -66,11 +66,11 @@ msg -bar
 read -p "[1/2]: " -e -i 1 proxy_opt
 tput cuu1 && tput dl1
 if [[ $proxy_opt = 1 ]]; then
-msg -ama  " $(fun_trans "INSTALANDO SQUID COMUM")"
+msg -ama  " $(fun_trans "INSTALANDO SQUID COMÚN")"
 elif [[ $proxy_opt = 1 ]]; then
 msg -ama " $(fun_trans "INSTALANDO SQUID PERSONALIZADO")"
 else
-msg -ama " $(fun_trans "INSTALANDO SQUID COMUM")"
+msg -ama " $(fun_trans "INSTALANDO SQUID COMÚN")"
 proxy_opt=1
 fi
 unset var_squid
@@ -155,7 +155,7 @@ echo -e "http_port $pts" >> $var_squid
 done
 echo -e "
 #nome
-visible_hostname ADM-MANAGER
+visible_hostname ADM-MANAGER-PLUS
 
 via off
 forwarded_for off
@@ -181,7 +181,7 @@ echo -e "http_port $pts" >> $var_squid
 done
 echo -e "
 #nome
-visible_hostname ADM-MANAGER
+visible_hostname ADM-MANAGER-PLUS
 
 via off
 forwarded_for off
@@ -189,7 +189,7 @@ pipeline_prefetch off" >> $var_squid
 fi
 touch /etc/opendns
 fun_eth
-msg -ne " \033[1;31m [ ! ] \033[1;33m$(fun_trans "REINICIANDO SERVICOS")"
+msg -ne " \033[1;31m [ ! ] \033[1;33m$(fun_trans "REINICIANDO SERVICIOS")"
 squid3 -k reconfigure > /dev/null 2>&1
 service ssh restart > /dev/null 2>&1
 service squid3 restart > /dev/null 2>&1
@@ -204,10 +204,10 @@ online_squid () {
 payload="/etc/payloads"
 msg -azu " $(fun_trans "SQUID CONFIGURADO")"
 msg -bar
-echo -ne "\033[1;32m [1] > " && msg -azu "$(fun_trans "Colocar Host no Squid")"
-echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "Remover Host do Squid")"
-echo -ne "\033[1;32m [3] > " && msg -azu "$(fun_trans "Desinstalar o Squid")"
-echo -ne "\033[1;32m [0] > " && msg -bra "$(fun_trans "Voltar")"
+echo -ne "\033[1;32m [1] > " && msg -azu "$(fun_trans "Agregar Host en el Squid")"
+echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "Remover Host del Squid")"
+echo -ne "\033[1;32m [3] > " && msg -azu "$(fun_trans "Desinstalar Squid")"
+echo -ne "\033[1;32m [0] > " && msg -bra "$(fun_trans "Regresar")"
 msg -bar
 while [[ $varpay != @(0|[1-3]) ]]; do
 read -p "[0/3]: " varpay
@@ -216,15 +216,15 @@ done
 if [[ "$varpay" = "0" ]]; then
 return 1
 elif [[ "$varpay" = "1" ]]; then
-msg -ama " $(fun_trans "Hosts Atuais Dentro do Squid")"
+msg -ama " $(fun_trans "Hosts Actuales Dentro del Squid")"
 msg -bar
 cat $payload | awk -F "/" '{print $1,$2,$3,$4}'
 msg -bar
 while [[ $hos != \.* ]]; do
-msg -ne " $(fun_trans "Digite a Nova Host"): " && read hos
+msg -ne " $(fun_trans "Digite un Nuevo Host"): 》" && read hos
 tput cuu1 && tput dl1
 [[ $hos = \.* ]] && continue
-msg -ama " $(fun_trans "Comece com") .${cor[0]}"
+msg -ama " $(fun_trans "Comience con") .${cor[0]}"
 sleep 2s
 tput cuu1 && tput dl1
 done
@@ -232,7 +232,7 @@ host="$hos/"
 [[ -z $host ]] && return 1
 [[ `grep -c "^$host" $payload` -eq 1 ]] &&:echo -e "${cor[4]}$(fun_trans "Host Ja Existe")${cor[0]}" && return 1
 echo "$host" >> $payload && grep -v "^$" $payload > /tmp/a && mv /tmp/a $payload
-msg -ama "$(fun_trans "Host Adicionada Com Sucesso")"
+msg -ama "$(fun_trans "Host Agregado Con Éxito")"
 msg -bar
 cat $payload | awk -F "/" '{print $1,$2,$3,$4}'
 msg -bar
@@ -245,23 +245,23 @@ service squid restart
 fi	
 return 0
 elif [[ "$varpay" = "2" ]]; then
-echo -e "${cor[4]} $(fun_trans "Hosts Atuais Dentro do Squid")"
+echo -e "${cor[4]} $(fun_trans "Hosts Actuales Dentro del Squid")"
 msg -bar 
 cat $payload | awk -F "/" '{print $1,$2,$3,$4}'
 msg -bar
 while [[ $hos != \.* ]]; do
-echo -ne "${cor[4]}$(fun_trans "Digite a Host"): " && read hos
+echo -ne "${cor[4]}$(fun_trans "Digite un Host"): " && read hos
 tput cuu1 && tput dl1
 [[ $hos = \.* ]] && continue
-echo -e "${cor[4]}$(fun_trans "Comece com") .${cor[0]}"
+echo -e "${cor[4]}$(fun_trans "Comience con") .${cor[0]}"
 sleep 2s
 tput cuu1 && tput dl1
 done
 host="$hos/"
 [[ -z $host ]] && return 1
-[[ `grep -c "^$host" $payload` -ne 1 ]] &&!msg -ama "$(fun_trans "Host Nao Encontrada")" && return 1
+[[ `grep -c "^$host" $payload` -ne 1 ]] &&!msg -ama "$(fun_trans "Host No Encontrado")" && return 1
 grep -v "^$host" $payload > /tmp/a && mv /tmp/a $payload
-msg -ama " $(fun_trans "Host Removida Com Sucesso")${cor[0]}"
+msg -ama " $(fun_trans "Host Removido Con Éxito")${cor[0]}"
 msg -bar
 cat $payload | awk -F "/" '{print $1,$2,$3,$4}'
 msg -bar
