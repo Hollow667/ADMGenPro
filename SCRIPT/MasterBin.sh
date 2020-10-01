@@ -13,7 +13,7 @@ install_fun(){
     # sed -i 's@^short_open_tag = Off@short_open_tag = On@' /etc/php/7.2/apache2/php.ini
     # sed -i 's@^expose_php = On@expose_php = Off@' /etc/php/7.2/apache2/php.ini
     # sed -i 's@^request_order.*@request_order = "CGP"@' /etc/php/7.2/apache2/php.ini
-    sed -i 's@^;date.timezone.*@date.timezone = America/Sao_Paulo@' /etc/php/7.2/apache2/php.ini
+    sed -i 's@^;date.timezone.*@date.timezone = America/Mexico_City@' /etc/php/7.2/apache2/php.ini
     sed -i 's@^post_max_size.*@post_max_size = 100M@' /etc/php/7.2/apache2/php.ini
     sed -i 's@^upload_max_filesize.*@upload_max_filesize = 100M@' /etc/php/7.2/apache2/php.ini
     sed -i 's@^max_execution_time.*@max_execution_time = 600@' /etc/php/7.2/apache2/php.ini
@@ -191,7 +191,7 @@ fi
 cat << PHP
 set_time_limit(0);
 error_reporting(0);
-date_default_timezone_set('America/Sao_Paulo');
+date_default_timezone_set('America/Mexico_City );
 
 function GetStr(\$string, \$start, \$end)
 {
@@ -355,7 +355,7 @@ echo -e "=============================="
  echo -e "BIN: $cc INVALIDA"
  echo -e "=============================="
  else
- echo "BIN Encontrada!"
+ echo "BIN Encontrado!"
  echo "BIN: $cc $mes $ano $cvv"
  echo "$BIN"
  echo -e "=============================="
