@@ -42,7 +42,7 @@ apt-get install figlet -y
 apt-get install cowsay -y
 apt-get install lolcat -y
 echo -e "\033[0;34m======================================================\033[0m"
-echo -e "\033[1;32mPreparando Servidor... "
+echo -e "\033[1;31mPreparando Servidor... "
 echo -e "\033[0;34m======================================================\033[0m"
 meu_ip () {
 MIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
@@ -51,7 +51,7 @@ MIP2=$(wget -qO- ipv4.icanhazip.com)
 echo "$IP" > /usr/bin/vendor_code
 }
 meu_ip
-echo -e "\033[1;32mInstalando Archivos... "
+echo -e "\033[1;31mInstalando Archivos... "
 echo -e "\033[0;34m======================================================\033[0m"
 cd $HOME
 REQUEST=$(echo $SCPresq|$SUB_DOM)
@@ -59,9 +59,9 @@ wget -O "$HOME/lista-arq" ${REQUEST}/GERADOR > /dev/null 2>&1
 sleep 1s
 [[ -e $HOME/lista-arq ]] && {
 for arqx in `cat $HOME/lista-arq`; do
-echo -ne "\033[1;32mDescargando Archivos \033[0;34m[$arqx] "
+echo -ne "\033[1;31mDescargando Archivos \033[0;34m[$arqx] "
 wget -O $HOME/$arqx ${REQUEST}/${arqx} > /dev/null 2>&1 && {
-echo -e "\033[0;34m- \033[1;32mRecebido Con Exito!"
+echo -e "\033[0;34m- \033[1;31mRecebido Con Exito!"
 [[ -e $HOME/$arqx ]] && veryfy_fun $arqx
 } || echo -e "\033[0;34m- \033[0;34mFalla (no recebido!)"
 done
@@ -80,12 +80,12 @@ echo "$Key" > $IVAR2
 rm $HOME/lista-arq
 echo -e "\033[0;34m======================================================\033[0m"
 echo "/usr/bin/gerar.sh" > /usr/bin/gerar && chmod +x /usr/bin/gerar
-echo -e "\033[1;32m Perfecto, Use el Comando \033[0;34mgerar.sh o gerar \033[1;32mpara Administrar Sus Keys y
+echo -e "\033[1;31m Perfecto, Use el Comando \033[0;34mgerar.sh o gerar \033[1;31mpara Administrar Sus Keys y
  Actualizar la Base del servidor"
 echo -e "\033[0;34m======================================================\033[0m"
 } || {
 echo -e "\033[0;34m======================================================\033[0m"
-echo -e "\033[1;32mKey Invalida!"
+echo -e "\033[1;31mKey Invalida!"
 echo -e "\033[0;34m======================================================\033[0m"
 }
 echo -ne "\033[0m"
