@@ -1,6 +1,7 @@
 #!/bin/bash
 declare -A TIMEUS
 SCPdir="/etc/newadm"
+SCPdir2="/etc/ger-frm"
 SCPusr="${SCPdir}/ger-user"
 MyPID="${SCPusr}/pid-adm"
 MyTIME="${SCPusr}/time-adm"
@@ -893,24 +894,25 @@ fi
 [[ -z ${VERY} ]] && verificar="\033[1;31mOff" || verificar="\033[1;32mOn"
 msg -ama "$(fun_trans "MENU DE ADMINISTRACIÓN DE USUARIOS")"
 msg -bar
-menu_func "CREAR NUEVO USUARIO" "REMOVER USUARIO" "BLOQUEAR O DESBLOQUEAR USUARIO" "EDITAR USUARIO" "RENOVAR USUARIO" "DETALLES DE TODOS LOS USUARIOS" "MONITORAR DE USUARIOS CONECTADOS" "ELIMINAR USUARIOS VENCIDOS" "RESPALDAR USUARIOS" "BANNER SSH" "-fi ${verificar} VERIFICACIONES"
+menu_func "CREAR NUEVO USUARIO" "CREAR USUARIO TEMPORAL" "REMOVER USUARIO" "BLOQUEAR O DESBLOQUEAR USUARIO" "EDITAR USUARIO" "RENOVAR USUARIO" "DETALLES DE TODOS LOS USUARIOS" "MONITOR DE USUARIOS CONECTADOS" "ELIMINAR USUARIOS VENCIDOS" "RESPALDAR USUARIOS" "BANNER SSH" "-fi ${verificar} VERIFICACIONES"
 [[ -e "${SCPusr}/Limiter.log" ]] && echo -ne "$(msg -verd "[12]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "VER LOG DO LIMITER")"
-echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") " && msg -bra "$(fun_trans "VOLTAR")"
+echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") " && msg -bra "$(fun_trans "REGRESAR")"
 msg -bar
 selection=$(selection_fun 12)
 case ${selection} in
 1)new_user;;
-2)remove_user;;
-3)block_user;;
-4)edit_user;;
-5)renew_user;;
-6)detail_user;;
-7)monit_user;;
-8)rm_vencidos;;
-9)backup_fun;;
-10)baner_fun;;
-11)verif_funx;;
-12)
+2)${SCPdir2}/Crear-Demo.sh "${idioma}";;
+3)remove_user;;
+4)block_user;;
+5)edit_user;;
+6)renew_user;;
+7)detail_user;;
+8)monit_user;;
+9)rm_vencidos;;
+10)backup_fun;;
+11)baner_fun;;
+12)verif_funx;;
+13)
 [[ -e "${SCPusr}/Limiter.log" ]] && {
  cat ${SCPusr}/Limiter.log
  msg -bar
