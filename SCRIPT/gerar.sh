@@ -3,7 +3,7 @@
 clear
 [[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh monitor.sh estilos.css version.txt Crear-Demo.sh"
 IVAR="/etc/http-instas"
-BARRA="\033[0;34mm======================================================\033[0m"
+BARRA="\033[0;34m======================================================\033[0m"
 echo -e "$BARRA"
 figlet ADMGenPro | lolcat
 echo -e "$BARRA"
@@ -145,7 +145,7 @@ let i++
 for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
 arqsx=$(ofus "$IP:8888/$arqs/$LIST")
 if [[ $(cat ${DIR}/${arqs}.name|grep GERADOR) ]]; then
-echo -e "\033[1;31m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;32m ($(cat ${DIR}/${arqs}/keyfixa))\033[0m"
+echo -e "\033[1;31m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;31m ($(cat ${DIR}/${arqs}/keyfixa))\033[0m"
 keys="$keys $arqs"
 let i++
 fi
@@ -171,7 +171,7 @@ rm $KEYDIR/*.x.c &> /dev/null
     rm $KEYDIR/*.x.c &> /dev/null
    done
  arqsx=$(ofus "$IP:8888/$arqs/$LIST")
- echo -e "\033[1;32m[KEY]: $arqsx \033[1;32m(ACTUALIZADA!)\033[0m"
+ echo -e "\033[1;31m[KEY]: $arqsx \033[1;31m(ACTUALIZADA!)\033[0m"
  fi
 let i++
 done
@@ -191,7 +191,7 @@ rm ${KEYDIR}/${LIST}
   rm $KEYDIR/*.x.c &> /dev/null
   done
  arqsx=$(ofus "$IP:8888/${keys[$value]}/$LIST")
- echo -e "\033[1;32m[KEY]: $arqsx \033[1;32m(ACTUALIZADA!)\033[0m"
+ echo -e "\033[1;31m[KEY]: $arqsx \033[1;31m(ACTUALIZADA!)\033[0m"
  read -p "Enter"
  rm ${SCPT_DIR}/*.x.c &> /dev/null
  }
@@ -205,9 +205,9 @@ let i++
 for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
 arqsx=$(ofus "$IP:8888/$arqs/$LIST")
 if [[ ! -e ${DIR}/${arqs}/used.date ]]; then
-echo -e "\033[1;32m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;32m (ESPERANDO USO)\033[0m"
+echo -e "\033[1;31m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;31m (ESPERANDO USO)\033[0m"
 else
-echo -e "\033[1;31m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;32m ($(cat ${DIR}/${arqs}/used.date) IP: $(cat ${DIR}/${arqs}/used))\033[0m"
+echo -e "\033[1;31m[$i] $arqsx ($(cat ${DIR}/${arqs}.name))\033[1;31m ($(cat ${DIR}/${arqs}/used.date) IP: $(cat ${DIR}/${arqs}/used))\033[0m"
 fi
 keys="$keys $arqs"
 let i++
@@ -227,12 +227,12 @@ arqsx=$(ofus "$IP:8888/$arqs/$LIST")
  if [[ -e ${DIR}/${arqs}/used.date ]]; then #KEY USADA
   if [[ $(ls -l -c ${DIR}/${arqs}/used.date|cut -d' ' -f7) != $(date|cut -d' ' -f3) ]]; then
   rm -rf ${DIR}/${arqs}*
-  echo -e "\033[1;31m[KEY]: $arqsx \033[1;32m(ELIMINADA!)\033[0m" 
+  echo -e "\033[1;31m[KEY]: $arqsx \033[1;31m(ELIMINADA!)\033[0m" 
   else
-  echo -e "\033[1;32m[KEY]: $arqsx \033[1;32m(DENTRO DE VALIDADEZ!)\033[0m"
+  echo -e "\033[1;31m[KEY]: $arqsx \033[1;31m(DENTRO DE VALIDADEZ!)\033[0m"
   fi
  else
- echo -e "\033[1;32m[KEY]: $arqsx \033[1;32m(DENTRO DE VALIDADEZ!)\033[0m"
+ echo -e "\033[1;31m[KEY]: $arqsx \033[1;31m(DENTRO DE VALIDADEZ!)\033[0m"
  fi
 let i++
 done
@@ -263,8 +263,8 @@ for arqs in `ls $DIR|grep -v "ERROR-KEY"|grep -v ".name"`; do
 if [[ $(cat ${DIR}/${arqs}.name|grep GERADOR) ]]; then
 var=$(cat ${DIR}/${arqs}.name)
 ip=$(cat ${DIR}/${arqs}/keyfixa)
-echo -ne "\033[1;31m[USUARIO]:(\033[1;32m${var%%[*}\033[1;31m) \033[1;32m[GENERADOR]:\033[1;32m ($ip)\033[0m"
-echo "$ip" >> /var/www/html/newlib && echo -e " \033[0;34mm[ACTUALIZADO]"
+echo -ne "\033[1;31m[USUARIO]:(\033[1;31m${var%%[*}\033[1;31m) \033[1;31m[GENERADOR]:\033[1;31m ($ip)\033[0m"
+echo "$ip" >> /var/www/html/newlib && echo -e " \033[0;34m[ACTUALIZADO]"
 fi
 done
 echo "104.238.135.147" >> /var/www/html/newlib
@@ -274,9 +274,9 @@ read -p "Enter"
 meu_ip
 unset PID_GEN
 PID_GEN=$(ps x|grep -v grep|grep "http-server.sh")
-[[ ! $PID_GEN ]] && PID_GEN="\033[1;31mDesactivado" || PID_GEN="\033[1;32mActivado"
+[[ ! $PID_GEN ]] && PID_GEN="\033[1;31mDesactivado" || PID_GEN="\033[1;31mActivado"
 echo -e "$BARRA"
-echo -e "Diretorio De los Archivos Repasados \033[1;32m${SCPT_DIR}\033[0m"
+echo -e "Diretorio De los Archivos Repasados \033[1;31m${SCPT_DIR}\033[0m"
 echo -e "$BARRA"
 echo -e "[1] = GENERAR 1 KEY ALEATORIA"
 echo -e "[2] = ELIMINAR/MIRAR KEYS"
@@ -304,7 +304,7 @@ mudar_instacao
 elif [[ ${varread} = 5 ]]; then
 start_gen
 elif [[ ${varread} = 6 ]]; then
-echo -ne "\033[0;34mm"
+echo -ne "\033[0;34m"
 cat /etc/gerar-sh-log 2>/dev/null || echo "NINGUN REGISTRO EN ESTE MOMENTO"
 echo -ne "\033[0m" && read -p "Enter"
 elif [[ ${varread} = 7 ]]; then
