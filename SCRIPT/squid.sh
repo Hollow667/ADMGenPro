@@ -20,7 +20,7 @@ fun_squid  () {
   var_squid="/etc/squid3/squid.conf"
   fi
   [[ -e $var_squid ]] && {
-  msg -ama " $(fun_trans "REMOVENDO SQUID")"
+  msg -ama " $(fun_trans "REMOVIENDO SQUID")"
   msg -bar
   service squid stop > /dev/null 2>&1
   fun_bar "apt-get remove squid3 -y"
@@ -33,7 +33,7 @@ msg -ama  " $(fun_trans "INSTALADOR SQUID ADM-ULTIMATE-PLUS By @Thony_DroidYT")"
 msg -bar
 fun_ip
 msg -ne " $(fun_trans "Confirme seu ip")"; read -p ": " -e -i $IP ip
-msg -ama " $(fun_trans "Agora Escolha as Portas que Deseja No Squid")"
+msg -ama " $(fun_trans "Ahora Escoja los Puertos que Desea Usar Squid")"
 msg -ama " $(fun_trans "Escoja los Puertos En Orden Secuencial Ejemplo: 80 8080 8799 3128")"
 msg -ne " $(fun_trans "Digite los Puertos:") "; read portasx
 totalporta=($portasx)
@@ -47,7 +47,7 @@ unset PORT
         }
    done
   [[ -z $PORT ]] && {
-  msg -verm " $(fun_trans "Ningun Puerto Valida Fue Escogido")\033[0m"
+  msg -verm " $(fun_trans "Ningun Puerto Valido Fue Escogido")\033[0m"
   return 1
   }
 msg -bar
