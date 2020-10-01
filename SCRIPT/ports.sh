@@ -20,7 +20,7 @@ local PORTENTRY="$2"
 [[ ! $(echo -e $(port|grep -v ${SERVICE})|grep -w "$PORTENTRY") ]] && return 0 || return 1
 }
 edit_squid () {
-msg -azu "$(fun_trans "REDEFINIR PORTAS SQUID")"
+msg -azu "$(fun_trans "REDEFINIR PUERTOS SQUID")"
 msg -bar
 if [[ -e /etc/squid/squid.conf ]]; then
 local CONF="/etc/squid/squid.conf"
@@ -28,7 +28,7 @@ elif [[ -e /etc/squid3/squid.conf ]]; then
 local CONF="/etc/squid3/squid.conf"
 fi
 NEWCONF="$(cat ${CONF}|grep -v "http_port")"
-msg -ne "$(fun_trans "Novas Portas"): "
+msg -ne "$(fun_trans "Nuevos Puertos"): "
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port squid "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
@@ -50,15 +50,15 @@ service squid restart &>/dev/null
 service squid3 restart &>/dev/null
 sleep 1s
 msg -bar
-msg -azu "$(fun_trans "PORTAS REDEFINIDAS")"
+msg -azu "$(fun_trans "PUERTOS REDEFINIDOS")"
 msg -bar
 }
 edit_apache () {
-msg -azu "$(fun_trans "REDEFINIR PORTAS APACHE")"
+msg -azu "$(fun_trans "REDEFINIR PUERTOS APACHE")"
 msg -bar
 local CONF="/etc/apache2/ports.conf"
 local NEWCONF="$(cat ${CONF})"
-msg -ne "$(fun_trans "Novas Porta"): "
+msg -ne "$(fun_trans "Nuevo Puerto"): "
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port apache "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
@@ -79,15 +79,15 @@ else
 echo -e "${varline}" >> ${CONF}
 fi
 done <<< "${NEWCONF}"
-msg -azu "$(fun_trans "AGUARDE")"
+msg -azu "$(fun_trans "ESPERE")"
 service apache2 restart &>/dev/null
 sleep 1s
 msg -bar
-msg -azu "$(fun_trans "PORTAS REDEFINIDAS")"
+msg -azu "$(fun_trans "PUERTOS REDEFINIDOS")"
 msg -bar
 }
 edit_openvpn () {
-msg -azu "$(fun_trans "REDEFINIR PORTAS OPENVPN")"
+msg -azu "$(fun_trans "REDEFINIR PUERTOS OPENVPN")"
 msg -bar
 local CONF="/etc/openvpn/server.conf"
 local CONF2="/etc/openvpn/client-common.txt"
@@ -121,7 +121,7 @@ service openvpn restart &>/dev/null
 /etc/init.d/openvpn restart &>/dev/null
 sleep 1s
 msg -bar
-msg -azu "$(fun_trans "PORTAS REDEFINIDAS")"
+msg -azu "$(fun_trans "PUERTOS REDEFINIDOS")"
 msg -bar
 }
 edit_dropbear () {
@@ -148,19 +148,19 @@ echo -e "${varline}" >> ${CONF}
  sed -i "s/VAR//g" ${CONF}
  fi
 done <<< "${NEWCONF}"
-msg -azu "$(fun_trans "AGUARDE")"
+msg -azu "$(fun_trans "ESPERE")"
 service dropbear restart &>/dev/null
 sleep 1s
 msg -bar
-msg -azu "$(fun_trans "PORTAS REDEFINIDAS")"
+msg -azu "$(fun_trans "PUERTOS REDEFINIDOS")"
 msg -bar
 }
 edit_openssh () {
-msg -azu "$(fun_trans "REDEFINIR PORTAS OPENSSH")"
+msg -azu "$(fun_trans "REDEFINIR PUERTOS OPENSSH")"
 msg -bar
 local CONF="/etc/ssh/sshd_config"
 local NEWCONF="$(cat ${CONF}|grep -v [Pp]ort)"
-msg -ne "$(fun_trans "Novas Portas"): "
+msg -ne "$(fun_trans "Nuevos Puertos"): "
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port sshd "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
@@ -175,12 +175,12 @@ done
 while read varline; do
 echo -e "${varline}" >> ${CONF}
 done <<< "${NEWCONF}"
-msg -azu "$(fun_trans "AGUARDE")"
+msg -azu "$(fun_trans "ESPERE")"
 service ssh restart &>/dev/null
 service sshd restart &>/dev/null
 sleep 1s
 msg -bar
-msg -azu "$(fun_trans "PORTAS REDEFINIDAS")"
+msg -azu "$(fun_trans "PUERTOS REDEFINIDOS")"
 msg -bar
 }
 main_fun () {
@@ -203,7 +203,7 @@ for((a=1; a<=$i; a++)); do
 [[ $dropbear = $a ]] && echo -ne "\033[1;32m [$dropbear] > " && msg -azu "$(fun_trans "REDEFINIR PORTAS DROPBEAR")"
 [[ $ssh = $a ]] && echo -ne "\033[1;32m [$ssh] > " && msg -azu "$(fun_trans "REDEFINIR PORTAS SSH")"
 done
-echo -ne "\033[1;32m [0] > " && msg -azu "$(fun_trans "VOLTAR")"
+echo -ne "\033[1;32m [0] > " && msg -azu "$(fun_trans "REGRESAR")"
 msg -bar
 while true; do
 echo -ne "\033[1;37m$(fun_trans "Selecione"): " && read selection
