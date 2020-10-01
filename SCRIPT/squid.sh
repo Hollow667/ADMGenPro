@@ -29,7 +29,7 @@ fun_squid  () {
   [[ -e $var_squid ]] && rm $var_squid
   return 0
   }
-msg -ama  " $(fun_trans "INSTALADOR SQUID ADM-ULTIMATE By @Thony_DroidYT")"
+msg -ama  " $(fun_trans "INSTALADOR SQUID ADM-ULTIMATE-PLUS By @Thony_DroidYT")"
 msg -bar
 fun_ip
 msg -ne " $(fun_trans "Confirme seu ip")"; read -p ": " -e -i $IP ip
@@ -40,7 +40,7 @@ totalporta=($portasx)
 unset PORT
    for portx in $(echo $portasx); do
         [[ $(mportas|grep "${portx}") = "" ]] && {
-        msg -ama " $(fun_trans "Porto Escogido:")\033[1;32m ${portx} OK"
+        msg -ama " $(fun_trans "Puerto Escogido:")\033[1;32m ${portx} OK"
         PORT+="${portx}\n"
         } || {
         msg -ama " $(fun_trans "Puerto Escogido:")\033[1;31m ${portx} FAIL"
@@ -55,9 +55,9 @@ msg -ama  " $(fun_trans "INSTALANDO SQUID")"
 msg -bar
 fun_bar "apt-get install squid3 -y"
 msg -bar
-msg -ama  " $(fun_trans "INICIANDO CONFIGURACAO")"
+msg -ama  " $(fun_trans "INICIANDO CONFIGURACIÓN")"
 msg -bar
-echo -e ".bookclaro.com.br/\n.claro.com.ar/\n.claro.com.br/\n.claro.com.co/\n.claro.com.ec/\n.claro.com.gt/\n.cloudfront.net/\n.claro.com.ni/\n.claro.com.pe/\n.claro.com.sv/\n.claro.cr/\n.clarocurtas.com.br/\n.claroideas.com/\n.claroideias.com.br/\n.claromusica.com/\n.clarosomdechamada.com.br/\n.clarovideo.com/\n.facebook.net/\n.facebook.com/\n.netclaro.com.br/\n.oi.com.br/\n.oimusica.com.br/\n.speedtest.net/\n.tim.com.br/\n.timanamaria.com.br/\n.vivo.com.br/\n.rdio.com/\n.compute-1.amazonaws.com/\n.portalrecarga.vivo.com.br/\n.vivo.ddivulga.com/" > /etc/payloads
+echo -e ".bookclaro.com.br/\n.claro.com.ar/\n.claro.com.br/\n.claro.com.co/\n.claro.com.ec/\n.entel.p/\n.internetclaro.com.pe/\n.whatsapp.net/\n.kproxy.com/\n.autoatencion.entel.pe/\n.autoatencion.entel.pe/recarga/\n.entel.bo/\n.www.gob.pe/\n.www.gob.bo/\n.gob.mx/\n.gob.co/\n.gob.ar/\n.yomequedoencasa.pe/\aprendoencasa.pe/\n.bonouniversalfamiliar.pe/\n.bonoyomequedoencasa.pe/\n.gob.pe/coronavirus/\n.alfa.com.mx/\n.movistar.com.mx/\n.movistar.com.pe/\n.bitel.com.pe/\n.flashmobile.pe/\n.whatsapp.com/\n.mobile.terra.com/\n.claro.com.gt/\n.cloudfront.net/\n.claro.com.ni/\n.claro.com.pe/\n.claro.com.sv/\n.claro.cr/\n.clarocurtas.com.br/\n.claroideas.com/\n.claroideias.com.br/\n.claromusica.com/\n.clarosomdechamada.com.br/\n.clarovideo.com/\n.facebook.net/\n.facebook.com/\n.netclaro.com.br/\n.oi.com.br/\n.oimusica.com.br/\n.speedtest.net/\n.tim.com.br/\n.timanamaria.com.br/\n.vivo.com.br/\n.rdio.com/\n.compute-1.amazonaws.com/\n.portalrecarga.vivo.com.br/\n.vivo.ddivulga.com/" > /etc/payloads
 msg -ama " $(fun_trans "Ahora Escoja Una Conf Para Su Proxy")"
 msg -bar
 msg -ama  "|1| $(fun_trans "Comum")"
