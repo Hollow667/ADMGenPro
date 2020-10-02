@@ -20,7 +20,7 @@ _hora=$(printf '%(%D-%H:%M:%S)T')
 _ram=$(printf ' %-9s' "$(free -h | grep -i mem | awk {'print $2'})")
 _usor=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
 
-[[ -z ${VERY3} ]] && monitorservi="\033[1;31m[ACTIVADO]" || monitorservi="\033[1;32m[DESACTIVADO]"
+[[ -z ${VERY3} ]] && monitorservi="\033[1;32m[ACTIVADO]" || monitorservi="\033[1;32m[DESACTIVADO]"
 if [[ -e /etc/bash.bashrc-bakup ]]; then AutoRun="\033[1;32m[ACTIVADO]"
 elif [[ -e /etc/bash.bashrc ]]; then AutoRun="\033[1;31m[DESACTIVADO]"
 fi
@@ -201,11 +201,13 @@ OVPN+="$Port ";;
 stunnel4|stunnel)
 [[ -z $SSL ]] && local SSL="\033[1;31mSSL: \033[1;32m"
 SSL+="$Port ";;
+[[ -z $V2R ]] && local V2R="\033[1;31mV2RAY: \033[1;32m"
+V2R+="$Port ";;
 python|python3)
 [[ -z $PY3 ]] && local PY3="\033[1;31mSOCKS: \033[1;32m"
 PY3+="$Port ";;
 badvpn-ud)
-[[ -z $BAD ]] && local BAD="\033[1;31m BADVPN: \033[1;32m"
+[[ -z $BAD ]] && local BAD="\033[1;31mBADVPN: \033[1;32m"
 BAD+="$Port ";;
 esac
 done <<< "${portasVAR}"
@@ -216,6 +218,7 @@ done <<< "${portasVAR}"
 [[ ! -z $OVPN ]] && echo -e $OVPN
 [[ ! -z $PY3 ]] && echo -e $PY3
 [[ ! -z $SSL ]] && echo -e $SSL
+[[ ! -z $V2R ]] && echo -e $V2R 
 [[ ! -z $BAD ]] && echo -e $BAD
 }
 ofus () {
@@ -477,7 +480,7 @@ ofc="\033[0m${gren}(#OFC)"
 dev="\033[0m${yellow}(#DEV)"
 new="\033[0m${red}(#NEW)"
 case $1 in
-"gestor.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ADMINISTRAR SERVIDOR VPS*") $new";;
+"gestor.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ADMINISTRAR SERVIDOR VPS") $new";;
 "ADMbot.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "BOT DE ADMINISTRACIÓN") TELEGRAN $ofc";;
 "GENERADOR_BIN.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "GENERADOR DE CC") $dev";;
 "MasterBin.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "CHECKER DE BIN") $ofc";;
@@ -777,7 +780,7 @@ echo -e "\033[1;97mSSH REG:\033[1;92m $SSH4 $(fun_trans "CUENTAS")"
 [[ -e ${SCPdir}/key.txt ]] && msg -bar && msg -bra "KEY: $(cat ${SCPdir}/key.txt)"
 # NOVO SISTEMA DE MENUS
 msg -bar
-msg -ama "$(fun_trans "ADMINISTRADOR") \033[1;31m[\033[1;32mNEW-ULTIMATE-PLUS v6.0 By Thony_DroidYT\033[1;31m]"
+msg -ama "$(fun_trans "ADMINISTRADOR") \033[1;31m[\033[1;32mNEW-ULTIMATE-PLUS v6.2 By Thony_DroidYT\033[1;31m]"
 msg -bar
 menu_func "ADMINISTRAR USUARIOS" "HERRAMIENTAS" "\033[1;41mMENU DE INSTALACIONES" "-vd ACTUALIZAR" "-vm DESINSTALAR" "-fi $AutoRun AUTO INICIAR" "CAMBIAR IDIOMA" "CAMBIAR COLORES" " -fi ${monitorservi} MONITOR DE SERVICIOS"
 msg -bar && echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") "&& msg -bra "\033[1;100mSALIR DEL SCRIPT"
