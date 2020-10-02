@@ -11,6 +11,7 @@ PPub.py
 PDirect.py
 speedtest.py
 speed.sh
+speed_v2.sh
 utils.sh
 dropbear.sh
 apacheon.sh
