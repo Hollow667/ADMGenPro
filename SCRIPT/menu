@@ -496,7 +496,7 @@ case $1 in
 "dados.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "MONITOR DE CONSUMO") $ofc";;
 "speed.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TEST DE VELOCIDAD") $ofc";;
 # Menu Instalação Ger-Frm New
-"speedtest.py")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PRUEVA DE VELOCIDAD 2") $new";;
+"speed_v2.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PRUEVA DE VELOCIDAD 2") $new";;
 # Menu Instalación Oficial de Puertos
 "openssh.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "OPENSSH $(pid_inst sshd)";;
 "squid.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SQUID $(pid_inst squid)";;
