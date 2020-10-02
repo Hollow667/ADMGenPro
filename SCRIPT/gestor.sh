@@ -77,14 +77,14 @@ return
 host_name () {
 unset name
 while [[ ${name} = "" ]]; do
-echo -ne "\033[1;37m $(fun_trans "Digite o nome do host"): " && read name
+echo -ne "\033[1;37m $(fun_trans "Digite un nombre de host"): 》" && read name
 tput cuu1 && tput dl1
 done
 hostnamectl set-hostname $name 
 if [ $(hostnamectl status | head -1  | awk '{print $3}') = "${name}" ]; then 
-echo -e "\033[1;32m $(fun_trans "Nome de host alterado corretamente")!, $(fun_trans "reiniciar VPS")"
+echo -e "\033[1;32m $(fun_trans "Nombre de host alterado corretamente")!, $(fun_trans "Reiniciar VPS")"
 else
-echo -e "\033[1;31m $(fun_trans "Nome de host n�o modificado")!"
+echo -e "\033[1;31m $(fun_trans "Nombre de host VPS no modificado")!"
 fi
 echo -e "$barra"
 return
@@ -103,7 +103,7 @@ return
 }
 cambiopass () {
 echo -e "${cor[5]} $(fun_trans "Esta herramienta cambia la contraseña de su servidor vps")"
-echo -e "${cor[5]} $(fun_trans "Esta contraseña es utilizada como usuario") root"
+echo -e "${cor[5]} $(fun_trans "Esta contraseÃ±a es utilizada como usuario") root"
 echo -e "$barra"
 echo -e "${cor[0]} $(fun_trans "Escriba su nueva contraseña")"
 echo -e "$barra"
@@ -131,36 +131,36 @@ echo -e "$barra"
 sed -i "s;PermitRootLogin prohibit-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
 sed -i "s;PermitRootLogin without-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
 sed -i "s;PasswordAuthentication no;PasswordAuthentication yes;g" /etc/ssh/sshd_config
-echo -e "${cor[5]} $(fun_trans "Esta contraseña es utilizada como usuario") root"
+echo -e "${cor[5]} $(fun_trans "Esta contraseña ya es utilizada como usuario") root"
 echo -e "$barra"
 echo -e "${cor[0]} $(fun_trans "Escriba su nueva contraseña")"
 echo -e "$barra"
-read  -p " Nuevo passwd: " pass
+read  -p " Nueva Contraseña: 》" pass
 (echo $pass; echo $pass)|passwd 2>/dev/null
 sleep 1s
 echo -e "$barra"
-echo -e "${cor[0]} $(fun_trans "Contraseña cambiada con exito!")"
-echo -e "${cor[0]} $(fun_trans "Su contraseña ahora es"): ${cor[2]}$pass\n${barra}"
-echo -e "${cor[5]} $(fun_trans "Configuracoes adicionadas")"
-echo -e "${cor[5]} $(fun_trans "La vps estar totalmente configurada")"
+echo -e "${cor[0]} $(fun_trans "Contraseña ha sido cambiada con exito!")"
+echo -e "${cor[0]} $(fun_trans "Su Contraseña ±a ahora es"): ${cor[2]}$pass\n${barra}"
+echo -e "${cor[5]} $(fun_trans "Configuraciones agregadas")"
+echo -e "${cor[5]} $(fun_trans "La vps esta totalmente configurada")"
 echo -e "$barra"
 service ssh restart > /dev/null 2>&1
 return
 }
 gestor_fun () {
-echo -e " ${cor[3]} $(fun_trans "Administrador VPS") ${cor[2]}[NEW-ADM]"
+echo -e " ${cor[3]} $(fun_trans "Administrador VPS") ${cor[2]}[NEW-ADM-PLUS]"
 echo -e "$barra"
 while true; do
-echo -e "${cor[2]} [1] > ${cor[3]}$(fun_trans "Atualizar pacotes")"
-echo -e "${cor[2]} [2] > ${cor[3]}$(fun_trans "Alterar o nome do VPS")"
-echo -e "${cor[2]} [3] > ${cor[3]}$(fun_trans "Reiniciar os Servi�os")"
+echo -e "${cor[2]} [1] > ${cor[3]}$(fun_trans "Actualizar Paquetes")"
+echo -e "${cor[2]} [2] > ${cor[3]}$(fun_trans "Alterar nombre del VPS")"
+echo -e "${cor[2]} [3] > ${cor[3]}$(fun_trans "Reiniciar los Servicios")"
 echo -e "${cor[2]} [4] > ${cor[3]}$(fun_trans "Reiniciar VPS")"
-echo -e "${cor[2]} [5] > ${cor[3]}$(fun_trans "Atualizar Hora America-Santiago")"
-echo -e "${cor[2]} [6] > ${cor[3]}$(fun_trans "Cambiar contraseña ROOT del VPS")"
+echo -e "${cor[2]} [5] > ${cor[3]}$(fun_trans "Cambiar Hora America-Santiago")"
+echo -e "${cor[2]} [6] > ${cor[3]}$(fun_trans "Cambiar contraseña ±a ROOT del VPS")"
 echo -e "${cor[2]} [7] > ${cor[3]}$(fun_trans "Permiso ROOT para Googlecloud y Amazon")"
-echo -e "${cor[2]} [0] > ${cor[0]}$(fun_trans "VOLTAR")\n${barra}"
+echo -e "${cor[2]} [0] > ${cor[0]}$(fun_trans "Regresar")\n${barra}"
 while [[ ${opx} != @(0|[1-7]) ]]; do
-echo -ne "${cor[0]}$(fun_trans "Digite a Opcao"): \033[1;37m" && read opx
+echo -ne "${cor[0]}$(fun_trans "Digite una Opción"): 》 \033[1;37m" && read opx
 tput cuu1 && tput dl1
 done
 case $opx in
