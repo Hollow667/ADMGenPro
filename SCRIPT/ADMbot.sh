@@ -302,7 +302,7 @@ local bot_retorno="$LINE\n"
              fi
              limit=$(cat ${USRdatabase}|grep -w "$user"|cut -d '|' -f4)
              [[ -z $limit ]] && limit="???"
-             bot_retorno="$LINE\n"       
+             bot_retorno="$LINE\n"
              bot_retorno+="$(fun_trans "Usuario"): $user\n"
              bot_retorno+="$(fun_trans "Contraseña"): $sen\n"
              bot_retorno+="$(fun_trans "Dias Restantes"): $EXPTIME\n"
@@ -439,11 +439,13 @@ local bot_retorno="$LINE\n"
       return 0
       else
       local bot_retorno="$LINE\n"
-               bot_retorno+="$(fun_trans "USUARIO CREADO")\n"
-               bot_retorno+="$(fun_trans "Usuario"): $1\n"
-               bot_retorno+="$(fun_trans "Contraseña"): $2\n"
-               bot_retorno+="$(fun_trans "Duración"): $3\n"
-               bot_retorno+="$(fun_trans "Limite"): $4\n"
+               bot_retorno+="$(fun_trans "➾ USUARIO CREADO CON ÉXITO")\n"
+               bot_retorno+="$(fun_trans "➾ IP del Servidor"): $(meu_ip)\n"
+               bot_retorno+="$(fun_trans "➾ Usuario"): $1\n"
+               bot_retorno+="$(fun_trans "➾ Contraseña"): $2\n"
+               bot_retorno+="$(fun_trans "➾ Duración"): $3\n"
+               bot_retorno+="$(fun_trans "➾ Limite"): $4\n"
+               bot_retorno+="$(fun_trans "➾ Creado con"): BOT ADM-PLUS\n"
                bot_retorno+="$LINE\n"
                ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $bot_retorno)" \
@@ -457,7 +459,7 @@ local bot_retorno="$LINE\n"
          bot_retorno+="$(fun_trans "MODO DE USO")\n"
          bot_retorno+="$LINE\n"
          bot_retorno+="userdell $(fun_trans "Usuario")\n"
-         bot_retorno+="$(fun_trans "Ejemplo"):\n"
+         bot_retorno+="$(fun_trans "Ejemplo"): 》\n"
          bot_retorno+='userdell admin\n'
          bot_retorno+="$LINE\n"
 	     ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
