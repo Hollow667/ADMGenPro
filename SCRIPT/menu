@@ -495,8 +495,9 @@ case $1 in
 "utils.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "(BadVPN/TCP-Speed/SquidCache/Torrent) $ofc";;
 "dados.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "MONITOR DE CONSUMO") $ofc";;
 "speed.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TEST DE VELOCIDAD") $ofc";;
-# Menu Instalação Ger-Frm New
 "speed_v2.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PRUEVA DE VELOCIDAD 2") $new";;
+# Menu Instalação Ger-Frm New
+
 # Menu Instalación Oficial de Puertos
 "openssh.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "OPENSSH $(pid_inst sshd)";;
 "squid.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SQUID $(pid_inst squid)";;
@@ -557,9 +558,9 @@ selection=$(selection_fun $Numb)
 }
 # Menu Instala��o
 pid_inst () {
-[[ $1 = "" ]] && echo -e "\033[1;31moff" && return 0
+[[ $1 = "" ]] && echo -e "\033[1;31m[OFF]" && return 0
 unset portas
-portas_var=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
+portas_var=$(lsof -V -i -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND")
 i=0
 while read port; do
 var1=$(echo $port | awk '{print $1}') && var2=$(echo $port | awk '{print $9}' | awk -F ":" '{print $2}')
@@ -568,7 +569,7 @@ var1=$(echo $port | awk '{print $1}') && var2=$(echo $port | awk '{print $9}' | 
     let i++
     }
 done <<< "$portas_var"
-[[ $(echo "${portas[@]}"|grep "$1") ]] && echo -e "\033[1;32mon" || echo -e "\033[1;31moff"
+[[ $(echo "${portas[@]}"|grep "$1") ]] && echo -e "\033[1;32m[ON]" || echo -e "\033[1;31m[OFF]"
 }
 menu_inst () {
 export -f fun_eth
