@@ -36,7 +36,7 @@ exit" > /tmp/$2
 echo -e "\033[1;96m   CREAR USUARIO TEMPORAL POR (Minutos)\n\033[1;97mLos Usuarios que cres en esta extencion se eliminaran\nautomaticamete pasando el tiempo designado\033[0m"
 msg -bar
 
-echo -e "\033[1;91m[1]-\033[1;97mNombre del usuario:\033[0;37m"; read -p " " name
+echo -e "\033[1;91m[1]-\033[1;97mNombre del usuario: 》\033[0;37m"; read -p " " name
 if [[ -z $name ]]
 then
 echo "No a digitado el Nuevo Usuario"
@@ -47,8 +47,8 @@ then
 echo -e "\033[1;31mUsuario $name ya existe\033[0m"
 exit
 fi
-echo -e "\033[1;91m[2]-\033[1;97mContraseña para usuario $name:\033[0;37m"; read -p " " pass
-echo -e "\033[1;91m[3]-\033[1;97mTiempo de Duración En Minutos:\033[0;37m"; read -p " " tmp
+echo -e "\033[1;91m[2]-\033[1;97mContraseña para usuario $name: 》\033[0;37m"; read -p " " pass
+echo -e "\033[1;91m[3]-\033[1;97mTiempo de Duración En Minutos: 》\033[0;37m"; read -p " " tmp
 if [ "$tmp" = "" ]; then
 tmp="30"
 echo -e "\033[1;32mFue Definido 30 minutos Por Defecto!\033[0m"
