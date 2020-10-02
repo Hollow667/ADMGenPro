@@ -5,13 +5,13 @@ clear
 IVAR="/etc/http-instas"
 BARRA="\033[0;34m======================================================\033[0m"
 echo -e "$BARRA"
-figlet ADMGenPro | lolcat
+figlet ADMGenPlus | lolcat
 echo -e "$BARRA"
 echo -e "Reseller: $(cat /etc/SCRIPT/message.txt)"
 echo -e "$BARRA"
 cat << EOF
 
-           NEW KEY GENERADOR PRO
+           NEW KEY GENERADOR PLUS
            INSTALACIONES: $(cat $IVAR)
            
 EOF
