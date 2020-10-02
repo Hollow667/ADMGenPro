@@ -201,14 +201,15 @@ OVPN+="$Port ";;
 stunnel4|stunnel)
 [[ -z $SSL ]] && local SSL="\033[1;31mSSL: \033[1;32m"
 SSL+="$Port ";;
-[[ -z $V2R ]] && local V2R="\033[1;31mV2RAY: \033[1;32m"
-V2R+="$Port ";;
 python|python3)
 [[ -z $PY3 ]] && local PY3="\033[1;31mSOCKS: \033[1;32m"
 PY3+="$Port ";;
 badvpn-ud)
 [[ -z $BAD ]] && local BAD="\033[1;31mBADVPN: \033[1;32m"
 BAD+="$Port ";;
+v2ray)
+[[ -z $V2R ]] && local V2R="\033[1;31mV2RAY: \033[1;32m"
+V2R+="$Port ";;
 esac
 done <<< "${portasVAR}"
 [[ ! -z $SQD ]] && echo -e $SQD
