@@ -349,7 +349,7 @@ done
      msg -ne "$(fun_trans "Dias de Duración"): " && echo -e "$diasuser"
      msg -ne "$(fun_trans "Fecha de Expiración"): " && echo -e "$(date "+%F" -d " + $diasuser days")"
      msg -ne "$(fun_trans "Limite de Conexión"): " && echo -e "$limiteuser"
-     msg -ne "$(fun_trans "Generador Por: NEW ADM By @Thony_DroidYT"): "
+     msg -ne "$(fun_trans "Creado Con: NEW-ADM-PLUS By @Thony_DroidYT"): "
 msg -bar
 add_user "${nomeuser}" "${senhauser}" "${diasuser}" "${limiteuser}" && msg -ama "$(fun_trans "Usuario Criado Com Sucesso")" || msg -verm "$(fun_trans "Erro, Usuario nao criado")"
 [[ $(dpkg --get-selections|grep -w "openvpn"|head -1) ]] && [[ -e /etc/openvpn/openvpn-status.log ]] && newclient "$nomeuser" "$senhauser"
@@ -539,7 +539,7 @@ done
      msg -ne "$(fun_trans "Dias de Duración"): " && echo -e "$diasuser"
      msg -ne "$(fun_trans "Fecha de Expiración"): " && echo -e "$(date "+%F" -d " + $diasuser days")"
      msg -ne "$(fun_trans "Limite de Conexión"): " && echo -e "$limiteuser"
-     msg -ne "$(fun_trans "Generador Por: NEW ADM By @Thony_DroidYT"): "
+     msg -ne "$(fun_trans "Creado Con: NEW-ADM-PLUS By @Thony_DroidYT"): "
 msg -bar
 edit_user_fun "${useredit}" "${senhauser}" "${diasuser}" "${limiteuser}" && msg -ama "$(fun_trans "Usuario Modificado Com Sucesso")" || msg -verm "$(fun_trans "Erro, Usuario nao Modificado")"
 msg -bar
