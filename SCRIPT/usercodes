@@ -940,8 +940,8 @@ case ${selection} in
 8)monit_user;;
 9)rm_vencidos;;
 10)backup_fun;;
-11)backup_fun2;;
-12)baner_fun;;
+11)baner_fun;;
+12)baner_fun2;;
 13)verif_funx;;
 14)
 [[ -e "${SCPusr}/Limiter.log" ]] && {
