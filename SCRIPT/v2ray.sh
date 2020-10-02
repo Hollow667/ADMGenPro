@@ -41,7 +41,7 @@ echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "CAMBIAR PROTOCOLO") "
 echo -ne "\033[1;32m [3] > " && msg -azu "$(fun_trans "ACTIVAR TLS") "
 echo -ne "\033[1;32m [4] > " && msg -azu "$(fun_trans "INFORMACION DE CUENTA")"
 echo -ne "\033[1;32m [5] > " && msg -azu "$(fun_trans "DESINTALAR V2RAY")"
-echo -ne "\033[1;32m [0] > " && msg -bra "$(fun_trans "VOLVER")"
+echo -ne "\033[1;32m [0] > " && msg -bra "$(fun_trans "REGRESAR")"
 msg -bar
 while [[ ${arquivoonlineadm} != @(0|[1-5]) ]]; do
 read -p "[0-5]: " arquivoonlineadm
