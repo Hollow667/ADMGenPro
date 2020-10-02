@@ -477,19 +477,22 @@ ofc="\033[0m${gren}(#OFC)"
 dev="\033[0m${yellow}(#DEV)"
 new="\033[0m${red}(#NEW)"
 case $1 in
+"gestor.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ADMINISTRAR SERVIDOR VPS*") $new";;
+"ADMbot.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "BOT DE ADMINISTRACIÓN") TELEGRAN $ofc";;
 "GENERADOR_BIN.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "GENERADOR DE CC") $dev";;
+"MasterBin.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "CHECKER DE BIN") $ofc";;
 "ports.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "SISTEMA DE PUERTOS") $ofc";;
 "fai2ban.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "FAIL2BAN PROTECCIÓN") $ofc";;
-"MasterBin.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "CONSULTAR UN BIN") $ofc";;
+"ultrahost")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ESCÁNER DE SUBDOMINIOS") $ofc";;
 "payySND.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PAYLOAD FUERZA BRUTA PYTHON") $ofc";;
 "paysnd.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PAYLOAD FUERZA BRUTA") $ofc";;
 "apacheon.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "COMPARTIR ARCHIVO ONLINE") $ofc";;
 "utils.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "(BadVPN/TCP-Speed/SquidCache/Torrent) $ofc";;
 "dados.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "MONITOR DE CONSUMO") $ofc";;
 "speed.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TEST DE VELOCIDAD") $ofc";;
-"speedtest.py")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PRUEVA DE VELOCIDAD") $new";;
-"ultrahost")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ESCÁNER DE SUBDOMINIOS") $ofc";;
-"ADMbot.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "BOT DE ADMINISTRACIÓN") TELEGRAN $ofc";;
+# Menu Instalação Ger-Frm New
+"speedtest.py")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PRUEVA DE VELOCIDAD 2") $new";;
+# Menu Instalación Oficial de Puertos
 "openssh.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "OPENSSH $(pid_inst sshd)";;
 "squid.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SQUID $(pid_inst squid)";;
 "dropbear.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "DROPBEAR $(pid_inst dropbear)";;
@@ -497,6 +500,8 @@ case $1 in
 "ssl.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL $(pid_inst stunnel4)";;
 "shadowsocks.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS $(pid_inst ssserver)";;
 "sockspy.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SOCKS PYTHON $(pid_inst python)";;
+"v2ray.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "V2RAY $(pid_inst v2ray)";;
+"budp.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "BADVPN-(UDP:7300) $(pid_inst badvpn)";;
 "PDirect.py")return 1;;
 "PGet.py")return 1;;
 "POpen.py")return 1;;
