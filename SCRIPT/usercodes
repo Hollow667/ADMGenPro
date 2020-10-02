@@ -130,7 +130,7 @@ fi
      msg -bar
      return 1
      }
-msg -ne "$(fun_trans "Usuario Selecionado"): " && echo -ne "$usuario_del "
+msg -ne "$(fun_trans "Usuario Selecionado"): 》" && echo -ne "$usuario_del "
 block_userfun "$usuario_del" && msg -verm "[$(fun_trans "Bloqueado")]" || msg -verd "[$(fun_trans "Desbloqueado")]"
 msg -bar
 }
@@ -305,7 +305,7 @@ while true; do
 done
 while true; do
      msg -ne "$(fun_trans "Contraseña  de Nuevo Usuario")"
-     read -p ": " senhauser
+     read -p ": 》" senhauser
      if [[ -z $senhauser ]]; then
      err_fun 4 && continue
      elif [[ "${#senhauser}" -lt "6" ]]; then
@@ -317,7 +317,7 @@ while true; do
 done
 while true; do
      msg -ne "$(fun_trans "Tiempo de Duración de Nuevo Usuario")"
-     read -p ": " diasuser
+     read -p ": 》" diasuser
      if [[ -z "$diasuser" ]]; then
      err_fun 7 && continue
      elif [[ "$diasuser" != +([0-9]) ]]; then
@@ -329,7 +329,7 @@ while true; do
 done
 while true; do
      msg -ne "$(fun_trans "Limite de Conexión de Nuevo Usuario")"
-     read -p ": " limiteuser
+     read -p ": 》" limiteuser
      if [[ -z "$limiteuser" ]]; then
      err_fun 11 && continue
      elif [[ "$limiteuser" != +([0-9]) ]]; then
@@ -343,15 +343,15 @@ done
      tput cuu1 && tput dl1
      tput cuu1 && tput dl1
      tput cuu1 && tput dl1
-     msg -ne "$(fun_trans "IP del Servidor"): " && echo -e "$(meu_ip)"
-     msg -ne "$(fun_trans "Usuario"): " && echo -e "$nomeuser"
-     msg -ne "$(fun_trans "Contraseña"): " && echo -e "$senhauser"
-     msg -ne "$(fun_trans "Dias de Duración"): " && echo -e "$diasuser"
-     msg -ne "$(fun_trans "Fecha de Expiración"): " && echo -e "$(date "+%F" -d " + $diasuser days")"
-     msg -ne "$(fun_trans "Limite de Conexión"): " && echo -e "$limiteuser"
-     msg -ne "$(fun_trans "Creado Con: NEW-ADM-PLUS By @Thony_DroidYT"): "
+     msg -ne "$(fun_trans "➾ IP del Servidor"): " && echo -e "$(meu_ip)"
+     msg -ne "$(fun_trans "➾ Usuario"): " && echo -e "$nomeuser"
+     msg -ne "$(fun_trans "➾ Contraseña"): " && echo -e "$senhauser"
+     msg -ne "$(fun_trans "➾ Dias de Duración"): " && echo -e "$diasuser"
+     msg -ne "$(fun_trans "➾ Fecha de Expiración"): " && echo -e "$(date "+%F" -d " + $diasuser days")"
+     msg -ne "$(fun_trans "➾ Limite de Conexión"): " && echo -e "$limiteuser"
+     msg -ne "$(fun_trans "➾ Creado Con: NEW-ADM-PLUS By @Thony_DroidYT")"
 msg -bar
-add_user "${nomeuser}" "${senhauser}" "${diasuser}" "${limiteuser}" && msg -ama "$(fun_trans "Usuario Criado Com Sucesso")" || msg -verm "$(fun_trans "Erro, Usuario nao criado")"
+add_user "${nomeuser}" "${senhauser}" "${diasuser}" "${limiteuser}" && msg -ama "$(fun_trans "Usuario Creado Con Éxito")" || msg -verm "$(fun_trans "Error, Usuario no creado")"
 [[ $(dpkg --get-selections|grep -w "openvpn"|head -1) ]] && [[ -e /etc/openvpn/openvpn-status.log ]] && newclient "$nomeuser" "$senhauser"
 msg -bar
 }
@@ -375,7 +375,7 @@ msg -ama "$(fun_trans "Digite o Seleccioné un Usuario")"
 msg -bar
 unset selection
 while [[ -z ${selection} ]]; do
-echo -ne "\033[1;37m$(fun_trans "Selecione A Opcao"): " && read selection
+echo -ne "\033[1;37m$(fun_trans "Selecione A Opción"): 》" && read selection
 tput cuu1 && tput dl1
 done
 if [[ ! $(echo "${selection}" | egrep '[^0-9]') ]]; then
@@ -394,7 +394,7 @@ fi
      return 1
      }
 msg -ne "$(fun_trans "Usuario Selecionado"): " && echo -ne "$usuario_del"
-rm_user "$usuario_del" && msg -verd " [$(fun_trans "Removido")]" || msg -verm " [$(fun_trans "Nao Removido")]"
+rm_user "$usuario_del" && msg -verd " [$(fun_trans "Removido")]" || msg -verm " [$(fun_trans "No Removido")]"
 msg -bar
 }
 renew_user () {
@@ -417,7 +417,7 @@ msg -ama "$(fun_trans "Digite o Selecione un Usuario")"
 msg -bar
 unset selection
 while [[ -z ${selection} ]]; do
-echo -ne "\033[1;37m$(fun_trans "Selecione una Opción"): " && read selection
+echo -ne "\033[1;37m$(fun_trans "Selecione una Opción"): 》" && read selection
 tput cuu1
 tput dl1
 done
@@ -438,7 +438,7 @@ fi
      }
 while true; do
      msg -ne "$(fun_trans "Nuevo Tiempo de Duración de"): $useredit"
-     read -p ": " diasuser
+     read -p ": 》" diasuser
      if [[ -z "$diasuser" ]]; then
      echo -e '\n\n\n'
      err_fun 7 && continue
@@ -452,7 +452,7 @@ while true; do
      break
 done
 msg -bar
-renew_user_fun "${useredit}" "${diasuser}" && msg -ama "$(fun_trans "Usuario Modificado Com Sucesso")" || msg -verm "$(fun_trans "Erro, Usuario nao Modificado")"
+renew_user_fun "${useredit}" "${diasuser}" && msg -ama "$(fun_trans "Usuario Modificado Con Éxito")" || msg -verm "$(fun_trans "Error, Usuario no Modificado")"
 msg -bar
 }
 edit_user () {
@@ -496,7 +496,7 @@ fi
 while true; do
 msg -ne "$(fun_trans "Usuario Selecionado"): " && echo -e "$useredit"
      msg -ne "$(fun_trans "Nueva Contraseña de"): $useredit"
-     read -p ": " senhauser
+     read -p ": 》" senhauser
      if [[ -z "$senhauser" ]]; then
      err_fun 4 && continue
      elif [[ "${#senhauser}" -lt "6" ]]; then
@@ -508,7 +508,7 @@ msg -ne "$(fun_trans "Usuario Selecionado"): " && echo -e "$useredit"
 done
 while true; do
      msg -ne "$(fun_trans "Dias de Duración de"): $useredit"
-     read -p ": " diasuser
+     read -p ": 》" diasuser
      if [[ -z "$diasuser" ]]; then
      err_fun 7 && continue
      elif [[ "$diasuser" != +([0-9]) ]]; then
@@ -520,7 +520,7 @@ while true; do
 done
 while true; do
      msg -ne "$(fun_trans "Nuevo Limite de Conexión de"): $useredit"
-     read -p ": " limiteuser
+     read -p ": 》" limiteuser
      if [[ -z "$limiteuser" ]]; then
      err_fun 11 && continue
      elif [[ "$limiteuser" != +([0-9]) ]]; then
@@ -534,12 +534,13 @@ done
      tput cuu1 && tput dl1
      tput cuu1 && tput dl1
      tput cuu1 && tput dl1
-     msg -ne "$(fun_trans "Usuario"): " && echo -e "$useredit"
-     msg -ne "$(fun_trans "Contraseña"): " && echo -e "$senhauser"
-     msg -ne "$(fun_trans "Dias de Duración"): " && echo -e "$diasuser"
-     msg -ne "$(fun_trans "Fecha de Expiración"): " && echo -e "$(date "+%F" -d " + $diasuser days")"
-     msg -ne "$(fun_trans "Limite de Conexión"): " && echo -e "$limiteuser"
-     msg -ne "$(fun_trans "Creado Con: NEW-ADM-PLUS By @Thony_DroidYT"): "
+     msg -ne "$(fun_trans "➾ IP del Servidor"): " && echo -e "$(meu_ip)"
+     msg -ne "$(fun_trans "➾ Usuario"): " && echo -e "$useredit"
+     msg -ne "$(fun_trans "➾ Contraseña"): " && echo -e "$senhauser"
+     msg -ne "$(fun_trans "➾ Dias de Duración"): " && echo -e "$diasuser"
+     msg -ne "$(fun_trans "➾ Fecha de Expiración"): " && echo -e "$(date "+%F" -d " + $diasuser days")"
+     msg -ne "$(fun_trans "➾ Limite de Conexión"): " && echo -e "$limiteuser"
+     msg -ne "$(fun_trans "➾ Editado Con: NEW-ADM-PLUS By @Thony_DroidYT")"
 msg -bar
 edit_user_fun "${useredit}" "${senhauser}" "${diasuser}" "${limiteuser}" && msg -ama "$(fun_trans "Usuario Modificado Com Sucesso")" || msg -verm "$(fun_trans "Erro, Usuario nao Modificado")"
 msg -bar
@@ -553,10 +554,10 @@ msg -verm "$(fun_trans "No Fue Identificado una Base de Datos Con Usuarios")"
 msg -verm "$(fun_trans "Los Usuarios a Seguir No Contienen Ninguna Información")"
 msg -bar2
 fi
-txtvar=$(printf '%-16s' "USER")
-txtvar+=$(printf '%-16s' "PASS")
-txtvar+=$(printf '%-16s' "DATE")
-txtvar+=$(printf '%-6s' "LIMIT")
+txtvar=$(printf '%-16s' "USUARIO")
+txtvar+=$(printf '%-16s' "CONTRASEÑA")
+txtvar+=$(printf '%-16s' "EXPIRACIÓN")
+txtvar+=$(printf '%-6s' "LIMITE")
 echo -e "\033[1;33m${txtvar}"
 msg -bar2
 VPSsec=$(date +%s)
@@ -591,9 +592,9 @@ yellow=$(tput setaf 3)
 gren=$(tput setaf 2)
 msg -verm "$(fun_trans "Monitor de Conexiones de Usuarios")"
 msg -bar
-txtvar=$(printf '%-13s' "USER")
-txtvar+=$(printf '%-19s' "CONNECTION")
-txtvar+=$(printf '%-16s' "TIME/ON")
+txtvar=$(printf '%-13s' " USUARIO ")
+txtvar+=$(printf '%-19s' " CONEXIÓN ")
+txtvar+=$(printf '%-16s' " TIEMPO/ACTIVO ")
 echo -e "\033[1;33m${txtvar}"
 msg -bar
 while read user; do
@@ -636,8 +637,8 @@ rm_vencidos () {
 red=$(tput setaf 1)
 gren=$(tput setaf 2)
 yellow=$(tput setaf 3)
-txtvar=$(printf '%-25s' "USER")
-txtvar+=$(printf '%-20s' "VALID")
+txtvar=$(printf '%-25s' "USUARIO")
+txtvar+=$(printf '%-20s' "VALIDEZ")
 echo -e "\033[1;33m${txtvar}"
 msg -bar
 expired="${red}$(fun_trans "Expirado")"
@@ -684,9 +685,9 @@ verif_fun () {
     local TimeNOW=$(date +%s)
     # INICIA VERIFICA��O
     while read user; do
-           echo -ne "\033[1;33mUSUARIO: \033[1;32m$user "
+           echo -ne "\033[1;33mUSUARIO: 》\033[1;32m$user "
            if [[ ! $(echo $(mostrar_usuarios)|grep -w "$user") ]]; then
-              echo -e "\033[1;31mNAO EXISTE"
+              echo -e "\033[1;31mNO EXISTE"
               continue
            fi
            local DataUser=$(chage -l "${user}" |grep -i co|awk -F ":" '{print $2}')
