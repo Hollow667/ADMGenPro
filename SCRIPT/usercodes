@@ -271,7 +271,7 @@ err_fun () {
      9)msg -verm "$(fun_trans "La Duración maxima es de un año")"; sleep 2s; tput cuu1; tput dl1; tput cuu1; tput dl1;;
      11)msg -verm "$(fun_trans "Limite Nulo")"; sleep 2s; tput cuu1; tput dl1; tput cuu1; tput dl1;;
      12)msg -verm "$(fun_trans "Limite Inválido utilize numeros")"; sleep 2s; tput cuu1; tput dl1; tput cuu1; tput dl1;;
-     13)msg -verm "$(fun_trans "Limite maximo e de 999")"; sleep 2s; tput cuu1; tput dl1; tput cuu1; tput dl1;;
+     13)msg -verm "$(fun_trans "EL Limite maximo es de 999")"; sleep 2s; tput cuu1; tput dl1; tput cuu1; tput dl1;;
      14)msg -verm "$(fun_trans "El Usuario ya Existe")"; sleep 2s; tput cuu1; tput dl1; tput cuu1; tput dl1;;
      esac
 }
@@ -358,7 +358,7 @@ msg -bar
 remove_user () {
 usuarios_ativos=($(mostrar_usuarios))
 if [[ -z ${usuarios_ativos[@]} ]]; then
-msg -verm "$(fun_trans "Ningún Usuario Registrado")"
+msg -verm "$(fun_trans "Ningún Usuario Registrado!")"
 msg -bar
 return 1
 else
