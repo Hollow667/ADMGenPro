@@ -204,6 +204,9 @@ SSL+="$Port ";;
 python|python3)
 [[ -z $PY3 ]] && local PY3="\033[1;31mSOCKS: \033[1;32m"
 PY3+="$Port ";;
+badvpn-ud)
+[[ -z $BAD ]] && local BAD="\033[1;31m BADVPN: \033[1;32m"
+BAD+="$Port ";;
 esac
 done <<< "${portasVAR}"
 [[ ! -z $SQD ]] && echo -e $SQD
@@ -213,6 +216,7 @@ done <<< "${portasVAR}"
 [[ ! -z $OVPN ]] && echo -e $OVPN
 [[ ! -z $PY3 ]] && echo -e $PY3
 [[ ! -z $SSL ]] && echo -e $SSL
+[[ ! -z $BAD ]] && echo -e $BAD
 }
 ofus () {
 unset txtofus
@@ -470,7 +474,8 @@ return 0
 }
 float_data () {
 ofc="\033[0m${gren}(#OFC)"
-dev="\033[0m${gren}(#DEV)"
+dev="\033[0m${yellow}(#DEV)"
+new="\033[0m${red}(#NEW)"
 case $1 in
 "GENERADOR_BIN.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "GENERADOR DE CC") $dev";;
 "ports.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "SISTEMA DE PUERTOS") $ofc";;
@@ -482,6 +487,7 @@ case $1 in
 "utils.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "(BadVPN/TCP-Speed/SquidCache/Torrent) $ofc";;
 "dados.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "MONITOR DE CONSUMO") $ofc";;
 "speed.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TEST DE VELOCIDAD") $ofc";;
+"speedtest.py")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PRUEVA DE VELOCIDAD") $new";;
 "ultrahost")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ESCÁNER DE SUBDOMINIOS") $ofc";;
 "ADMbot.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "BOT DE ADMINISTRACIÓN") TELEGRAN $ofc";;
 "openssh.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "OPENSSH $(pid_inst sshd)";;
@@ -523,7 +529,7 @@ script[$Numb]="agregar"
 let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") $(msg -ama "[!]") " && msg -verm2 "$(fun_trans "REMOVER HERRAMIENTAS")"
 script[$Numb]="remove"
-echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") " && msg -bra "$(fun_trans "SALIR")"
+echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") " && msg -bra "$(fun_trans "REGRESAR")"
 script[0]="voltar"
 msg -bar2
 selection=$(selection_fun $Numb)
@@ -557,7 +563,7 @@ done <<< "$portas_var"
 menu_inst () {
 export -f fun_eth
 export -f fun_bar
-menuTXT="$(fun_trans "VOLTAR")"
+menuTXT="$(fun_trans "REGRESAR")"
 msg -ama "$(fun_trans "MENU DE INSTALACIÓN")"
 msg -bar
 local Numb=1
