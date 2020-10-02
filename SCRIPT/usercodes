@@ -887,6 +887,35 @@ service ssh restart > /dev/null 2>&1 &
 service sshd restart > /dev/null 2>&1 & 
 service dropbear restart > /dev/null 2>&1 &
 }
+baner_fun2 () {
+local="/etc/bannerssh"
+rm -rf $local  > /dev/null 2>&1
+local2="/etc/dropbear/banner"
+chk=$(cat /etc/ssh/sshd_config | grep Banner)
+if [ "$(echo "$chk" | grep -v "#Banner" | grep Banner)" != "" ]; then
+local=$(echo "$chk" |grep -v "#Banner" | grep Banner | awk '{print $2}')
+ else
+echo "" >> /etc/ssh/sshd_config
+echo "Banner /etc/bannerssh" >> /etc/ssh/sshd_config
+local="/etc/bannerssh"
+fi
+msg -verd "$(fun_trans  "Bienvenido este es el instalador del BANNER-SSH/DROPBEAR")"
+msg -bar
+msg -ne "$(fun_trans  "Escriba el mensaje principal del BANNER de preferencia en HTML"): \n" && read ban_ner
+msg -bar
+credi="$(less /etc/newadm/message.txt)"
+echo "$ban_ner" >> $local
+echo '<p style="text-align: center;"><strong><span style="color: #ff0000;">ADM&bull;PLUS&reg;</span> |&nbsp;</strong><span style="color: #0000ff;"><strong>'$credi'</strong></span></p>' >> $local
+if [[ -e "$local2" ]]; then
+rm $local2  > /dev/null 2>&1
+cp $local $local2 > /dev/null 2>&1
+fi 
+msg -verd "$(fun_trans  "Banner HTML Agregado Con ¡¡EXITO!!")" && msg -bar
+service dropbear stop 2>/dev/null
+service sshd restart 2>/dev/null
+service dropbear restart 2>/dev/null
+sleep 3s
+}
 # Execu��o
 if [[ "$1" = "verificar" ]]; then
 verif_fun
@@ -895,7 +924,7 @@ fi
 [[ -z ${VERY} ]] && verificar="\033[1;31mOff" || verificar="\033[1;32mOn"
 msg -ama "$(fun_trans "MENU DE ADMINISTRACIÓN DE USUARIOS")"
 msg -bar
-menu_func "CREAR NUEVO USUARIO" "CREAR USUARIO TEMPORAL" "REMOVER USUARIO" "BLOQUEAR O DESBLOQUEAR USUARIO" "EDITAR USUARIO" "RENOVAR USUARIO" "DETALLES DE TODOS LOS USUARIOS" "MONITOR DE USUARIOS CONECTADOS" "ELIMINAR USUARIOS VENCIDOS" "RESPALDAR USUARIOS" "BANNER SSH" "-fi ${verificar} VERIFICACIONES"
+menu_func "CREAR NUEVO USUARIO" "CREAR USUARIO TEMPORAL" "REMOVER USUARIO" "BLOQUEAR O DESBLOQUEAR USUARIO" "EDITAR USUARIO" "RENOVAR USUARIO" "DETALLES DE TODOS LOS USUARIOS" "MONITOR DE USUARIOS CONECTADOS" "ELIMINAR USUARIOS VENCIDOS" "RESPALDAR USUARIOS" "BANNER SSH" "BANNER HTML" "-fi ${verificar} VERIFICACIONES"
 [[ -e "${SCPusr}/Limiter.log" ]] && echo -ne "$(msg -verd "[12]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "VER LOG DO LIMITER")"
 echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") " && msg -bra "$(fun_trans "REGRESAR")"
 msg -bar
@@ -911,9 +940,10 @@ case ${selection} in
 8)monit_user;;
 9)rm_vencidos;;
 10)backup_fun;;
-11)baner_fun;;
-12)verif_funx;;
-13)
+11)backup_fun2;;
+12)baner_fun;;
+13)verif_funx;;
+14)
 [[ -e "${SCPusr}/Limiter.log" ]] && {
  cat ${SCPusr}/Limiter.log
  msg -bar
