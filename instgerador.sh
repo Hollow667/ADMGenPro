@@ -37,7 +37,6 @@ esac
 mv -f $HOME/$1 ${ARQ}/$1
 chmod +x ${ARQ}/$1
 }
-echo -e "\033[0;34m======================================================\033[0m"
 apt-get install figlet -y
 apt-get install cowsay -y
 apt-get install lolcat -y
