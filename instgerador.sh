@@ -80,7 +80,7 @@ rm $HOME/lista-arq
 echo -e "\033[0;34m======================================================\033[0m"
 echo "/usr/bin/gerar.sh" > /usr/bin/gerar && chmod +x /usr/bin/gerar
 echo "/usr/bin/gerar.sh" > /usr/bin/genplus && chmod +x /usr/bin/genplus
-echo -e "\033[1;31m Perfecto, Use el Comando \033[1;32mgerar.sh o gerar o \033[1;32mgenplus \033[1;31mpara Administrar Sus Keys y
+echo -e "\033[1;31m Perfecto, Use el Comando \033[1;32mgerar.sh; gerar o \033[1;32mgenplus \033[1;31mpara Administrar Sus Keys y
  Actualizar la Base del servidor"
 echo -e "\033[0;34m======================================================\033[0m"
 } || {
