@@ -131,7 +131,8 @@ valuekey+="$(echo $(($RANDOM*10))|head -c 5)"
 fun_list "$valuekey"
 keyfinal=$(ofus "$IP:8888/$valuekey/$LIST")
 echo -e "SCRIPT: apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADM-Ultimate-Plus/master/instalar.sh; chmod 777 instalar.sh* && ./instalar.sh"
-echo -e "KEY: $keyfinal\nGenerada!"
+echo -e "$BARRA"
+echo -e "KEY: $keyfinal\nGenerada Con Éxito!"
 echo -e "$BARRA"
 read -p "Enter para Finalizar"
 }
@@ -276,7 +277,7 @@ unset PID_GEN
 PID_GEN=$(ps x|grep -v grep|grep "http-server.sh")
 [[ ! $PID_GEN ]] && PID_GEN="\033[1;31mDesactivado" || PID_GEN="\033[1;32mActivado"
 echo -e "$BARRA"
-echo -e "Diretorio De los Archivos Repasados \033[1;32m${SCPT_DIR}\033[0m"
+echo -e "Diretorio De los Archivos Repasados \033[1;31m${SCPT_DIR}\033[0m"
 echo -e "$BARRA"
 echo -e "[1] = GENERAR 1 KEY ALEATORIA"
 echo -e "[2] = ELIMINAR/MIRAR KEYS"
