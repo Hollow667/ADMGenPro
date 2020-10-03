@@ -16,7 +16,8 @@ ram1=$(free -h | grep -i mem | awk {'print $2'})
 ram2=$(free -h | grep -i mem | awk {'print $4'})
 ram3=$(free -h | grep -i mem | awk {'print $3'})
 
-_hora=$(printf '%(%D-%H:%M:%S)T') 
+_hora=$(printf '%(%H:%M:%S)T')
+_system=$(printf '%-14s' "$system")
 _ram=$(printf ' %-9s' "$(free -h | grep -i mem | awk {'print $2'})")
 _usor=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
 
@@ -780,9 +781,9 @@ echo -e "\033[1;97mSSH REG:\033[1;92m $SSH4 $(fun_trans "CUENTAS")"
 [[ -e ${SCPdir}/key.txt ]] && msg -bar && msg -bra "KEY: $(cat ${SCPdir}/key.txt)"
 # NOVO SISTEMA DE MENUS
 msg -bar
-msg -ama "$(fun_trans "ADMINISTRADOR") \033[1;31m[\033[1;32m NEW-ULTIMATE-PLUS By Thony_DroidYT \033[1;31m]"
+msg -ama "$(fun_trans "ADMINISTRADOR") \033[1;31m[\033[1;32m NEW - ULTIMATE - PLUS By Thony_DroidYT \033[1;31m]"
 msg -bar
-echo -e "\e[1;97mVersión: \033[1;32m $(cat /etc/newadm/version.txt)"
+echo -e "\e[1;97mVersión Instalada: \033[1;32m $(cat /etc/newadm/version.txt)"
 msg -bar
 menu_func "ADMINISTRAR USUARIOS" "HERRAMIENTAS" "\033[1;41mMENU DE INSTALACIONES" "-vd ACTUALIZAR" "-vm DESINSTALAR" "-fi $AutoRun AUTO INICIAR" "CAMBIAR IDIOMA" "CAMBIAR COLORES" " -fi ${monitorservi} MONITOR DE SERVICIOS"
 msg -bar && echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") "&& msg -bra "\033[1;100mSALIR DEL SCRIPT"
