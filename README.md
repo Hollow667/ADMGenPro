@@ -3,7 +3,7 @@
 
 #### :heavy_exclamation_mark: Proyecto Totalmente Privado. Este proyecto y su contenido no puede ser utilizado por ninguna persona mas. Tener en cuenta esto Antes de clonarlo :heavy_exclamation_mark:
 
-## By @Thony_DroidYT
+### By @Thony_DroidYT
 
 ```
 SI TIENES PROBLEMAS DE TRADUCCION DEBES CAMBIAR A IDIOMA PORTUGUES MENU 7 OPCION 6
@@ -38,6 +38,8 @@ PARA INGRESAR AL GENERADOR ESCRIBE LOS COMANDOS EN MINUSCULA  gerar.sh o gerar
 
 ![logo](https://github.com/ThonyDroidYT/ADMGenPro/blob/master/IMAGES/KEYGEN-ADM-PLUS.jpg)
 
+
+-------------------------------------------------------------------------------
 
 ```
 NEW - ADM - MANAGER ( PLUS ) PARA QUE USEN SU GENERADOR DE KEY
