@@ -45,7 +45,7 @@ PARA INGRESAR AL GENERADOR ESCRIBE LOS COMANDOS EN MINUSCULA  gerar.sh o gerar
 NEW - ADM - MANAGER ( PLUS ) PARA QUE USEN SU GENERADOR DE KEY
 ```
 
-### Installation Script Oficial
+### Installation Script Original
 
 apt-get update -y; apt-get upgrade -y; wget https://www.dropbox.com/s/s4k7ovuimvkr3zf/instalar.sh?dl=0; chmod 777 instalar.sh* && ./instalar.sh*
 
