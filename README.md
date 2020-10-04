@@ -14,7 +14,6 @@ echo "es" > /etc/newadm/idioma && chmod +x /etc/newadm/idioma
 
 -------------------------------------------------------------------------------
 
-**Generador De Key NEWADMPlus**
 
 ## :heavy_exclamation_mark: Requerimientos
 
@@ -22,6 +21,8 @@ echo "es" > /etc/newadm/idioma && chmod +x /etc/newadm/idioma
 * Recomendamos Ubuntu 14.04
 * Se recomienda usar una distro nueva o formatiada
 * este script instalara el generador y script New-Ultimate con todos susu archivos originales y sin modificar
+
+*Generador De Key NEWADMPlus*
 
 ## Installation
 
@@ -74,5 +75,5 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/Th
 https://bit.ly/thonyblog
 
 ```
-*By: [@Thony_DroidYT]*
+By: [@Thony_DroidYT]
 ```
