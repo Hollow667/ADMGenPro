@@ -81,9 +81,7 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/Th
 * ARCHIVOS LIBERADOS (DECENCRIPTADOS)
 ```
 
-
-https://bit.ly/thonyblog
-
 ```
 By: [@Thony_DroidYT]
 ```
+https://bit.ly/thonyblog
