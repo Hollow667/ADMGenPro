@@ -71,7 +71,7 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/Th
 ```
 
 ```
-https://biy.ly/thonyblog
+https://bit.ly/thonyblog
 
 ```
 
