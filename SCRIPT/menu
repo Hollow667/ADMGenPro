@@ -774,7 +774,7 @@ msg -ama "$(fun_trans "PUERTOS ACTIVOS Y INFORMACION DEL SERVIDOR VPS!")"
 msg -bar
 mine_port
 msg -bar
-msg -ne "$(fun_trans "S.O"): " && msg -bra "$(os_system) " msg -ne "$(fun_trans "IP"): " && msg -bra "$(meu_ip)"
+echo -e "\033[1;31mS.O: \033[1;37m$os_system    \033[1;31mIP:\033[1;37m$meu_ip\033[0m"
 echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESADOR "
 echo -e "\033[1;31mFecha: \033[1;37m$_fecha    \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mHora:\033[1;37m $_hora     \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
