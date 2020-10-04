@@ -14,13 +14,14 @@ echo "es" > /etc/newadm/idioma && chmod +x /etc/newadm/idioma
 
 -------------------------------------------------------------------------------
 
-
 ## :heavy_exclamation_mark: Requerimientos
 
 * Un sistema operativo basado en Linux (Ubuntu o Debian)
 * Recomendamos Ubuntu 14.04
 * Se recomienda usar una distro nueva o formatiada
 * este script instalara el generador y script New-Ultimate con todos susu archivos originales y sin modificar
+
+-------------------------------------------------------------------------------
 
 *Generador De Key NEWADMPlus*
 
