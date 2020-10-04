@@ -490,8 +490,6 @@ dev="\033[0m${yellow}(#DEV)"
 new="\033[0m${red}(#NEW)"
 case $1 in
 "gestor.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ADMINISTRAR SERVIDOR VPS") $new";;
-"ehi_panel")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PANEL DE SUBIDA DE EHI") $new";;
-"speed_v2.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PRUEVA DE VELOCIDAD 2") $new";;
 "ADMbot.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "BOT DE ADMINISTRACIÓN") TELEGRAN $ofc";;
 "GENERADOR_BIN.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "GENERADOR DE CC") $dev";;
 "MasterBin.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "CHECKER DE BIN") $ofc";;
@@ -501,7 +499,7 @@ case $1 in
 "payySND.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PAYLOAD FUERZA BRUTA PYTHON") $ofc";;
 "paysnd.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PAYLOAD FUERZA BRUTA") $ofc";;
 "apacheon.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "COMPARTIR ARCHIVO ONLINE") $ofc";;
-"utils.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "(BadVPN/TCP-Speed/SquidCache/Torrent) $ofc";;
+"utils.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "(BADVPN/TCP-Speed/SquidCache/Torrent) $ofc";;
 "dados.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "MONITOR DE CONSUMO") $ofc";;
 "speed.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TEST DE VELOCIDAD") $ofc";;
 "openssh.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "OPENSSH $(pid_inst sshd)";;
@@ -534,6 +532,11 @@ float_data "$arqs" "$Numb" && {
   let Numb++
   }
 done
+echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PANEL DE SUBIDA DE EHI") $new"
+script[$Numb]="ehi_panel"
+echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TEST DE VELOCIDAD SECUNDARIA") $new"
+script[$Numb]="speed_v2.sh"
+let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "DETALLES DE SISTEMA") $ofc"
 script[$Numb]="systeminf"
 let Numb++
