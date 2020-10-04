@@ -34,7 +34,7 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/Th
 ![logo](https://github.com/ThonyDroidYT/ADMGenPro/blob/master/IMAGES/InstalGen.jpg)
 
 ```
-PARA INGRESAR AL GENERADOR ESCRIBE LOS COMANDOS EN MINUSCULA  gerar.sh o gerar
+PARA INGRESAR AL GENERADOR ESCRIBE LOS COMANDOS EN MINUSCULA  gerar.sh, gerar o genplus
 ```
 
 ![logo](https://github.com/ThonyDroidYT/ADMGenPro/blob/master/IMAGES/KEYGEN-ADM-PLUS.jpg)
