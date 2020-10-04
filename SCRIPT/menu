@@ -435,6 +435,10 @@ if [[ ${yesno} = @(s|S|y|Y) ]]; then
 rm -rf ${SCPdir} &>/dev/null
 rm -rf ${SCPusr} &>/dev/null
 rm -rf ${SCPinst} &>/dev/null
+rm -rf /etc/ger-frm &>/dev/null
+rm -rf /var/www/html/monitor.html &>/dev/null
+rm -rf /var/www/html/estilos.css &>/dev/null
+[[ -e /bin/monitor.html ]] && rm /bin/monitor.html
 [[ -e /bin/adm ]] && rm /bin/adm
 [[ -e /usr/bin/adm ]] && rm /usr/bin/adm
 [[ -e /bin/menu ]] && rm /bin/menu
