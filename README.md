@@ -63,7 +63,15 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/Th
 
 ![logo](https://github.com/ThonyDroidYT/ADMGenPro/blob/master/IMAGES/InstalADMPlus.jpg)
 
+
+-------------------------------------------------------------------------------
+
+
 ![logo](https://github.com/ThonyDroidYT/ADMGenPro/blob/master/IMAGES/20201003_152430.jpg)
+
+
+-------------------------------------------------------------------------------
+
 
 ```
 * SIN MINERIA! 
