@@ -22,7 +22,7 @@ echo "es" > /etc/newadm/idioma && chmod +x /etc/newadm/idioma
 * Se recomienda usar una distro nueva o formatiada
 * este script instalara el generador y script New-Ultimate con todos susu archivos originales y sin modificar
 
-*Generador De Key NEWADMPlus*
+* Generador De Key NEWADMPlus
 
 ## Installation
 
