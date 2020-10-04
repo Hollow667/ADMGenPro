@@ -1,6 +1,9 @@
 ﻿# GENERADOR-NEW-ULTIMATE-PLUS
 
-# By @Thony_DroidYT.--
+
+## :heavy_exclamation_mark: Proyecto Totalmente Privado. Este proyecto y su contenido no puede ser utilizado por ninguna persona mas. Tener en cuenta esto Antes de clonarlo
+
+# By @Thony_DroidYT
 
 ```
 SI TIENES PROBLEMAS DE TRADUCCION DEBES CAMBIAR A IDIOMA PORTUGUES MENU 7 OPCION 6
@@ -11,7 +14,7 @@ echo "es" > /etc/newadm/idioma && chmod +x /etc/newadm/idioma
 
 -------------------------------------------------------------------------------
 
-**Generador De Key NEWADM+**
+**Generador De Key NEWADMPlus**
 
 ## :heavy_exclamation_mark: Requerimientos
 
@@ -61,15 +64,15 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/Th
 
 ```
 * SIN MINERIA! 
-* SIN KEYS! 
+* CON KEYS! 
 * VERSION GRATUITA 
 * SIN VIRUS TROJANO (BOTNET) 
 * ARCHIVOS LIBERADOS (DECENCRIPTADOS)
 ```
 
 ```
-☆ https://biy.ly/thonyblog ☆
+https://biy.ly/thonyblog
 
 ```
 
-**By: [@Thony_DroidYT]**
+*By: [@Thony_DroidYT]*
