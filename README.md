@@ -3,7 +3,7 @@
 
 #### :heavy_exclamation_mark: Proyecto Totalmente Privado. Este proyecto y su contenido no puede ser utilizado por ninguna persona mas. Tener en cuenta esto Antes de clonarlo :heavy_exclamation_mark:
 
-# By @Thony_DroidYT
+## By @Thony_DroidYT
 
 ```
 SI TIENES PROBLEMAS DE TRADUCCION DEBES CAMBIAR A IDIOMA PORTUGUES MENU 7 OPCION 6
@@ -24,7 +24,7 @@ echo "es" > /etc/newadm/idioma && chmod +x /etc/newadm/idioma
 
 *Generador De Key NEWADMPlus*
 
-### Installation
+### Installation Gen
 
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/instgerador.sh; chmod 777 instgerador.sh* && ./instgerador.sh
 
@@ -40,7 +40,7 @@ PARA INGRESAR AL GENERADOR ESCRIBE LOS COMANDOS EN MINUSCULA  gerar.sh o gerar
 
 
 ```
-NEW - ADM - MANAGER ( OFICIAL ) PARA QUE USEN SU GENERADOR DE KEY
+NEW - ADM - MANAGER ( PLUS ) PARA QUE USEN SU GENERADOR DE KEY
 ```
 
 ### Installation
@@ -53,7 +53,7 @@ apt-get update -y; apt-get upgrade -y; wget https://www.dropbox.com/s/s4k7ovuimv
 INSTALADOR ALTERNATIVO
 ```
 
-### Installation
+### Installation Script
 
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/instalar.sh; chmod 777 instalar.sh* && ./instalar.sh*
 
