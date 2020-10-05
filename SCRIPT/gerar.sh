@@ -136,24 +136,12 @@ echo -e "KEY: $keyfinal\nGenerada Con Éxito!"
 echo -e "$BARRA"
 read -p "Enter para Finalizar"
 }
-remove_gen () {
-echo -e "$BARRA"
-echo -e "Confirmar la Desinstalación Total Del KeyGen?"
-echo -e "$BARRA"
-while  ${yesno} != @(s|S|y|Y|n|N) ; do
-read -p "[S/N]: " yesno
-tput cuu1 && tput dl1
-done
-if  ${yesno} = @(s|S|y|Y) ; then
-rm -rf ${SCPT_DIR} &>/dev/null
- -e /bin/gerar.sh && rm /bin/gerar.sh
- -e /usr/bin/gerar.sh  && rm /usr/bin/gerar.sh
--e /usr/bin/gerar && rm /usr/bin/gerar
- -e /bin/gerar && rm /bin/gerar
- -e /usr/bin/genplus && rm /usr/bin/genplus
- -e /bin/genplus  && rm /bin/genplus
+atualizar_gen () {
+wget -O $HOME/instger.sh https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/instgerador.sh &>/dev/null
+chmod +x $HOME/instgerador.sh
 cd $HOME
-fi
+./instgerador.sh
+rm $HOME/instgerador.sh &>/dev/null
 }
 att_gen_key () {
 i=0
@@ -301,7 +289,7 @@ echo -e "$BARRA"
 echo -e "[1] = GENERAR 1 KEY ALEATORIA"
 echo -e "[2] = ELIMINAR/MIRAR KEYS"
 echo -e "[3] = LIMPIAR KEYS USADAS"
-echo -e "[4] = DESINSTALAR GEN"
+echo -e "[4] = ACTUALIZAR GEN"
 echo -e "[5] = ALTERAR ARCHIVOS BASICOS DEL KEYGEN"
 echo -e "[6] = INICIAR/PARAR KEYGEN $PID_GEN\033[0m"
 echo -e "[7] = VER REGISTRO"
@@ -319,7 +307,7 @@ gerar_key
 elif [[ ${varread} = 2 ]]; then
 remover_key
 elif [[ ${varread} = 3 ]]; then
-remover_gen
+atualizar_gen
 elif [[ ${varread} = 4 ]]; then
 remover_key_usada
 elif [[ ${varread} = 5 ]]; then
