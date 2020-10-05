@@ -137,8 +137,9 @@ echo -e "$BARRA"
 read -p "Enter para Finalizar"
 }
 remove_gen () {
-msg -ama "$(fun_trans "CONFIRMAR ELIMINACIÓN TOTAL DEL GEN")?"
-msg -bar
+echo -e "$BARRA"
+echo -e "Confirmar la Desinstalación Total Del KeyGen?"
+echo -e "$BARRA"
 while  ${yesno} != @(s|S|y|Y|n|N) ; do
 read -p "[S/N]: " yesno
 tput cuu1 && tput dl1
