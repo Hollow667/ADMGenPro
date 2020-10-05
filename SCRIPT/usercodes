@@ -807,7 +807,7 @@ echo -e " \033[1;32m[7] >\033[44m $(fun_trans "Celeste")"
 echo -e " \033[1;32m[8] >\033[0;33m $(fun_trans "Marrón")"
 echo -e " \033[1;32m[9] >\033[202m $(fun_trans "Anaranjado")"
 msg -ne "$(fun_trans "Perfecto Ahora un Color"): " && read ban_ner_cor
-echo '<h2><font>★━━━━━━✩━━━━━━★</font></h2>' > $local
+echo '<h2><font color="red">★━━━━━━✩━━━━━━★</font></h2>' > $local
 if [[ "$ban_ner_cor" = "1" ]]; then
 echo '<h1><font color="green">' >> $local
 elif [[ "$ban_ner_cor" = "2" ]]; then
@@ -831,7 +831,7 @@ echo '<h1><font color="blue">' >> $local
 fi
 echo "$ban_ner" >> $local
 echo '</font></h1>' >> $local
-echo '<h2><font>★━━━━━━✩━━━━━━★</font></h2>' >> $local
+echo '<h2><font color="red">★━━━━━━✩━━━━━━★</font></h2>' >> $local
 txt_font () {
 msg -ne "$(fun_trans "digite un mensaje secundario"): " && read ban_ner2
 echo -e " \033[1;32m[1] >\033[1;32m $(fun_trans "Verde")"
@@ -877,7 +877,7 @@ break
 fi
 done
 #echo '<h8><font color="purple">☆By:ADMPlus☆</font></h8>' >> $local
-#echo '<h1><font>★━━━━━━✩━━━━━━★</font></h1>' >> $local
+#echo '<h1><font color="red">★━━━━━━✩━━━━━━★</font></h1>' >> $local
 if [[ -e "$local2" ]]; then
 rm $local2  > /dev/null 2>&1
 cp $local $local2 > /dev/null 2>&1
