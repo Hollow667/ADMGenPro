@@ -6,7 +6,6 @@ ports.sh
 ADMbot.sh
 message.txt
 usercodes
-Crear-Demo.sh
 sockspy.sh
 POpen.py
 PPriv.py
@@ -21,10 +20,16 @@ openvpn.sh
 shadowsocks.sh
 ssl.sh
 squid.sh
-v2ray.sh
 fai2ban.sh
 GENERADOR_BIN.sh
 MasterBin.sh
 paysnd.sh
 payySND.sh
 ultrahost
+v2ray.sh
+version.txt
+monitor.html
+estilos.css
+gestor.sh
+speed_v2.sh
+Crear-Demo.sh
