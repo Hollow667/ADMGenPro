@@ -137,7 +137,7 @@ echo -e "$BARRA"
 read -p "Enter para Finalizar"
 }
 atualizar_gen () {
-wget -O $HOME/instger.sh https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/instgerador.sh &>/dev/null
+wget -O $HOME/instgerador.sh https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/instgerador.sh &>/dev/null
 chmod +x $HOME/instgerador.sh
 cd $HOME
 ./instgerador.sh
