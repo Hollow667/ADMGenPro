@@ -1,6 +1,7 @@
 #!/bin/bash
 #19/12/2019
-declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;31m" [3]="\033[1;33m" [4]="\033[1;32m" )
+SCPdir2="/etc/ger-frm"
+declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;31m" [3]="\033[1;33m" [4]="\033[1;32m" [5]="\033[1;36m" )
 SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && exit
 SCPinst="/etc/ger-inst" && [[ ! -d ${SCPinst} ]] && exit
 intallv2ray () {
@@ -29,6 +30,7 @@ v2ray tls
 }
 unistallv2 () {
 source <(curl -sL https://raw.githubusercontent.com/VPS-MX/VPS-MX-8.0/master/ArchivosUtilitarios/V2RAY/install.sh) --remove
+bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --remove
 }
 infocuenta () {
 v2ray info
@@ -37,22 +39,24 @@ v2ray info
 msg -ama "$(fun_trans "MENU DE INSTALACIONES")"
 msg -bar
 echo -ne "\033[1;32m [1] > " && msg -azu "$(fun_trans "INSTALAR V2RAY") "
-echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "CAMBIAR PROTOCOLO") "
-echo -ne "\033[1;32m [3] > " && msg -azu "$(fun_trans "ACTIVAR TLS") "
-echo -ne "\033[1;32m [4] > " && msg -azu "$(fun_trans "INFORMACION DE CUENTA")"
-echo -ne "\033[1;32m [5] > " && msg -azu "$(fun_trans "DESINTALAR V2RAY")"
+echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "INSTALAR PANEL V2RAY") "
+echo -ne "\033[1;32m [3] > " && msg -azu "$(fun_trans "CAMBIAR PROTOCOLO") "
+echo -ne "\033[1;32m [4] > " && msg -azu "$(fun_trans "ACTIVAR TLS") "
+echo -ne "\033[1;32m [5] > " && msg -azu "$(fun_trans "INFORMACION DE CUENTA")"
+echo -ne "\033[1;32m [6] > " && msg -azu "$(fun_trans "DESINTALAR V2RAY")"
 echo -ne "\033[1;32m [0] > " && msg -bra "$(fun_trans "REGRESAR")"
 msg -bar
-while [[ ${arquivoonlineadm} != @(0|[1-5]) ]]; do
-read -p "[0-5]: " arquivoonlineadm
+while [[ ${arquivoonlineadm} != @(0|[1-6]) ]]; do
+read -p "[0-6]: " arquivoonlineadm
 tput cuu1 && tput dl1
 done
 case $arquivoonlineadm in
 1)intallv2ray;;
-2)protocolv2ray;;
-3)tls;;
-4)infocuenta;;
-5)unistallv2;;
+2)${SCPdir2}/v2ui.sh "${idioma}";;
+3)protocolv2ray;;
+4)tls;;
+5)infocuenta;;
+6)unistallv2;;
 0)exit;;
 esac
 msg -bar
