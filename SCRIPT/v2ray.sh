@@ -36,7 +36,7 @@ infocuenta () {
 v2ray info
 }
 
-msg -ama "$(fun_trans "MENU DE INSTALACIONES")"
+msg -ama "$(fun_trans "MENU DE INSTALACIÓN V2RAY")"
 msg -bar
 echo -ne "\033[1;32m [1] > " && msg -azu "$(fun_trans "INSTALAR V2RAY") "
 echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "INSTALAR PANEL V2RAY") "
