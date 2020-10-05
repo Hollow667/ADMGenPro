@@ -924,7 +924,7 @@ fi
 msg -ama "$(fun_trans "MENU DE ADMINISTRACIÓN DE USUARIOS")"
 msg -bar
 menu_func "CREAR NUEVO USUARIO" "CREAR USUARIO TEMPORAL" "REMOVER USUARIO" "BLOQUEAR O DESBLOQUEAR USUARIO" "EDITAR USUARIO" "RENOVAR USUARIO" "DETALLES DE TODOS LOS USUARIOS" "MONITOR DE USUARIOS CONECTADOS" "ELIMINAR USUARIOS VENCIDOS" "RESPALDAR USUARIOS" "BANNER SSH" "BANNER HTML" "-fi ${verificar} VERIFICACIONES"
-[[ -e "${SCPusr}/Limiter.log" ]] && echo -ne "$(msg -verd "[12]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "VER LOG DO LIMITER")"
+[[ -e "${SCPusr}/Limiter.log" ]] && echo -ne "$(msg -verd "[14]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "VER REGISTRO DE LIMITADOR")"
 echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") " && msg -bra "$(fun_trans "REGRESAR")"
 msg -bar
 selection=$(selection_fun 14)
