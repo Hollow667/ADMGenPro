@@ -789,7 +789,7 @@ echo -e "\033[1;97mSSH REG:\033[1;92m $SSH4 $(fun_trans "CUENTAS")"
 msg -bar
 msg -ama "$(fun_trans "ADMINISTRADOR") \033[1;31m[\033[1;32m NEW - ULTIMATE - PLUS By Thony_DroidYT \033[1;31m]"
 msg -bar
-echo -e "\e[1;33mADM Plus Versión Instalada: \033[1;32m $(cat /etc/newadm/version.txt)"
+echo -e "\033[1;31m[\e[1;33mADM Plus Versión Instalada:\033[1;31m] \033[1;32m $(cat /etc/newadm/version.txt) \033[1;31m[\033[1;31m]"
 msg -bar
 menu_func "ADMINISTRAR USUARIOS" "HERRAMIENTAS" "\033[1;41mMENU DE INSTALACIONES" "-vd ACTUALIZAR" "-vm DESINSTALAR" "-fi $AutoRun AUTO INICIAR" "CAMBIAR IDIOMA" "CAMBIAR COLORES" " -fi ${monitorservi} MONITOR DE SERVICIOS"
 msg -bar && echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") "&& msg -bra "\033[1;100mSALIR DEL SCRIPT"
