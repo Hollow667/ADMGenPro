@@ -307,9 +307,9 @@ gerar_key
 elif [[ ${varread} = 2 ]]; then
 remover_key
 elif [[ ${varread} = 3 ]]; then
-atualizar_gen
-elif [[ ${varread} = 4 ]]; then
 remover_key_usada
+elif [[ ${varread} = 4 ]]; then
+atualizar_gen
 elif [[ ${varread} = 5 ]]; then
 mudar_instacao
 elif [[ ${varread} = 6 ]]; then
