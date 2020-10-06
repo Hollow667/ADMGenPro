@@ -24,6 +24,10 @@ echo "es" > /etc/newadm/idioma && chmod +x /etc/newadm/idioma
 
 *Generador De Key NEWADMPlus*
 
+### Instalación Rapida
+apt-get update -y; apt-get upgrade -y; bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/instgerador.sh)
+
+
 ### Installation Gen
 
 apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/instgerador.sh; chmod 777 instgerador.sh* && ./instgerador.sh
