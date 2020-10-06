@@ -1,219 +1,254 @@
-#!/bin/bash
-Block="/etc/bin" && [[ ! -d ${Block} ]] && exit
-Block > /dev/null 2>&1
+#!/usr/bin/env bash
 
-SCPdir="/etc/newadm"
-SCPusr="${SCPdir}/ger-user"
-SCPfrm="/etc/ger-frm"
-SCPfrm3="/etc/adm-lite"
-SCPinst="/etc/ger-inst"
-SCPidioma="${SCPdir}/idioma"
-
-PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
-export PATH
-meu_ip () {
-if [[ -e /etc/MEUIPADM ]]; then
-echo "$(cat /etc/MEUIPADM)"
-else
-MEU_IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
-MEU_IP2=$(wget -qO- ipv4.icanhazip.com)
-[[ "$MEU_IP" != "$MEU_IP2" ]] && echo "$MEU_IP2" || echo "$MEU_IP"
-echo "$MEU_IP2" > /etc/MEUIPADM
-fi
-}
-IP="$(meu_ip)"
-Block="/etc/crondbl" && [[ ! -d ${Block} ]] && exit
-Block > /dev/null 2>&1
-BARRA1="\e[1;30m========================================================\e[0m"
-BARRA="\e[0;31m--------------------------------------------------------------------\e[0m"
-blan='\033[1;37m'
-ama='\033[1;33m'
-blue='\033[1;34m'
-asul='\033[0;34m'
 red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[0m'
- 
-fun_V2ray () {
-if [[ -e /usr/local/V2ray.Fun ]]; then
- clear
-   v2ray
+
+cur_dir=$(pwd)
+
+# check root
+[[ $EUID -ne 0 ]] && echo -e "${red}错误：${plain} 必须使用root用户运行此脚本！\n" && exit 1
+
+# check os
+if [[ -f /etc/redhat-release ]]; then
+    release="centos"
+elif cat /etc/issue | grep -Eqi "debian"; then
+    release="debian"
+elif cat /etc/issue | grep -Eqi "ubuntu"; then
+    release="ubuntu"
+elif cat /etc/issue | grep -Eqi "centos|red hat|redhat"; then
+    release="centos"
+elif cat /proc/version | grep -Eqi "debian"; then
+    release="debian"
+elif cat /proc/version | grep -Eqi "ubuntu"; then
+    release="ubuntu"
+elif cat /proc/version | grep -Eqi "centos|red hat|redhat"; then
+    release="centos"
 else
-   install_V2ray
+    echo -e "${red}未检测到系统版本，请联系脚本作者！${plain}\n" && exit 1
 fi
-}
- 
- 
-install_V2ray () {
-clear
-tput setaf 7 ; tput setab 4 ; tput bold ; printf '%30s%s%-10s\n' "PANEL V2RAY OFICIAL BY THONYDROID" ; tput sgr0 ; echo ""
-echo -e "$BARRA1"
-echo -e "${blue}ESTE SCRIPT INSTALARA V2ray PANEL EN SU VPS, ESTO${plain}"
-echo -e "${blue}TOMARA UNOS MINUTOS SEA PACIENTE${plain}"
-echo -e "$BARRA1"
-    echo -e "${blan}Presione ENTER para comenzar o presione Ctrl + C para cancelar. Continue!${plain}"
-    read enter
-echo -e "$BARRA1"
- 
-#Check Root
-[ $(id -u) != "0" ] && { echo "${CFAILURE}Error: Debe ser root para ejecutar este script${CEND}"; exit 1; }
- 
-#Check OS
-if [ -n "$(grep 'Aliyun Linux release' /etc/issue)" -o -e /etc/redhat-release ]; then
-  OS=CentOS
-  [ -n "$(grep ' 7\.' /etc/redhat-release)" ] && CentOS_RHEL_version=7
-  [ -n "$(grep ' 6\.' /etc/redhat-release)" -o -n "$(grep 'Aliyun Linux release6 15' /etc/issue)" ] && CentOS_RHEL_version=6
-  [ -n "$(grep ' 5\.' /etc/redhat-release)" -o -n "$(grep 'Aliyun Linux release5' /etc/issue)" ] && CentOS_RHEL_version=5
-elif [ -n "$(grep 'Amazon Linux AMI release' /etc/issue)" -o -e /etc/system-release ]; then
-  OS=CentOS
-  CentOS_RHEL_version=6
-elif [ -n "$(grep bian /etc/issue)" -o "$(lsb_release -is 2>/dev/null)" == 'Debian' ]; then
-  OS=Debian
-  [ ! -e "$(which lsb_release)" ] && { apt-get -y update; apt-get -y install lsb-release; clear; }
-  Debian_version=$(lsb_release -sr | awk -F. '{print $1}')
-elif [ -n "$(grep Deepin /etc/issue)" -o "$(lsb_release -is 2>/dev/null)" == 'Deepin' ]; then
-  OS=Debian
-  [ ! -e "$(which lsb_release)" ] && { apt-get -y update; apt-get -y install lsb-release; clear; }
-  Debian_version=$(lsb_release -sr | awk -F. '{print $1}')
-elif [ -n "$(grep Ubuntu /etc/issue)" -o "$(lsb_release -is 2>/dev/null)" == 'Ubuntu' -o -n "$(grep 'Linux Mint' /etc/issue)" ]; then
-  OS=Ubuntu
-  [ ! -e "$(which lsb_release)" ] && { apt-get -y update; apt-get -y install lsb-release; clear; }
-  Ubuntu_version=$(lsb_release -sr | awk -F. '{print $1}')
-  [ -n "$(grep 'Linux Mint 18' /etc/issue)" ] && Ubuntu_version=16
-else
-  echo "${CFAILURE} no es compatible con este sistema operativo, comuníquese con el autor! ${CEND}"
-  kill -9 $$
+
+if [ $(getconf WORD_BIT) != '32' ] && [ $(getconf LONG_BIT) != '64' ] ; then
+    echo "本软件不支持 32 位系统(x86)，请使用 64 位系统(x86_64)，如果检测有误，请联系作者"
+    exit -1
 fi
- 
-#Install Needed Packages
- 
-if [ ${OS} == Ubuntu ] || [ ${OS} == Debian ];then
-    apt-get update -y
-    apt-get install wget curl socat git unzip python python-dev openssl libssl-dev ca-certificates supervisor -y
-    wget -O - "https://bootstrap.pypa.io/get-pip.py" | python
-    pip install --upgrade pip
-    pip install flask requests urllib3 Flask-BasicAuth Jinja2 requests six wheel
-    pip install pyOpenSSL
+
+os_version=""
+
+# os version
+if [[ -f /etc/os-release ]]; then
+    os_version=$(awk -F'[= ."]' '/VERSION_ID/{print $3}' /etc/os-release)
 fi
- 
-if [ ${OS} == CentOS ];then
-    yum install epel-release -y
-    yum install python-pip python-devel socat ca-certificates openssl unzip git curl crontabs wget -y
-    pip install --upgrade pip
-    pip install flask requests urllib3 Flask-BasicAuth supervisor Jinja2 requests six wheel
-    pip install pyOpenSSL
+if [[ -z "$os_version" && -f /etc/lsb-release ]]; then
+    os_version=$(awk -F'[= ."]+' '/DISTRIB_RELEASE/{print $2}' /etc/lsb-release)
 fi
- 
-if [ ${Debian_version} == 9 ];then
-    wget -N --no-check-certificate https://github.com/ThonyDroidYT/V2ray.Fun/blob/master/enable-debian9-rclocal.sh
-    bash enable-debian9-rclocal.sh
-    rm enable-debian9-rclocal.sh
-fi
- 
- 
-#Install acme.sh
-curl https://get.acme.sh | sh
- 
-#Install V2ray
-curl -L -s https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh | bash
- 
-#Install V2ray.Fun
-cd /usr/local/
-git clone https://github.com/ThonyDroidYT/V2ray.Fun
- 
-#Generate Default Configurations
-cd /usr/local/V2ray.Fun/ && python init.py
-cp /usr/local/V2ray.Fun/v2ray.py /usr/local/bin/v2ray
-chmod +x /usr/local/bin/v2ray
-chmod +x /usr/local/V2ray.Fun/start.sh
- 
-#Start All services
-service v2ray start
- 
-#Configure Supervisor
-mkdir /etc/supervisor
-mkdir /etc/supervisor/conf.d
-echo_supervisord_conf > /etc/supervisor/supervisord.conf
-cat>>/etc/supervisor/supervisord.conf<<EOF
-[include]
-files = /etc/supervisor/conf.d/*.ini
-EOF
-touch /etc/supervisor/conf.d/v2ray.fun.ini
-cat>>/etc/supervisor/conf.d/v2ray.fun.ini<<EOF
-[program:v2ray.fun]
-command=/usr/local/V2ray.Fun/start.sh run
-stdout_logfile=/var/log/v2ray.fun
-autostart=true
-autorestart=true
-startsecs=5
-priority=1
-stopasgroup=true
-killasgroup=true
-EOF
- 
-echo -e "${blue}ESTOS DATOS SE USARAN PARA ENRAR AL PANEL${plain}"
-echo -e "$BARRA1"
-read -p "ingrese el nombre de usuario [predeterminado admin]: " un
-echo -e "$BARRA"
-read -p "Ingrese la contrasena de inicio de sesion [predeterminado admin]: " pw
-echo -e "$BARRA"
-read -p "Introduzca el numero de puerto [predeterminado 5000]: " uport
-if [[ -z "${uport}" ]];then
-    uport="5000"
-else
-    if [[ "$uport" =~ ^(-?|\+?)[0-9]+(\.?[0-9]+)?$ ]];then
-        if [[ $uport -ge "65535" || $uport -le 1 ]];then
-            echo -e "${red}valor de rango de puerto [1,65535], aplique el numero de puerto predeterminado 5000${plain}"
-            unset uport
-            uport="5000"
-        else
-            tport=`netstat -anlt | awk '{print $4}' | sed -e '1,2d' | awk -F : '{print $NF}' | sort -n | uniq | grep "$uport"`
-            if [[ ! -z ${tport} ]];then
-                echo -e "${red}El numero de puerto ya existe! Aplique el numero de puerto predeterminado 5000${plain}"
-                unset uport
-                uport="5000"
-            fi
-        fi
-    else
-        echo -e "${blan}Por favor, ingrese un número. Aplique el número de puerto predeterminado 5000${plain}"
-        uport="5000"
+
+if [[ x"${release}" == x"centos" ]]; then
+    if [[ ${os_version} -le 6 ]]; then
+        echo -e "${red}请使用 CentOS 7 或更高版本的系统！${plain}\n" && exit 1
+    fi
+elif [[ x"${release}" == x"ubuntu" ]]; then
+    if [[ ${os_version} -lt 16 ]]; then
+        echo -e "${red}请使用 Ubuntu 16 或更高版本的系统！${plain}\n" && exit 1
+    fi
+elif [[ x"${release}" == x"debian" ]]; then
+    if [[ ${os_version} -lt 8 ]]; then
+        echo -e "${red}请使用 Debian 8 或更高版本的系统！${plain}\n" && exit 1
     fi
 fi
-if [[ -z "${un}" ]];then
-    un="admin"
-fi
-if [[ -z "${pw}" ]];then
-    pw="admin"
-fi
-sed -i "s/%%username%%/${un}/g" /usr/local/V2ray.Fun/panel.config
-sed -i "s/%%passwd%%/${pw}/g" /usr/local/V2ray.Fun/panel.config
-sed -i "s/%%port%%/${uport}/g" /usr/local/V2ray.Fun/panel.config
-chmod 777 /etc/v2ray/config.json
-supervisord -c /etc/supervisor/supervisord.conf
-echo "supervisord -c /etc/supervisor/supervisord.conf">>/etc/rc.local
-chmod +x /etc/rc.local
- 
-echo -e "$BARRA1"
-echo -e "${green}La instalacion ah sido exitosa!${plain}"
 
-echo -e "${blan}con estos datos entrara al panel${plain}"
-echo -e "$BARRA1"
-echo ""
-echo -e "${blan}Puerto del panel:${plain} ${uport}"
-echo -e "$BARRA"
-echo -e "${blan}Nombre de usuario:${plain} ${un}"
-echo -e "$BARRA"
-echo -e "${blan}Contrasena:${plain} ${pw}"
-echo -e "$BARRA"
-echo -e "${blan}Acceso al panel: http://$IP:${uport}${plain}"
-echo -e "${blan}O use la direccion de su dominio mas el puerto${plain}"
-echo -e "$BARRA1"
-echo ''
-echo "Gracias por utilizar Panel V2ray v2ray"
- 
-#LIMPIAR ARCHIVOS BASURA
-rm -rf /root/config.json
-rm -rf /root/install-debian.sh
+confirm() {
+    if [[ $# > 1 ]]; then
+        echo && read -p "$1 [默认$2]: " temp
+        if [[ x"${temp}" == x"" ]]; then
+            temp=$2
+        fi
+    else
+        read -p "$1 [y/n]: " temp
+    fi
+    if [[ x"${temp}" == x"y" || x"${temp}" == x"Y" ]]; then
+        return 0
+    else
+        return 1
+    fi
 }
-fun_V2ray
+
+install_base() {
+    if [[ x"${release}" == x"centos" ]]; then
+        yum install wget curl tar unzip -y
+    else
+        apt install wget curl tar unzip -y
+    fi
+}
+
+uninstall_old_v2ray() {
+    if [[ -f /usr/bin/v2ray/v2ray ]]; then
+        confirm "检测到旧版 v2ray，是否卸载，将删除 /usr/bin/v2ray/ 与 /etc/systemd/system/v2ray.service" "Y"
+        if [[ $? != 0 ]]; then
+            echo "不卸载则无法安装 v2-ui"
+            exit 1
+        fi
+        echo -e "${green}卸载旧版 v2ray${plain}"
+        systemctl stop v2ray
+        rm /usr/bin/v2ray/ -rf
+        rm /etc/systemd/system/v2ray.service -f
+        systemctl daemon-reload
+    fi
+    if [[ -f /usr/local/bin/v2ray ]]; then
+        confirm "检测到其它方式安装的 v2ray，是否卸载，v2-ui 自带官方 v2ray 内核，为防止与其端口冲突，建议卸载" "Y"
+        if [[ $? != 0 ]]; then
+            echo -e "${red}你选择了不卸载，请自行确保其它脚本安装的 v2ray 与 v2-ui ${green}自带的官方 v2ray 内核${red}不会端口冲突${plain}"
+        else
+            echo -e "${green}开始卸载其它方式安装的 v2ray${plain}"
+            systemctl stop v2ray
+            bash <(curl https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh) --remove
+            systemctl daemon-reload
+        fi
+    fi
+}
+
+install_v2ray() {
+    uninstall_old_v2ray
+    echo -e "${green}开始安装or升级v2ray${plain}"
+    bash <(curl https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+    if [[ $? -ne 0 ]]; then
+        echo -e "${red}v2ray安装或升级失败，请检查错误信息${plain}"
+        echo -e "${yellow}大多数原因可能是因为你当前服务器所在的地区无法下载 v2ray 安装包导致的，这在国内的机器上较常见，解决方式是手动安装 v2ray，具体原因还是请看上面的错误信息${plain}"
+        exit 1
+    fi
+    echo "
+[Unit]
+Description=V2Ray Service
+After=network.target nss-lookup.target
+
+[Service]
+User=root
+CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
+NoNewPrivileges=true
+Environment=V2RAY_LOCATION_ASSET=/usr/local/share/v2ray/
+ExecStart=/usr/local/bin/v2ray -confdir /usr/local/etc/v2ray/
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+" > /etc/systemd/system/v2ray.service
+    if [[ ! -f /usr/local/etc/v2ray/00_log.json ]]; then
+        echo "{}" > /usr/local/etc/v2ray/00_log.json
+    fi
+    if [[ ! -f /usr/local/etc/v2ray/01_api.json ]]; then
+        echo "{}" > /usr/local/etc/v2ray/01_api.json
+    fi
+    if [[ ! -f /usr/local/etc/v2ray/02_dns.json ]]; then
+        echo "{}" > /usr/local/etc/v2ray/02_dns.json
+    fi
+    if [[ ! -f /usr/local/etc/v2ray/03_routing.json ]]; then
+        echo "{}" > /usr/local/etc/v2ray/03_routing.json
+    fi
+    if [[ ! -f /usr/local/etc/v2ray/04_policy.json ]]; then
+        echo "{}" > /usr/local/etc/v2ray/04_policy.json
+    fi
+    if [[ ! -f /usr/local/etc/v2ray/05_inbounds.json ]]; then
+        echo "{}" > /usr/local/etc/v2ray/05_inbounds.json
+    fi
+    if [[ ! -f /usr/local/etc/v2ray/06_outbounds.json ]]; then
+        echo "{}" > /usr/local/etc/v2ray/06_outbounds.json
+    fi
+    if [[ ! -f /usr/local/etc/v2ray/07_transport.json ]]; then
+        echo "{}" > /usr/local/etc/v2ray/07_transport.json
+    fi
+    if [[ ! -f /usr/local/etc/v2ray/08_stats.json ]]; then
+        echo "{}" > /usr/local/etc/v2ray/08_stats.json
+    fi
+    if [[ ! -f /usr/local/etc/v2ray/09_reverse.json ]]; then
+        echo "{}" > /usr/local/etc/v2ray/09_reverse.json
+    fi
+    systemctl daemon-reload
+    systemctl enable v2ray
+    systemctl start v2ray
+}
+
+close_firewall() {
+    if [[ x"${release}" == x"centos" ]]; then
+        systemctl stop firewalld
+        systemctl disable firewalld
+    elif [[ x"${release}" == x"ubuntu" ]]; then
+        ufw disable
+#    elif [[ x"${release}" == x"debian" ]]; then
+#        iptables -P INPUT ACCEPT
+#        iptables -P OUTPUT ACCEPT
+#        iptables -P FORWARD ACCEPT
+#        iptables -F
+    fi
+}
+
+install_v2-ui() {
+    systemctl stop v2-ui
+    cd /usr/local/
+    if [[ -e /usr/local/v2-ui/ ]]; then
+        rm /usr/local/v2-ui/ -rf
+    fi
+
+    if  [ $# == 0 ] ;then
+        last_version=$(curl -Ls "https://api.github.com/repos/sprov065/v2-ui/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+        if [[ ! -n "$last_version" ]]; then
+            echo -e "${red}检测 v2-ui 版本失败，可能是超出 Github API 限制，请稍后再试，或手动指定 v2-ui 版本安装${plain}"
+            exit 1
+        fi
+        echo -e "检测到 v2-ui 最新版本：${last_version}，开始安装"
+        wget -N --no-check-certificate -O /usr/local/v2-ui-linux.tar.gz https://github.com/sprov065/v2-ui/releases/download/${last_version}/v2-ui-linux.tar.gz
+        if [[ $? -ne 0 ]]; then
+            echo -e "${red}下载 v2-ui 失败，请确保你的服务器能够下载 Github 的文件${plain}"
+            exit 1
+        fi
+    else
+        last_version=$1
+        url="https://github.com/sprov065/v2-ui/releases/download/${last_version}/v2-ui-linux.tar.gz"
+        echo -e "开始安装 v2-ui v$1"
+        wget -N --no-check-certificate -O /usr/local/v2-ui-linux.tar.gz ${url}
+        if [[ $? -ne 0 ]]; then
+            echo -e "${red}下载 v2-ui v$1 失败，请确保此版本存在${plain}"
+            exit 1
+        fi
+    fi
+
+    tar zxvf v2-ui-linux.tar.gz
+    rm v2-ui-linux.tar.gz -f
+    cd v2-ui
+    chmod +x v2-ui bin/v2ray-v2-ui bin/v2ctl
+    cp -f v2-ui.service /etc/systemd/system/
+    systemctl daemon-reload
+    systemctl enable v2-ui
+    systemctl start v2-ui
+    echo -e "${green}v2-ui v${last_version}${plain} 安装完成，面板已启动，"
+    echo -e ""
+    echo -e "如果是全新安装，默认网页端口为 ${green}65432${plain}，用户名和密码默认都是 ${green}admin${plain}"
+    echo -e "请自行确保此端口没有被其他程序占用，${yellow}并且确保 65432 端口已放行${plain}"
+    echo -e "若想将 65432 修改为其它端口，输入 v2-ui 命令进行修改，同样也要确保你修改的端口也是放行的"
+    echo -e ""
+    echo -e "如果是更新面板，则按你之前的方式访问面板"
+    echo -e ""
+    curl -o /usr/bin/v2-ui -Ls https://raw.githubusercontent.com/sprov065/v2-ui/master/v2-ui.sh
+    chmod +x /usr/bin/v2-ui
+    echo -e "v2-ui 管理脚本使用方法: "
+    echo -e "----------------------------------------------"
+    echo -e "v2-ui              - 显示管理菜单 (功能更多)"
+    echo -e "v2-ui start        - 启动 v2-ui 面板"
+    echo -e "v2-ui stop         - 停止 v2-ui 面板"
+    echo -e "v2-ui restart      - 重启 v2-ui 面板"
+    echo -e "v2-ui status       - 查看 v2-ui 状态"
+    echo -e "v2-ui enable       - 设置 v2-ui 开机自启"
+    echo -e "v2-ui disable      - 取消 v2-ui 开机自启"
+    echo -e "v2-ui log          - 查看 v2-ui 日志"
+    echo -e "v2-ui update       - 更新 v2-ui 面板"
+    echo -e "v2-ui install      - 安装 v2-ui 面板"
+    echo -e "v2-ui uninstall    - 卸载 v2-ui 面板"
+    echo -e "----------------------------------------------"
+}
+
+echo -e "${green}开始安装${plain}"
+install_base
+uninstall_old_v2ray
+close_firewall
+install_v2-ui $1
