@@ -1,8 +1,5 @@
 ﻿## *GENERADOR-NEW-ULTIMATE-PLUS*
 
-## Panel v2ray
-wget https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/v2ui.sh && chmod 777 v2ui.sh sudo v2ui.sh
-
 #### :heavy_exclamation_mark: Proyecto Totalmente Privado. Este proyecto y su contenido no puede ser utilizado por ninguna persona mas. Tener en cuenta esto Antes de clonarlo :heavy_exclamation_mark:
 
 ### By @Thony_DroidYT
