@@ -594,7 +594,7 @@ msg -verm "$(fun_trans "Monitor de Conexiones de Usuarios")"
 msg -bar
 txtvar=$(printf '%-13s' " USUARIO ")
 txtvar+=$(printf '%-19s' " CONEXIÓN ")
-txtvar+=$(printf '%-16s' " TIEMPO/ACTIVO ")
+txtvar+=$(printf '%-16s' "  TIEMPO/ACTIVO ")
 echo -e "\033[1;33m${txtvar}"
 msg -bar
 while read user; do
@@ -794,7 +794,7 @@ done <<< "$chk"
 mv -f /tmp/ssh-conf /etc/ssh/sshd_config
 echo "Banner /etc/bannerssh" >> /etc/ssh/sshd_config
 local="/etc/bannerssh"
-msg -verd "$(fun_trans "Bienvenido este es el instalador de Banner de ADM")"
+msg -verd "$(fun_trans "Bienvenido este es el instalador de Banner de ADM-PLUS")"
 msg -bar
 msg -ne "$(fun_trans "digite un mensaje principal de banner"): " && read ban_ner
 echo -e " \033[1;32m[1] >\033[1;32m $(fun_trans "Verde")"
@@ -803,9 +803,9 @@ echo -e " \033[1;32m[3] >\033[1;34m $(fun_trans "Azul")"
 echo -e " \033[1;32m[4] >\033[1;33m $(fun_trans "Amarillo")"
 echo -e " \033[1;32m[5] >\033[1;35m $(fun_trans "Morado")"
 echo -e " \033[1;32m[6] >\033[198m $(fun_trans "Rosado")"
-echo -e " \033[1;32m[7] >\033[44m $(fun_trans "Celeste")"
+echo -e " \033[1;32m[7] >\033[0;34m $(fun_trans "Celeste")"
 echo -e " \033[1;32m[8] >\033[0;33m $(fun_trans "Marrón")"
-echo -e " \033[1;32m[9] >\033[202m $(fun_trans "Anaranjado")"
+echo -e " \033[1;32m[9] >\033[2;02m $(fun_trans "Anaranjado")"
 msg -ne "$(fun_trans "Perfecto Ahora un Color"): " && read ban_ner_cor
 echo '<h2><font color="red">★━━━━━━✩━━━━━━★</font></h2>' > $local
 if [[ "$ban_ner_cor" = "1" ]]; then
@@ -831,16 +831,16 @@ echo '<h1><font color="blue">' >> $local
 fi
 echo "$ban_ner" >> $local
 echo '</font></h1>' >> $local
-echo '<h2><font color="red">★━━━━━━✩━━━━━━★</font></h2>' >> $local
+echo '<h2><font color="blue">★━━━━━━✩━━━━━━★</font></h2>' >> $local
 txt_font () {
 msg -ne "$(fun_trans "digite un mensaje secundario"): " && read ban_ner2
 echo -e " \033[1;32m[1] >\033[1;32m $(fun_trans "Verde")"
 echo -e " \033[1;32m[2] >\033[1;31m $(fun_trans "Rojo")"
 echo -e " \033[1;32m[3] >\033[1;34m $(fun_trans "Azul")"
-echo -e " \033[1;32m[4] >\033[1;33m $(fun_trans "Amarelo")"
+echo -e " \033[1;32m[4] >\033[1;33m $(fun_trans "Amarillo")"
 echo -e " \033[1;32m[5] >\033[1;35m $(fun_trans "Morado")"
 echo -e " \033[1;32m[6] >\033[198m $(fun_trans "Rosado")"
-echo -e " \033[1;32m[7] >\033[44m $(fun_trans "Celeste")"
+echo -e " \033[1;32m[7] >\033[0;34m $(fun_trans "Celeste")"
 echo -e " \033[1;32m[8] >\033[0;33m $(fun_trans "Marrón")"
 echo -e " \033[1;32m[9] >\033[202m $(fun_trans "Anaranjado")"
 msg -ne "$(fun_trans "Perfecto Ahora un Color"): " && read ban_ner2_cor
