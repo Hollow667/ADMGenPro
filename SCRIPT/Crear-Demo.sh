@@ -33,7 +33,7 @@ rm -rf /tmp/$2
 exit" > /tmp/$2
 }
 
-echo -e "\033[1;96m   CREAR USUARIO TEMPORAL POR (Minutos) [NEW-ADM-PLUS]\n\033[1;97mLos Usuarios que crees en esta sección se eliminaran\nautomaticamete pasando el tiempo designado\033[0m"
+echo -e "\033[1;96m CREAR USUARIO TEMPORAL POR (Minutos) [NEW-ADM-PLUS]\n\033[1;97mLos Usuarios que crees en esta sección se eliminaran\nautomaticamete pasando el tiempo designado\033[0m"
 msg -bar
 
 echo -e "\033[1;91m[1]-\033[1;97mNombre del usuario: 》\033[0;37m"; read -p " " name
@@ -69,13 +69,13 @@ touch /etc/adm/usuarios/$name
 echo "senha: $pass" >> /etc/adm/usuarios/$name
 echo "data: ($tmp)Minutos" >> /etc/adm/usuarios/$name
 msg -bar2
-echo -e "\033[1;93m USUARIO TEMPORAL POR [MINUTOS] CREADO CON ÉXITO!! \033[0m"
+echo -e "\033[1;93mUSUARIO TEMPORAL POR [MINUTOS] CREADO CON ÉXITO!! \033[0m"
 msg -bar2
-echo -e "\033[1;36m IP del Servidor: \033[0m$(meu_ip) " 
-echo -e "\033[1;36m Usuario: \033[0m$name"
-echo -e "\033[1;36m Contraseña: \033[0m$pass"
-echo -e "\033[1;36m Minutos de Duración: \033[0m$tmp"
-echo -e "\033[1;36m SSH Creado Con: \033[0mNEW-ADM-PlUS"
+echo -e "\033[1;36m⇛ IP del Servidor: \033[0m$(meu_ip) " 
+echo -e "\033[1;36m⇛ Usuario: \033[0m$name"
+echo -e "\033[1;36m⇛ Contraseña: \033[0m$pass"
+echo -e "\033[1;36m⇛ Minutos de Duración: \033[0m$tmp"
+echo -e "\033[1;36m⇛SSH Creado Con: \033[0mNEW-ADM-PlUS"
 msg -bar2
 exit
 fi
