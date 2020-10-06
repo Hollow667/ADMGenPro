@@ -224,8 +224,8 @@ install_v2-ui() {
     echo -e "${green}v2-ui v${last_version}${plain} La instalación se ha completado，El panel está activado，"
     echo -e ""
     echo -e "Si es una instalación nueva，El puerto web predeterminado es ${green}65432${plain}，El nombre de usuario y la contraseña son ambos predeterminados ${green}admin${plain}"
-    echo -e "Asegúrese de que este puerto no esté ocupado por otros programas，${yellow}Y asegúrate 65432 El puerto ha sido liberado${plain}"
-    echo -e "Si quieres 65432 Modificar a otros puertos，Ingresar comando v2-ui para modificar，También asegúrese de que el puerto que modifica también esté permitido"
+    echo -e "Asegúrese de que este puerto no esté ocupado por otros programas，${yellow}Y asegúrate que El puerto 65432 ha sido liberado${plain}"
+    echo -e "Si quieres Modificar 65432 a otros puertos，Ingresar comando v2-ui para modificar，También asegúrese de que el puerto que modifica también esté permitido"
     echo -e ""
     echo -e "Si es para actualizar el panel，acceda al panel como lo hizo antes"
     echo -e ""
@@ -248,7 +248,7 @@ install_v2-ui() {
     echo -e "----------------------------------------------"
 }
 
-echo -e "${green}iniciar la instalación${plain}"
+echo -e "${green}iniciando la instalación${plain}"
 install_base
 uninstall_old_v2ray
 close_firewall
