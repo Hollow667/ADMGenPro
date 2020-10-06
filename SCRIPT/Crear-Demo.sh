@@ -75,7 +75,7 @@ echo -e "\033[1;36m⇛ IP del Servidor: \033[0m$(meu_ip) "
 echo -e "\033[1;36m⇛ Usuario: \033[0m$name"
 echo -e "\033[1;36m⇛ Contraseña: \033[0m$pass"
 echo -e "\033[1;36m⇛ Minutos de Duración: \033[0m$tmp"
-echo -e "\033[1;36m⇛SSH Creado Con: \033[0mNEW-ADM-PlUS"
+echo -e "\033[1;36m⇛ SSH Creado Con: \033[0mNEW-ADM-PlUS"
 msg -bar2
 exit
 fi
