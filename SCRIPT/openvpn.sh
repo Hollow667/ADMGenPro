@@ -362,7 +362,34 @@ echo -e "\033[1;32m Configuracion Finalizada!"
 msg -bar
 
 }
-
+function openvpnweb16(){
+echo -e "Se instalara OpenVPN Web Panel para Ubuntu 16 x64"
+echo -e "Para su instalacion se requiere libre el puerto 443 y 943"
+echo -e "Para continuar presiona cualquier tecla o Ctrl + C para cancelar la instalacion"
+echo -e "\033[1;31mPRESIONE ENTER PARA CONTINUAR\033[0m"
+read -p " "
+/etc/init.d/openvpn stop
+wget --no-check-certificate https://openvpn.net/downloads/openvpn-as-latest-ubuntu16.amd_64.deb
+dpkg -i openvpn-as-latest-ubuntu16.amd_64.deb
+rm openvpn-as-latest-ubuntu16.amd_64.deb
+echo -e "El usuario Administrador por default es : openvpn"
+echo -e "Escriba el passwd para el usuario openvpn"
+passwd openvpn
+}
+function openvpnweb18(){
+echo -e "Se instalara OpenVPN Web Panel para Ubuntu 18 x64"
+echo -e "Para su instalacion se requiere libre el puerto 443 y 943"
+echo -e "Para continuar presiona cualquier tecla o Ctrl + C para cancelar la instalacion"
+echo -e "\033[1;31mPRESIONE ENTER PARA CONTINUAR\033[0m"
+read -p " "
+/etc/init.d/openvpn stop
+wget --no-check-certificate https://openvpn.net/downloads/openvpn-as-latest-ubuntu18.amd_64.deb
+dpkg -i openvpn-as-latest-ubuntu18.amd_64.deb
+rm openvpn-as-latest-ubuntu18.amd_64.deb
+echo -e "El usuario Administrador por default es : openvpn"
+echo -e "Escriba el passwd para el usuario openvpn"
+passwd openvpn
+}
 instala_ovpn () {
 parametros_iniciais () {
 #Verifica o Sistema
@@ -418,7 +445,7 @@ wget -q -O - https://swupdate.openvpn.net/repos/repo-public.gpg | apt-key add - 
 fi
 }
 coleta_variaveis () {
-echo -e "\033[1;32m     INSTALADOR DE OPENVPN | VPS-MX By @Kalix1"
+echo -e "\033[1;32m     INSTALADOR DE OPENVPN | ADM-PLUS BY @Thony_DroidYT"
 msg -bar
 msg -ne " Confirme su IP"; read -p ": " -e -i $IP ip
 msg -bar
@@ -757,6 +784,8 @@ echo -e "\033[1;32m [2] >\033[1;36m EDITAR CONFIGURACION CLIENTE \033[1;31m(MEDI
 echo -e "\033[1;32m [3] >\033[1;36m EDITAR CONFIGURACION SERVIDOR \033[1;31m(MEDIANTE NANO)"
 echo -e "\033[1;32m [4] >\033[1;36m CAMBIAR HOST DE OPENVPN"
 echo -e "\033[1;32m [5] >\033[1;36m INICIAR O PARAR OPENVPN - $OPENBAR"
+echo -e "\033[1;32m [6] >\033[1;36m PANEL WEB OPENVPN UBUNTU16"
+echo -e "\033[1;32m [7] >\033[1;36m PANEL WEB OPENVPN UBUNTU18"
 msg -bar
 while [[ $xption != @([0|1|2|3|4|5]) ]]; do
 echo -ne "\033[1;33m $(fun_trans "Opcion"): " && read xption
@@ -834,7 +863,11 @@ msg -bar
    }
    msg -ama " Procedimiento Hecho con Exito"
    msg -bar
-   return 0;; 
+   return 0;;
+6)
+openvpnweb16;;
+7)
+openvpnweb18;;
  0)
    return 0;;
  esac
