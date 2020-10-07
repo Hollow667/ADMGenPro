@@ -19,6 +19,8 @@ shadowsocks.sh
 ssl.sh
 squid.sh
 fai2ban.sh
+GENERADOR_BIN.sh
+MasterBin.sh
 v2ray.sh
 v2ui.sh
 version.txt
