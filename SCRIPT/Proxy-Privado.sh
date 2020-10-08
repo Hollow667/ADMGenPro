@@ -22,8 +22,8 @@ echo -e " \033[1;33m[\033[1;31m####################\033[1;33m] - \033[1;32m100%\
 sleep 1s
 }
 clear
-cowsay -f eyes "esta herramienta le cambia y da color al status de conexion y agrega una contrasena atu payload para mayor seguridad...." | lolcat 
-figlet ..dankelthaher.. | lolcat
+cowsay -f eyes "Esta herramienta le cambia y da color al status de conexion y agrega una contrasena atu payload para mayor seguridad...." | lolcat 
+figlet ..ThonyDroid.. | lolcat
 BARRA="\e[0;31m➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖\e[0m"
 echo -e "\e[0;31m➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖\e[0m"
 echo ""
@@ -54,13 +54,13 @@ read mensage
 echo -e "$BARRA"
 echo -e "Seleccione El Color De Mensaje: "
 cat << Eof
-[ 1 ] -- #ff183f -- rojo
-[ 2 ] -- #3fff18 -- verde
-[ 3 ] -- #6518ff -- morado
+[ 1 ] -- #ff183f -- \033[1;31mrojo
+[ 2 ] -- #3fff18 -- \033[1;32mverde
+[ 3 ] -- #6518ff -- \033[1;35morado
 [ 4 ] -- #ff6518 -- naranja
-[ 5 ] -- #18ffd9 -- cyan
+[ 5 ] -- #18ffd9 -- \033[1;36cyan
 [ 6 ] -- #ffd700 -- amarillo
-[ 7 ] -- #1e90ff -- azul
+[ 7 ] -- #1e90ff -- \033[1;34mazul
 [ 8 ] -- #000000 -- negro
 [ 9 ] -- #00ff7f -- agua marina
 [ 10 ] -- #8b4513 -- cafe
