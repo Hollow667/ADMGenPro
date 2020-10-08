@@ -4,8 +4,8 @@ Block > /dev/null 2>&1
 clear
 cowsay -f eyes "Esta herramienta le cambia y da color al status de conexion...." | lolcat 
 figlet ..ThonyDroid.. | lolcat
-BARRA="\e[0;31m➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖\e[0m"
-echo -e "\e[0;31m➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖\e[0m"
+BARRA="\e[1;34m========================================================\e[0m"
+echo -e "\e[1;34m========================================================\e[0m"
 if [[ ! -e /usr/bin/python ]]; then
 echo -e "Introduca Estos Comandos En La Terminal"
 echo -e "apt-get install python -y"
