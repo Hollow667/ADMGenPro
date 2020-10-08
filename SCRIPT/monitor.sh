@@ -45,6 +45,7 @@ echo "
 </head>
 <body>
 <h1>Monitor de Servicios By Thony_DroidYT</h1>
+<h1>Creditos: @Kalix1</h1>
 <p id='ultact'>Última actualización: $FECHA</p>
 <hr>
 " > $DIR/$ARCHIVO
