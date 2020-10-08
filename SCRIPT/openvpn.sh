@@ -362,7 +362,7 @@ echo -e "\033[1;32m Configuracion Finalizada!"
 msg -bar
 
 }
-function openvpnweb16(){
+openvpnweb16 () {
 echo -e "Se instalara OpenVPN Web Panel para Ubuntu 16 x64"
 echo -e "Para su instalacion se requiere libre el puerto 443 y 943"
 echo -e "Para continuar presiona cualquier tecla o Ctrl + C para cancelar la instalacion"
@@ -376,7 +376,7 @@ echo -e "El usuario Administrador por default es : openvpn"
 echo -e "Escriba el passwd para el usuario openvpn"
 passwd openvpn
 }
-function openvpnweb18(){
+openvpnweb18 () {
 echo -e "Se instalara OpenVPN Web Panel para Ubuntu 18 x64"
 echo -e "Para su instalacion se requiere libre el puerto 443 y 943"
 echo -e "Para continuar presiona cualquier tecla o Ctrl + C para cancelar la instalacion"
@@ -784,10 +784,10 @@ echo -e "\033[1;32m [2] >\033[1;36m EDITAR CONFIGURACION CLIENTE \033[1;31m(MEDI
 echo -e "\033[1;32m [3] >\033[1;36m EDITAR CONFIGURACION SERVIDOR \033[1;31m(MEDIANTE NANO)"
 echo -e "\033[1;32m [4] >\033[1;36m CAMBIAR HOST DE OPENVPN"
 echo -e "\033[1;32m [5] >\033[1;36m INICIAR O PARAR OPENVPN - $OPENBAR"
-echo -e "\033[1;32m [6] >\033[1;36m PANEL WEB OPENVPN UBUNTU16"
-echo -e "\033[1;32m [7] >\033[1;36m PANEL WEB OPENVPN UBUNTU18"
+echo -e "\033[1;32m [6] >\033[1;36m PANEL WEB OPENVPN UBUNTU 16"
+echo -e "\033[1;32m [7] >\033[1;36m PANEL WEB OPENVPN UBUNTU 18"
 msg -bar
-while [[ $xption != @([0|1|2|3|4|5]) ]]; do
+while [[ $xption != @([0|1|2|3|4|5|6|7]) ]]; do
 echo -ne "\033[1;33m $(fun_trans "Opcion"): " && read xption
 tput cuu1 && tput dl1
 done
@@ -864,10 +864,8 @@ msg -bar
    msg -ama " Procedimiento Hecho con Exito"
    msg -bar
    return 0;;
-6)
-openvpnweb16;;
-7)
-openvpnweb18;;
+6)openvpnweb16;;
+7)openvpnweb18;;
  0)
    return 0;;
  esac
