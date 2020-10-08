@@ -24,8 +24,8 @@ sleep 1s
 clear
 cowsay -f eyes "Esta herramienta le cambia y da color al status de conexion y agrega una contrasena atu payload para mayor seguridad...." | lolcat 
 figlet ..ThonyDroid.. | lolcat
-BARRA="\e[0;31m➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖\e[0m"
-echo -e "\e[0;31m➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖\e[0m"
+BARRA="\e[1;34m========================================================\e[0m"
+echo -e "\e[1;34m========================================================\e[0m"
 echo ""
 if [[ ! -e /usr/bin/python ]]; then
 echo -e "Introduca Estos Comandos En La Terminal"
@@ -40,7 +40,7 @@ read port
 echo -e "$BARRA"
 echo -e "\033[1;31mATENCION:\n\033[1;34mPara Utilizar Este Proxy Es Necesario Agregar Una Linea A Su Payload\033[0m"
 echo -e "$BARRA"
-echo -ne "Escriba Una Contrasena Para El Proxy: "
+echo -ne "Escriba Una Contraseña Para El Proxy: "
 read ipdns
 if [[ ! -z $ipdns ]]; then
 echo -e "$BARRA"
