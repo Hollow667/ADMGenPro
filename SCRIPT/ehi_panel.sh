@@ -18,20 +18,21 @@ MEU_IP2=$(wget -qO- ipv4.icanhazip.com)
 [[ "$MEU_IP" != "$MEU_IP2" ]] && ip="$MEU_IP2" || ip="$MEU_IP"
 }
 
-echo -e " \033[1;32m $(fun_trans "PAINEL DE UPLOAD DE EHI") [NEW-ADM]"
+echo -e " \033[1;32m $(fun_trans "PAINEL DE UPLOAD DE EHI") [NEW-ADM-PLUS]"
 echo -e "$barra"
-echo -e " \033[1;33m $(fun_trans "Essa ferramenta cria um painel no qual você deve ")"
+echo -e " \033[1;33m $(fun_trans "Esta Herramienta crea un painel no qual você deve ")"
 echo -e " \033[1;33m $(fun_trans "fazer upload de servidores para download de outros usuários.")"
 echo -e "$barra"
 apt-get install figlet -y > /dev/null 2>&1
+apt-get install cowsay -y > /dev/null 2>&1
 meu_ip
 echo -e "${az}"
-figlet ADM.PRO ULTIMATE
+figlet ADM-Ultimate-Plus | lolcat
 echo -e "${f}"
 sleep 2
 echo
-echo -e "${ver}            +++++ $(fun_trans "ATENÃ‡ÃƒO") +++++${am}     
-$(fun_trans "TODAS AS SENHA A SEGUIR COLOQUE SEMPRE A MESMA")${f}"
+echo -e "${ver}            +++++ $(fun_trans "ATENCIÓN") +++++${am}     
+$(fun_trans "TODAS AS SENHA A SEGUIR COLOQUE SEMPRE LA MISMA")${f}"
 read -p "$(fun_trans "Enter, Para Prosseguir")!"
 apt-get install php5 libapache2-mod-php5 php5-mcrypt -y
 apt-get install mysql-server php5-mysql -y
@@ -43,18 +44,18 @@ ${am}O $(fun_trans "proximo procedimento de instalaÃ§ao vai te pedir uma senha
 $(fun_trans "ai vcs digita a senha que digitou antes e reconfirma ela ai depois do ir apertando") ${ver}Y${f}"
 read -p "$(fun_trans "Enter, Para Prosseguir")!"
 mysql_secure_installation
-echo -e "${az}$(fun_trans "AGUARDE A INSTALAÃ‡ÃƒO")${f}"
+echo -e "${az}$(fun_trans "ESPERE LA INSTALACIÓN")${f}"
 sleep 2
 apt-get install phpmyadmin -y
 php5enmod mcrypt
 service apache2 restart
 echo ""
 stty -echo
-tput setaf 7 ; tput bold ; read -p "$(fun_trans "Digita a mesma senha") (MySQL Password): " var7 ; tput sgr0
+tput setaf 7 ; tput bold ; read -p "$(fun_trans "Digita la misma contraseña") (MySQL Password): " var7 ; tput sgr0
 echo ""
 stty echo ; echo
 mysql -h localhost -u root -p$var7 -e "$(fun_trans "CREATE DATABASE adm")"
-echo -e "${ver}$(fun_trans "ATENÃ‡ÃƒO - LOGIN ASEGUIR Ã‰ PESSOAL NAO DIVULGUEM") ${f}"
+echo -e "${ver}$(fun_trans "ATENÃ‡ÃƒO - LOGIN ASEGUIR ES PERSONAL NO COMPARTAS") ${f}"
 echo ""
 echo -e "${am}$(fun_trans "Agora vamos colocar um LOGIN e SENHA de acesso a pagina de upload")${ve}"
 	read -p "Login: " var2
