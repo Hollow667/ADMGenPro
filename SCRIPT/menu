@@ -789,7 +789,7 @@ echo -e "\033[1;97mSSH REG:\033[1;92m $SSH4 $(fun_trans "CUENTAS")"
 [[ -e ${SCPdir}/key.txt ]] && msg -bar && msg -bra "KEY: $(cat ${SCPdir}/key.txt)"
 # NOVO SISTEMA DE MENUS
 msg -bar
-msg -ama "$(fun_trans "ADMINISTRADOR") \033[1;31m[\033[1;32mNEW - ULTIMATE - PLUS\033[1;31m] \033[1;32[By Thony_DroidYT\033[1;32m]"
+msg -ama "$(fun_trans "ADMINISTRADOR") \033[1;31m[\033[1;32mNEW - ULTIMATE - PLUS\033[1;31m] \033[1;35[\033[1;32By Thony_DroidYT\033[1;35m]"
 msg -bar
 echo -e "\033[34m[\e[1;33mADM Plus Versión Instalada:\033[34m] \033[1;33m[\033[1;31m $(cat /etc/newadm/version.txt) \033[1;33m] \033[1;31m[\033[1;32m#Official\033[1;31m]"
 msg -bar
