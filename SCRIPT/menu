@@ -489,6 +489,11 @@ ofc="\033[0m${gren}(#OFC)"
 dev="\033[0m${yellow}(#DEV)"
 new="\033[0m${red}(#NEW)"
 case $1 in
+"Crear-Demo.sh")return 1;;
+"v2ui.sh")return 1;;
+"gestor.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ADMINISTRAR SERVIDOR VPS") $new";;
+"speed_v2.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TEST DE VELOCIDAD SECUNDARIO") $new";;
+"ehi_panel.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PANEL DE SUBIDA DE EHI") $new";;
 "ADMbot.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "BOT DE ADMINISTRACIÓN") TELEGRAN $ofc";;
 "GENERADOR_BIN.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "GENERADOR DE CC") $dev";;
 "MasterBin.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "CHECKER DE BIN") $ofc";;
@@ -509,9 +514,6 @@ case $1 in
 "shadowsocks.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS $(pid_inst ssserver)";;
 "sockspy.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SOCKS PYTHON $(pid_inst python)";;
 "v2ray.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "V2RAY $(pid_inst v2ray)";;
-"gestor.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ADMINISTRAR SERVIDOR VPS") $new";;
-"speed_v2.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TEST DE VELOCIDAD SECUNDARIO") $new";;
-"ehi_panel.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PANEL DE SUBIDA DE EHI") $new";;
 "budp.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "BADVPN-(UDP:7300) $(pid_inst badvpn)";;
 "Proxy-Privado.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Publico) $(pid_inst proxypublico)";;
 "Proxy-Publico.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Privado) $(pid_inst proxyprivado.sh)";;
