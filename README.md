@@ -46,7 +46,7 @@ PARA INGRESAR AL GENERADOR ESCRIBE LOS COMANDOS EN MINUSCULA  gerar.sh, gerar o 
 -------------------------------------------------------------------------------
 
 ```
-NEW - ADM - MANAGER ( PLUS ) PARA QUE USEN SU GENERADOR DE KEY
+NEW - PLUS -  ( ADM ) PARA QUE USEN SU GENERADOR DE KEY
 ```
 
 ### Installation Script Original
