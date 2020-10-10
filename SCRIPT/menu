@@ -62,7 +62,7 @@ SEMCOR='\e[0m'
   -azu)cor="${COLOR[6]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
   -verd)cor="${COLOR[2]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
   -bra)cor="${COLOR[0]}${NEGRITO}" && echo -e "${cor}${2}${SEMCOR}";;
-  "-bar2"|"-bar")cor="${COLOR[4]}========================================================" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
+  "-bar2"|"-bar")cor="${COLOR[4]}=========================================================" && echo -e "${SEMCOR}${cor}${SEMCOR}";;
  esac
 }
 canbio_color () {
@@ -489,11 +489,6 @@ ofc="\033[0m${gren}(#OFC)"
 dev="\033[0m${yellow}(#DEV)"
 new="\033[0m${red}(#NEW)"
 case $1 in
-"Crear-Demo.sh")return 1;;
-"v2ui.sh")return 1;;
-"gestor.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ADMINISTRAR SERVIDOR VPS") $new";;
-"speed_v2.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TEST DE VELOCIDAD SECUNDARIO") $new";;
-"ehi_panel.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PANEL DE SUBIDA DE EHI") $new";;
 "ADMbot.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "BOT DE ADMINISTRACIÓN") TELEGRAN $ofc";;
 "GENERADOR_BIN.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "GENERADOR DE CC") $dev";;
 "MasterBin.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "CHECKER DE BIN") $ofc";;
@@ -506,6 +501,9 @@ case $1 in
 "utils.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "(Badvpn/tcp-Speed/SquidCache/Torrent) $ofc";;
 "dados.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "MONITOR DE CONSUMO") $ofc";;
 "speed.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TEST DE VELOCIDAD") $ofc";;
+"gestor.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ADMINISTRAR SERVIDOR VPS") $new";;
+"speed_v2.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TEST DE VELOCIDAD SECUNDARIO") $new";;
+"ehi_panel.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PANEL DE SUBIDA DE EHI") $new";;
 "openssh.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "OPENSSH $(pid_inst sshd)";;
 "squid.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SQUID $(pid_inst squid)";;
 "dropbear.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "DROPBEAR $(pid_inst dropbear)";;
@@ -517,6 +515,8 @@ case $1 in
 "budp.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "BADVPN-(UDP:7300) $(pid_inst badvpn)";;
 "Proxy-Privado.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Publico) $(pid_inst proxypublico)";;
 "Proxy-Publico.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Privado) $(pid_inst proxyprivado.sh)";;
+"Crear-Demo.sh")return 1;;
+"v2ui.sh")return 1;;
 "PDirect.py")return 1;;
 "PGet.py")return 1;;
 "POpen.py")return 1;;
@@ -791,7 +791,7 @@ echo -e "\033[1;97mSSH REG:\033[1;92m $SSH4 $(fun_trans "CUENTAS")"
 [[ -e ${SCPdir}/key.txt ]] && msg -bar && msg -bra "KEY: $(cat ${SCPdir}/key.txt)"
 # NOVO SISTEMA DE MENUS
 msg -bar
-msg -ama "$(fun_trans "ADMINISTRADOR") \033[1;31m[\033[1;32mNEW - ULTIMATE - PLUS \033[1;32By Thony_DroidYT \033[1;31m]"
+msg -ama "$(fun_trans "ADMINISTRADOR") \033[1;31m[\033[1;32mNEW - ULTIMATE - PLUS \033[1;32By Thony_DroidYT\033[1;31m]"
 msg -bar
 echo -e "\033[34m[\e[1;33mADM Plus Versión Instalada:\033[34m] \033[1;32m $(cat /etc/newadm/version.txt) \033[1;31m[\033[1;32mOfficial\033[1;31m]"
 msg -bar
