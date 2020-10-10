@@ -3,7 +3,6 @@ PGet.py
 ports.sh
 ADMbot.sh
 message.txt
-version.txt
 usercodes
 sockspy.sh
 POpen.py
@@ -19,6 +18,12 @@ openvpn.sh
 shadowsocks.sh
 ssl.sh
 squid.sh
+fai2ban.sh
+GENERADOR_BIN.sh
+MasterBin.sh
+paysnd.sh
+payySND.sh
+ultrahost
 v2ray.sh
 v2ui.sh
 budp.sh
