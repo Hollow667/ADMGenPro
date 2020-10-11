@@ -233,6 +233,7 @@ install_v2-ui() {
     systemctl daemon-reload
     systemctl enable v2-ui
     systemctl start v2-ui
+    clear
     echo -e "${green}v2-ui v${last_version}${plain} La instalación se ha completado，El panel está activado，"
     echo -e "${red}Puedes Acceder  Al panel web desde: \033[1;32m http://$(meu_ip):65432"
     echo -e ""
