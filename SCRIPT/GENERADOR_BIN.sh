@@ -1,7 +1,7 @@
 #!/bin/bash
 # Bin _ Gen #OFC
 link_bin="https://raw.githubusercontent.com/ThonyDroidYT/ADM-Ultimate-Plus/master/Install/ADM-CCGen+.py"
-[[ ! -e /usr/bin/ADM-CCGen+.py ]] && wget -O /usr/bin/ADM-CCGen+.py ${link_bin} > /dev/null && chmod +x /usr/bin/ADM-CCGen+.py
+[[ ! -e /usr/bin/ADM-CCGen+.py ]] && wget -O /usr/bin/ADM-CCGen+.py ${link_bin} > &>/dev/null && chmod +x /usr/bin/ADM-CCGen+.py
 msg -ama "$(fun_trans "GERADOR DE BINS ADM+ OFICIAL")"
 msg -bar
 msg -ne "$(fun_trans "Digite un bin"): 》" && read UsrBin
