@@ -37,3 +37,4 @@ ehi_panel.sh
 Proxy-Publico.sh
 Proxy-Privado.sh
 Real-Host.sh
+wg.sh
