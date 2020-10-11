@@ -234,7 +234,7 @@ install_v2-ui() {
     systemctl enable v2-ui
     systemctl start v2-ui
     echo -e "${green}v2-ui v${last_version}${plain} La instalación se ha completado，El panel está activado，"
-    echo -e "${blue} Puedes Acceder  Al panel web desde:  \033[1;32m http://$(meu_ip):65432"
+    echo -e "${red}Puedes Acceder  Al panel web desde: \033[1;32m http://$(meu_ip):65432"
     echo -e ""
     echo -e "Si es una instalación nueva，El puerto web predeterminado es ${green}65432${plain}，El nombre de usuario y la contraseña son ambos predeterminados ${green}admin${plain}"
     echo -e "Asegúrese de que este puerto no esté ocupado por otros programas，${yellow}Y asegúrate que El puerto 65432 ha sido liberado${plain}"
