@@ -12,6 +12,7 @@ PDirect.py
 speedtest.py
 speed.sh
 utils.sh
+dados.sh
 dropbear.sh
 apacheon.sh
 openvpn.sh
