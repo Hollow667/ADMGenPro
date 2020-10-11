@@ -245,7 +245,7 @@ install_v2-ui() {
     curl -o /usr/bin/v2-ui -Ls https://raw.githubusercontent.com/sprov065/v2-ui/master/v2-ui.sh
     chmod +x /usr/bin/v2-ui
     echo -e "v2-ui Cómo usar scripts de administración: "
-    echo -e "Lista de comandos Panel v2ray: "
+    echo -e "Lista comandos Panel v2ray By @Thony_DroidYT: "
     echo -e "----------------------------------------------"
     echo -e "v2-ui              - Mostrar menú de gestión (Más funciones)"
     echo -e "v2-ui start        - Poner en marcha panel v2-ui"
