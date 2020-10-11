@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-red='\033[0;31m'
+red='\033[1;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
 plain='\033[1;36m'
