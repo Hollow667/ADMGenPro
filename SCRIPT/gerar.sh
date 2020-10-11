@@ -27,7 +27,7 @@ MIP2=$(wget -qO- ipv4.icanhazip.com)
 }
 mudar_instacao () {
 while [[ ${var[$value]} != 0 ]]; do
-[[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh"
+[[ -e /etc/newadm-instalacao ]] && BASICINST="$(cat /etc/newadm-instalacao)" || BASICINST="menu PGet.py ports.sh ADMbot.sh message.txt usercodes sockspy.sh POpen.py PPriv.py PPub.py PDirect.py speedtest.py speed.sh utils.sh dropbear.sh apacheon.sh openvpn.sh shadowsocks.sh ssl.sh squid.sh v2ray.sh v2ui.sh budp.sh version.txt monitor.sh estilos.css gestor.sh speed_v2.sh Crear-Demo.sh ehi_panel.sh Proxy-Publico.sh Proxy-Privado.sh GENERADOR_BIN.sh MasterBin.sh"
 clear
 echo -e $BARRA
 echo -e "MENÚ SELECCIÓN DE INSTALACIÓN"
