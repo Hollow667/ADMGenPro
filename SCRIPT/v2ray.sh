@@ -39,7 +39,7 @@ v2ray info
 msg -ama "$(fun_trans "MENU DE INSTALACIÓN V2RAY")"
 msg -bar
 echo -ne "\033[1;32m [1] > " && msg -azu "$(fun_trans "INSTALAR V2RAY") "
-echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "INSTALAR PANEL V2RAY") "
+echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "INSTALAR PANEL WEB V2RAY") "
 echo -ne "\033[1;32m [3] > " && msg -azu "$(fun_trans "CAMBIAR PROTOCOLO") "
 echo -ne "\033[1;32m [4] > " && msg -azu "$(fun_trans "ACTIVAR TLS") "
 echo -ne "\033[1;32m [5] > " && msg -azu "$(fun_trans "INFORMACION DE CUENTA")"
