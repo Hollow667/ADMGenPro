@@ -54,9 +54,9 @@ upl=$(cat speed | sed -n '9 p' |awk -F :  {'print $NF'})
 lnk=$(cat speed | sed -n '10 p' |awk {'print $NF'})
 msg -bar
 msg -ama " \033[1;32m$(fun_trans "Latencia"): \033[1;37m$png"
-msg -ama " \033[1;32m$(fun_trans "Subida"): \033[1;37m$upl"
-msg -ama " \033[1;32m$(fun_trans "Descarga"): \033[1;37m$down"
-msg -ama " \033[1;32m$(fun_trans "Resultados"): \033[1;33m$lnk"
+msg -ama " \033[1;32m$(fun_trans "Upload"): \033[1;37m$upl"
+msg -ama " \033[1;32m$(fun_trans "Download"): \033[1;37m$down"
+msg -ama " \033[1;32m$(fun_trans "Result"): \033[1;33m$lnk"
 msg -bar
 rm -rf $HOME/speed
 }
