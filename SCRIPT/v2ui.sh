@@ -3,7 +3,8 @@
 red='\033[0;31m'
 green='\033[0;32m'
 yellow='\033[0;33m'
-plain='\033[0m'
+plain='\033[1;36m'
+blue='\033[1;34m'
 
 cur_dir=$(pwd)
 
@@ -72,6 +73,17 @@ confirm() {
     else
         return 1
     fi
+}
+
+meu_ip () {
+if  -e /etc/MEUIPADM ; then
+echo "$(cat /etc/MEUIPADM)"
+else
+MEU_IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
+MEU_IP2=$(wget -qO- ipv4.icanhazip.com)
+ "$MEU_IP" != "$MEU_IP2"  && echo "$MEU_IP2" || echo "$MEU_IP"
+echo "$MEU_IP2" > /etc/MEUIPADM
+fi
 }
 
 install_base() {
@@ -222,6 +234,7 @@ install_v2-ui() {
     systemctl enable v2-ui
     systemctl start v2-ui
     echo -e "${green}v2-ui v${last_version}${plain} La instalación se ha completado，El panel está activado，"
+    echo -e "${blue} Puedes Acceder  Al panel web desde:  \033[1;32m http://$(meu_ip):65432"
     echo -e ""
     echo -e "Si es una instalación nueva，El puerto web predeterminado es ${green}65432${plain}，El nombre de usuario y la contraseña son ambos predeterminados ${green}admin${plain}"
     echo -e "Asegúrese de que este puerto no esté ocupado por otros programas，${yellow}Y asegúrate que El puerto 65432 ha sido liberado${plain}"
