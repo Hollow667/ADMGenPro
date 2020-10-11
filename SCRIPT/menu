@@ -212,6 +212,9 @@ BAD+="$Port ";;
 v2ray)
 [[ -z $V2R ]] && local V2R="\033[1;31mV2RAY: \033[1;32m"
 V2R+="$Port ";;
+wireguard)
+[[ -z $WG ]] && local WG="\033[1;31mWireGuard: \033[1;32m"
+WG+="$Port ";;
 esac
 done <<< "${portasVAR}"
 [[ ! -z $SQD ]] && echo -e $SQD
@@ -223,6 +226,7 @@ done <<< "${portasVAR}"
 [[ ! -z $SSL ]] && echo -e $SSL
 [[ ! -z $V2R ]] && echo -e $V2R 
 [[ ! -z $BAD ]] && echo -e $BAD
+[[ ! -z $WG ]] && echo -e $WG
 }
 ofus () {
 unset txtofus
@@ -514,8 +518,9 @@ case $1 in
 "sockspy.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SOCKS PYTHON $(pid_inst python)";;
 "v2ray.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "V2RAY $(pid_inst v2ray)";;
 "budp.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "BADVPN-(UDP:7300) $(pid_inst badvpn)";;
-"Proxy-Privado.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Publico) $(pid_inst proxypublico)";;
-"Proxy-Publico.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Privado) $(pid_inst proxyprivado.sh)";;
+"Proxy-Privado.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Publico) $(pid_inst python)";;
+"Proxy-Publico.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Privado) $(pid_inst python)";;
+"wg.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "WireGuard) $(pid_inst wireguard)";;
 "Crear-Demo.sh")return 1;;
 "v2ui.sh")return 1;;
 "monitor.sh")return 1;;
