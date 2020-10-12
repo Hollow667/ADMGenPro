@@ -531,7 +531,8 @@ else
 			new_client_setup
 			# Append new client configuration to the WireGuard interface
 			wg addconf wg0 <(sed -n "/^# BEGIN_PEER $client/,/^# END_PEER $client/p" /etc/wireguard/wg0.conf)
-			echo
+			clear
+                        echo
 			qrencode -t UTF8 < ~/"$client.conf"
 			echo -e '\xE2\x86\x91 Este es un código QR que contiene la configuración de su cliente.'
 			echo
@@ -557,10 +558,10 @@ else
 			done
 			client=$(grep '^# BEGIN_PEER' /etc/wireguard/wg0.conf | cut -d ' ' -f 3 | sed -n "$client_number"p)
 			echo
-			read -p "\033[1;31mConfirmar eliminación  de $client ? [y/N]: " remove
+			read -p "Confirmar eliminación  de $client ? [y/N]: " remove
 			until [[ "$remove" =~ ^[yYnN]*$ ]]; do
 				echo "$remove: invalid selection."
-				read -p "\033[1;31mConfirmar eliminación  de $client ? [y/N]: " remove
+				read -p "Confirmar eliminación  de $client ? [y/N]: " remove
 			done
 			if [[ "$remove" =~ ^[yY]$ ]]; then
 				# The following is the right way to avoid disrupting other active connections:
@@ -581,7 +582,7 @@ else
 			read -p "Confirmar eliminación de WireGuard? [y/N]: " remove
 			until [[ "$remove" =~ ^[yYnN]*$ ]]; do
 				echo -e "\033[1;31m $remove: Selección Inválida!."
-				read -p "\033[1;31m Confirmar eliminación de WireGuard ? [y/N]: " remove
+				read -p "Confirmar eliminación de WireGuard ? [y/N]: " remove
 			done
 			if [[ "$remove" =~ ^[yY]$ ]]; then
 				port=$(grep '^ListenPort' /etc/wireguard/wg0.conf | cut -d " " -f 3)
