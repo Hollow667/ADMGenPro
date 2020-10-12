@@ -578,7 +578,7 @@ else
 		;;
 		3)
 			echo
-			read -p "\033[1;31mConfirmar eliminación de WireGuard? [y/N]: " remove
+			read -p "Confirmar eliminación de WireGuard? [y/N]: " remove
 			until [[ "$remove" =~ ^[yYnN]*$ ]]; do
 				echo -e "\033[1;31m $remove: Selección Inválida!."
 				read -p "\033[1;31m Confirmar eliminación de WireGuard ? [y/N]: " remove
