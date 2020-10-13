@@ -128,7 +128,7 @@ msg -ama " $(fun_trans "LOS PUERTOS SSL SEAN DETENIDO CON EXITO")"
 msg -bar
 }
 inst_sslt () {
-wget -O $HOME/ssl.sh https://www.dropbox.com/s/833a2nhtzskolfw/ssl.sh &>/dev/null
+wget -O $HOME/ssl.sh https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/SCRIPT/ssl-backup.sh &>/dev/null
 chmod +x $HOME/ssl.sh
 cd $HOME
 ./ssl.sh
@@ -179,7 +179,7 @@ msg -ama " $(fun_trans "AGREGADO CON EXITO")"
 msg -bar
 }
 shadow_fun () {
-echo -e " \033[1;36m $(fun_trans "SSL MANAGER OPENSSH") \033[1;32m[NEW-ADM]"
+echo -e " \033[1;36m $(fun_trans "SSL MANAGER OPENSSH") \033[1;32m[NEW-ADM-PLUS]"
 echo -e "$barra"
 while true; do
 echo -e "${cor[3]} [1] ${cor[4]}> ${cor[8]}$(fun_trans "INSTALAR SSL MANUAL-OPENSSH")"
