@@ -131,7 +131,7 @@ echo -e "$barra"
 sed -i "s;PermitRootLogin prohibit-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
 sed -i "s;PermitRootLogin without-password;PermitRootLogin yes;g" /etc/ssh/sshd_config
 sed -i "s;PasswordAuthentication no;PasswordAuthentication yes;g" /etc/ssh/sshd_config
-echo -e "${cor[5]} $(fun_trans "Esta contraseña ya es utilizada como usuario") root"
+echo -e "${cor[5]} $(fun_trans "Esta contraseña sera utilizada como usuario") root"
 echo -e "$barra"
 echo -e "${cor[0]} $(fun_trans "Escriba su nueva contraseña")"
 echo -e "$barra"
@@ -140,7 +140,7 @@ read  -p " Nueva Contraseña: 》" pass
 sleep 1s
 echo -e "$barra"
 echo -e "${cor[0]} $(fun_trans "Contraseña ha sido cambiada con exito!")"
-echo -e "${cor[0]} $(fun_trans "Su Contraseña ±a ahora es"): ${cor[2]}$pass\n${barra}"
+echo -e "${cor[0]} $(fun_trans "Su Contraseña ahora es"): ${cor[2]}$pass\n${barra}"
 echo -e "${cor[5]} $(fun_trans "Configuraciones agregadas")"
 echo -e "${cor[5]} $(fun_trans "La vps esta totalmente configurada")"
 echo -e "$barra"
