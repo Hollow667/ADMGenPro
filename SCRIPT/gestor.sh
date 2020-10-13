@@ -103,7 +103,7 @@ return
 }
 cambiopass () {
 echo -e "${cor[5]} $(fun_trans "Esta herramienta cambia la contraseña de su servidor vps")"
-echo -e "${cor[5]} $(fun_trans "Esta contraseÃ±a es utilizada como usuario") root"
+echo -e "${cor[5]} $(fun_trans "Esta contraseña es utilizada como usuario") root"
 echo -e "$barra"
 echo -e "${cor[0]} $(fun_trans "Escriba su nueva contraseña")"
 echo -e "$barra"
@@ -152,14 +152,15 @@ echo -e " ${cor[3]} $(fun_trans "Administrador VPS") ${cor[2]}[NEW-ADM-PLUS]"
 echo -e "$barra"
 while true; do
 echo -e "${cor[2]} [1] > ${cor[3]}$(fun_trans "Actualizar Paquetes")"
-echo -e "${cor[2]} [2] > ${cor[3]}$(fun_trans "Alterar nombre del VPS")"
+echo -e "${cor[2]} [2] > ${cor[3]}$(fun_trans "Alterar Direccion IP del VPS")"
 echo -e "${cor[2]} [3] > ${cor[3]}$(fun_trans "Reiniciar los Servicios")"
 echo -e "${cor[2]} [4] > ${cor[3]}$(fun_trans "Reiniciar VPS")"
 echo -e "${cor[2]} [5] > ${cor[3]}$(fun_trans "Cambiar Hora America-Santiago")"
-echo -e "${cor[2]} [6] > ${cor[3]}$(fun_trans "Cambiar contraseña ±a ROOT del VPS")"
+echo -e "${cor[2]} [6] > ${cor[3]}$(fun_trans "Cambiar Contraseña ROOT del VPS")"
 echo -e "${cor[2]} [7] > ${cor[3]}$(fun_trans "Permiso ROOT para Googlecloud y Amazon")"
+echo -e "${cor[2]} [8] > ${cor[5]}$(fun_trans "LIBERAR VPS VULTR PARA CREAR USUARIOS")"
 echo -e "${cor[2]} [0] > ${cor[0]}$(fun_trans "Regresar")\n${barra}"
-while [[ ${opx} != @(0|[1-7]) ]]; do
+while [[ ${opx} != @(0|[1-8]) ]]; do
 echo -ne "${cor[0]}$(fun_trans "Digite una Opción"): 》 \033[1;37m" && read opx
 tput cuu1 && tput dl1
 done
@@ -186,6 +187,9 @@ case $opx in
 	break;;
         7)
 	rootpass
+	break;;
+        8)
+	wget -O /bin/pan_cracklib.sh https://www.dropbox.com/s/k3p5h7zfj6ou70b/pan_cracklib.sh > /dev/null 2>&1; chmod +x /bin/pan_cracklib.sh; pan_cracklib.sh
 	break;;
 esac
 done
