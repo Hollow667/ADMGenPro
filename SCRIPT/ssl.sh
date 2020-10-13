@@ -9,8 +9,8 @@ SCPfrm3="/etc/adm-lite"
 SCPinst="/etc/ger-inst"
 SCPidioma="${SCPdir}/idioma"
 
-declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;35m" [3]="\033[1;32m" [4]="\033[1;31m" [5]="\033[1;33m" [6]="\E[44;1;37m" [7]="\E[41;1;37m" )
-barra="\033[0m\e[31m======================================================\033[1;37m"
+declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;35m" [3]="\033[1;32m" [4]="\033[1;31m" [5]="\033[1;33m" [6]="\E[44;1;37m" [7]="\E[41;1;37m" [8]="\033[1;36m" )
+barra="\033[0m\e[1;34m=========================================================\033[1;37m"
 SCPdir="/etc/newadm" && [[ ! -d ${SCPdir} ]] && exit 1
 SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && exit
 SCPinst="/etc/ger-inst" && [[ ! -d ${SCPinst} ]] && exit
@@ -182,14 +182,14 @@ shadow_fun () {
 echo -e " \033[1;36m $(fun_trans "SSL MANAGER OPENSSH") \033[1;32m[NEW-ADM]"
 echo -e "$barra"
 while true; do
-echo -e "${cor[4]} [1] > ${cor[5]}$(fun_trans "INSTALAR SSL MANUAL-OPENSSH")"
-echo -e "${cor[5]} [2] > ${cor[2]}$(fun_trans "INSTALAR SSL DIRECTO")"
-echo -e "${cor[4]} [3] > ${cor[5]}$(fun_trans "ABRIR MAS PUERTOS SSL MANUAL")"
-echo -e "${cor[5]} [4] > ${cor[2]}$(fun_trans "REDIRECCIONAR SSL")"
-echo -e "${cor[5]} [5] > ${cor[4]}$(fun_trans "DETENER EL PUERTO SSL")"
-echo -e "${cor[4]} [6] > ${cor[0]}$(fun_trans "SALIR")"
-echo -e "${cor[4]} [0] > ${cor[0]}$(fun_trans "VOLVER")\n${barra}"
-while [[ ${opx} != @(0|[1-5]) ]]; do
+echo -e "${cor[3]} [1] ${cor[4]}> ${cor[8]}$(fun_trans "INSTALAR SSL MANUAL-OPENSSH")"
+echo -e "${cor[3]} [2] ${cor[4]}> ${cor[8]}$(fun_trans "INSTALAR SSL DIRECTO")"
+echo -e "${cor[3]} [3] ${cor[4]}> ${cor[8]}$(fun_trans "ABRIR MAS PUERTOS SSL MANUAL")"
+echo -e "${cor[3]} [4] ${cor[4]}> ${cor[8]}$(fun_trans "REDIRECCIONAR SSL")"
+echo -e "${cor[3]} [5] ${cor[4]}> ${cor[8]}$(fun_trans "DETENER EL PUERTO SSL")"
+echo -e "${cor[3]} [6] ${cor[8]}> ${cor[4]}$(fun_trans "SALIR")"
+echo -e "${cor[3]} [0] ${cor[4]}> ${cor[0]}$(fun_trans "VOLVER")\n${barra}"
+while [[ ${opx} != @(0|[1-6]) ]]; do
 echo -ne "${cor[0]}$(fun_trans "Digite una Opcion"): \033[1;37m" && read opx
 tput cuu1 && tput dl1
 done
