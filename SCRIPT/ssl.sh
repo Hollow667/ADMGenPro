@@ -187,7 +187,7 @@ echo -e "${cor[3]} [2] ${cor[4]}> ${cor[8]}$(fun_trans "INSTALAR SSL DIRECTO")"
 echo -e "${cor[3]} [3] ${cor[4]}> ${cor[8]}$(fun_trans "ABRIR MAS PUERTOS SSL MANUAL")"
 echo -e "${cor[3]} [4] ${cor[4]}> ${cor[8]}$(fun_trans "REDIRECCIONAR SSL")"
 echo -e "${cor[3]} [5] ${cor[4]}> ${cor[8]}$(fun_trans "DETENER EL PUERTO SSL")"
-echo -e "${cor[3]} [6] ${cor[8]}> ${cor[4]}$(fun_trans "SALIR")"
+echo -e "${cor[3]} [6] ${cor[4]}> ${cor[4]}$(fun_trans "SALIR")"
 echo -e "${cor[3]} [0] ${cor[4]}> ${cor[0]}$(fun_trans "VOLVER")\n${barra}"
 while [[ ${opx} != @(0|[1-6]) ]]; do
 echo -ne "${cor[0]}$(fun_trans "Digite una Opcion"): \033[1;37m" && read opx
