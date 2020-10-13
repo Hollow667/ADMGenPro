@@ -1,8 +1,4 @@
 #!/bin/bash
-
-wget -O /etc/newadm/painel.zip https://github.com/EL-MERCENARIO/ADM-MANAGER-DANKELTHAHER/blob/master/request/painel.zip?raw=true /dev/null 2>&1
-wget -O /etc/newadm/dados.zip https://github.com/EL-MERCENARIO/ADM-MANAGER-DANKELTHAHER/blob/master/request/dados.zip?raw=true /dev/null 2>&1
-
 ve="\033[1;32m";am="\033[1;33m";ver="\033[1;31m";az="\033[1;36m";f="\033[0m"
 
 meu_ip () {
@@ -16,7 +12,7 @@ Block > /dev/null 2>&1
 BARRA="\e[0;31m======================================================\e[0m"
 clear
 cowsay -f eyes "Esta herramienta crea un panel en el cual deves de subir servers para que los demas usuarios descarguen.." | lolcat 
-figlet ..ADM-PLUS.. | lolcat
+figlet NEW-ADM-PLUS | lolcat
 sleep 2
 echo -e "$BARRA"
 echo -e "${ver}            +++++ ATENCION +++++${am} "
@@ -25,6 +21,8 @@ echo -e "TODAS LAS CONTRASENAS A SEGUIR COLOCAR SIEMPRE LA MISMA${f}"
 echo -e "$BARRA"
 read -p "Enter, Para Continuar!"
 echo -e "$BARRA"
+wget -O /etc/newadm/painel.zip https://github.com/EL-MERCENARIO/ADM-MANAGER-DANKELTHAHER/blob/master/request/painel.zip?raw=true
+wget -O /etc/newadm/dados.zip https://github.com/EL-MERCENARIO/ADM-MANAGER-DANKELTHAHER/blob/master/request/dados.zip?raw=true
 apt-get install php5 libapache2-mod-php5 php5-mcrypt -y
 apt-get install mysql-server php5-mysql -y
 mysql_install_db
