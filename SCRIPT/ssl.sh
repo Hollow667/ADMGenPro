@@ -134,12 +134,49 @@ cd $HOME
 ./ssl.sh
 rm $HOME/ssl.sh &>/dev/null
 }
-multi_ssl () {
-wget -O $HOME/multissl.sh https://www.dropbox.com/s/h5kzdymmd632jaq/multissl.sh &> /dev/null
-chmod +x $HOME/multissl.sh
-cd $HOME
-./multissl.sh
-rm $HOME/multissl.sh &>/dev/null
+ssl_redir () {
+msg -bra "$(fun_trans "Asigne un nombre para el redirecionador")"
+msg -bra "$(fun_trans "letras sin espacio ejem: shadow,openvpn,etc...")"
+msg -bar
+read -p " Nombre: 》" namer
+msg -bar
+msg -bra "$(fun_trans "A que puerto redirecionara el puerto SSL")"
+msg -bra "$(fun_trans "Es decir un puerto abierto en su servidor")"
+msg -bra "$(fun_trans "ejemplo: openvpn,shadowsocks,dropbear etc...")"
+msg -bar
+read -p " Local-Port: " portd
+msg -bar
+msg -bra "$(fun_trans "Que puerto desea agregar como SSL")"
+msg -bar
+    while true; do
+    read -p " Puerto SSL: " SSLPORTr
+    [[ $(mportas|grep -w "$SSLPORTr") ]] || break
+    echo -e "$(fun_trans "esta puerta está en uso")"
+    unset SSLPORT1
+    done
+msg -bar
+msg -ama " $(fun_trans "Instalando SSL")"
+msg -bar
+fun_bar "apt-get install stunnel4"
+msg -bar
+msg -azuc "Presione Enter a todas las opciones"
+sleep 2
+msg -bar
+openssl genrsa 1024 > stunnel.key
+openssl req -new -key stunnel.key -x509 -days 1000 -out stunnel.crt
+cat stunnel.crt stunnel.key > stunnel.pem
+mv stunnel.pem /etc/stunnel/
+
+echo "client = no" >> /etc/stunnel/stunnel.conf
+echo "[${namer}]" >> /etc/stunnel/stunnel.conf
+echo "cert = /etc/stunnel/stunnel.pem" >> /etc/stunnel/stunnel.conf
+echo "accept = ${SSLPORTr}" >> /etc/stunnel/stunnel.conf
+echo "connect = 127.0.0.1:${portd}" >> /etc/stunnel/stunnel.conf
+
+service stunnel4 restart > /dev/null 2>&1
+msg -bar
+msg -ama " $(fun_trans "AGREGADO CON EXITO")"
+msg -bar
 }
 shadow_fun () {
 echo -e " \033[1;36m $(fun_trans "SSL MANAGER OPENSSH") \033[1;32m[NEW-ADM]"
@@ -169,7 +206,7 @@ case $opx in
 	ssl_portas
 	break;;
 	4)
-	multi_ssl
+	ssl_redir
 	break;;
 	5)
 	ssl_del
