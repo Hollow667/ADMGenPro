@@ -27,7 +27,7 @@ apt-get install figlet -y > /dev/null 2>&1
 apt-get install cowsay -y > /dev/null 2>&1
 meu_ip
 echo -e "${az}"
-figlet ADM-Ultimate-Plus | lolcat
+figlet NEW-ADM-Plus | lolcat
 echo -e "${f}"
 sleep 2
 echo
@@ -55,7 +55,7 @@ tput setaf 7 ; tput bold ; read -p "$(fun_trans "Digita la misma contraseña") (
 echo ""
 stty echo ; echo
 mysql -h localhost -u root -p$var7 -e "$(fun_trans "CREATE DATABASE adm")"
-echo -e "${ver}$(fun_trans "ATENÃ‡ÃƒO - LOGIN ASEGUIR ES PERSONAL NO COMPARTAS") ${f}"
+echo -e "${ver}$(fun_trans "ATENCIÓN - LOGIN ASEGUIR ES PERSONAL NO COMPARTAS") ${f}"
 echo ""
 echo -e "${am}$(fun_trans "Agora vamos colocar um LOGIN e SENHA de acesso a pagina de upload")${ve}"
 	read -p "Login: " var2
