@@ -77,7 +77,5 @@ echo -e "\033[1;36m⇛ Contraseña: \033[0m$pass"
 echo -e "\033[1;36m⇛ Minutos de Duración: \033[0m$tmp"
 echo -e "\033[1;36m⇛ SSH Creado Con: \033[0mNEW-ADM-PlUS"
 msg -bar2
-mine_port
-msg -bar2
 exit
 fi
