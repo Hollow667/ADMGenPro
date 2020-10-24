@@ -545,9 +545,7 @@ done
      msg -ne "$(fun_trans "➾ Fecha de Expiración"): " && echo -e "$(date "+%F" -d " + $diasuser days")"
      msg -ne "$(fun_trans "➾ Limite de Conexión"): " && echo -e "$limiteuser"
      msg -ne "$(fun_trans "➾ Editado Con: NEW-ADM-PLUS")"
-
 msg -bar
-mine_port
 edit_user_fun "${useredit}" "${senhauser}" "${diasuser}" "${limiteuser}" && msg -ama "$(fun_trans "Usuario Modificado Con Éxito")" || msg -verm "$(fun_trans "Error, Usuario no Modificado")"
 msg -bar
 }
