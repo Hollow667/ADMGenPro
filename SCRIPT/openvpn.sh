@@ -626,7 +626,7 @@ read -p " Confirme el Puerto(Proxy) " -e -i 80 PPROXY
 teste_porta $PPROXY
 done
 cat > /etc/openvpn/client-common.txt <<EOF
-# OVPN_ACCESS_SERVER_PROFILE=VPS-MX
+# OVPN_ACCESS_SERVER_PROFILE=ADM-Plus
 client
 nobind
 dev tun
