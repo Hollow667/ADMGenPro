@@ -7,19 +7,23 @@ IVAR2="/etc/key-gerador"
 cabecalho_fun () {
 BARRA="\033[1;34m============================================\033[0m"
 echo -e "$BARRA"
+figlet ADMGenPlus | lolcat
+echo -e "$BARRA"
+echo -e "Reseller: $(cat /etc/SCRIPT/message.txt)"
+echo -e "$BARRA"
 cat << EOF
 
            NEW KEY GENERATOR BY THONYDROID
            N° DE INSTALACIONES: $(cat $IVAR)
            
 EOF
-[[ -e $IVAR2 ]] && echo -e "\033[1;32mFIXKEY: $(cat $IVAR2)\033[0m"
+[[ -e $IVAR2 ]] && echo -e "\033[1;32mKEY FIJA: $(cat $IVAR2)\033[0m"
 SCPT_DIR="/etc/SCRIPT"
 [[ ! -e ${SCPT_DIR} ]] && mkdir ${SCPT_DIR}
 rm ${SCPT_DIR}/*.x.c &> /dev/null
 INSTA_ARQUIVOS="ADMVPS.zip"
 DIR="/etc/http-shell"
-LIST="lista-arq"
+LIST="sulp-mda"
 }
 meu_ip () {
 MIP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
