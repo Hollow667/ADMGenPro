@@ -212,7 +212,7 @@ echo -e "[7] = $(fun_trans ${id} "ACTUALIZAR GENERADOR")"
 echo -e "[0] = $(fun_trans ${id} "SALIR")"
 echo -e "$BARRA"
 while [[ ${varread} != @([0-7]) ]]; do
-read -p "Opcao: " varread
+read -p "Opción: 》" varread
 done
 echo -e "$BARRA"
 if [[ ${varread} = 1 ]]; then
