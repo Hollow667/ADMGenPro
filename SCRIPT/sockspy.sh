@@ -29,7 +29,7 @@ chmod +x  /usr/sbin/sckt
 rm -rf $HOME/socks
 cd $HOME
 msg="$2"
-[[ $msg = "" ]] && msg="BEM VINDO"
+[[ $msg = "" ]] && msg="BIENVENIDO"
 portxz="$1"
 [[ $portxz = "" ]] && portxz="8080"
 screen -dmS sokz scktcheck "$portxz" "$msg" > /dev/null 2>&1
@@ -48,7 +48,7 @@ screen -dmS getpy python ${SCPinst}/PGet.py -b "0.0.0.0:$1" -p "${SCPinst}/pwd.p
  echo -e "\033[1;32m ADMMANAGER"
  } || {
 msg -bar
-msg -ama "$(fun_trans "Gettunel nao foi iniciado")"
+msg -ama "$(fun_trans "GetTunel no fue iniciado")"
 msg -bar
  }
 }
@@ -88,23 +88,23 @@ echo -ne "\033[1;32m [7] > " && msg -azu "$(fun_trans "PARAR TODOS SOCKETS PYTHO
 echo -ne "\033[1;32m [0] > " && msg -bra "$(fun_trans "VOLTAR")" && msg -bar
 IP=(meu_ip)
 while [[ -z $portproxy || $portproxy != @(0|[1-7]) ]]; do
-msg -ne " $(fun_trans "Digite a Opcao"): " && read portproxy
+msg -ne " $(fun_trans "Digite una Opción"): " && read portproxy
 tput cuu1 && tput dl1
 done
  case $portproxy in
     7)remove_fun && return;;
     0)return;;
  esac
-msg -ama "$(fun_trans "Escolha a Porta em que o Socks Vai Escutar")"
+msg -ama "$(fun_trans "Escoja un Puerto en el que el Socks Va a Ejecutarse")"
 msg -bar
 porta_socket=
 while [[ -z $porta_socket || ! -z $(mportas|grep -w $porta_socket) ]]; do
 msg -ne " $(fun_trans "Digite a Porta"): " && read porta_socket
 tput cuu1 && tput dl1
 done
-msg -ama " $(fun_trans "Escolha Um Texto de Conexao")"
+msg -ama " $(fun_trans "Escoja Un Texto de Conexión")"
 msg -bar
-msg -ne " $(fun_trans "Digite o Texto de Status"): " && read texto_soket
+msg -ne " $(fun_trans "Digite un Texto de Status"): " && read texto_soket
     case $portproxy in
     1)screen -dmS screen python ${SCPinst}/PPub.py "$porta_socket" "$texto_soket";;
     2)screen -dmS screen python3 ${SCPinst}/PPriv.py "$porta_socket" "$texto_soket" "$IP";;
