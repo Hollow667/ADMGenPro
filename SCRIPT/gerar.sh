@@ -13,8 +13,8 @@ echo -e "Reseller: $(cat /etc/SCRIPT/message.txt)"
 echo -e "$BARRA"
 cat << EOF
 
-           NEW KEY GENERATOR+ BY THONYDROID
-           N° DE INSTALACIONES: $(cat $IVAR)
+           NEW KEY GENERATOR+ BY THONY_DROIDYT
+           N° INSTALACIONES: $(cat $IVAR)
            
 EOF
 [[ -e $IVAR2 ]] && echo -e "\033[1;32mKEY FIJA: $(cat $IVAR2)\033[0m"
@@ -33,7 +33,7 @@ MIP2=$(wget -qO- ipv4.icanhazip.com)
 fun_trans () { 
 local texto
 local retorno
-[[ ! -e  $HOME/ID ]] && local LANG=es || local LANG="$(cat $HOME/ID)"
+[[ ! -e  $HOME/ID ]] && local LANG=pt || local LANG="$(cat $HOME/ID)"
 declare -A texto
 [[ ! -e /etc/texto-adm ]] && touch /etc/texto-adm
 source /etc/texto-adm
@@ -41,7 +41,7 @@ if [[ -z $(echo ${texto[$2]}) ]]; then
 ENGINES=(aspell google deepl bing spell hunspell apertium yandex)
   while [[ -z $retorno ]]; do
    local NUM="$(($RANDOM%${#ENGINES[@]}))"
-   local retorno="$(source trans -e ${ENGINES[$NUM]} -b es:$LANG "$2"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
+   local retorno="$(source trans -e ${ENGINES[$NUM]} -b pt:$LANG "$2"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
   done
  echo "texto[$2]='$retorno'"  >> /etc/texto-adm
  echo "$retorno"
