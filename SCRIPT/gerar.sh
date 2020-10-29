@@ -5,7 +5,7 @@ BASICINST="menu message.txt ports.sh ADMbot.sh PGet.py usercodes sockspy.sh POpe
 IVAR="/etc/http-instas"
 IVAR2="/etc/key-gerador"
 cabecalho_fun () {
-BARRA="\033[1;34m============================================\033[0m"
+BARRA="\033[0;34m========================================================\033[0m"
 echo -e "$BARRA"
 figlet ADMGenPlus | lolcat
 echo -e "$BARRA"
@@ -15,10 +15,9 @@ cat << EOF
            N° DE INSTALACIONES: $(cat $IVAR)
            
 EOF
+[[ -e $IVAR2 ]] && echo -e "\033[1;32mKEY FIJA: $(cat $IVAR2)\033[0m"
 echo -e "$BARRA"
 echo -e "Reseller: $(cat /etc/SCRIPT/message.txt)"
-echo -e "$BARRA"
-[[ -e $IVAR2 ]] && echo -e "\033[1;32mKEY FIJA: $(cat $IVAR2)\033[0m"
 echo -e "$BARRA"
 SCPT_DIR="/etc/SCRIPT"
 [[ ! -e ${SCPT_DIR} ]] && mkdir ${SCPT_DIR}
