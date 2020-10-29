@@ -16,9 +16,9 @@ cat << EOF
            
 EOF
 echo -e "$BARRA"
-[[ -e $IVAR2 ]] && echo -e "\033[1;32mKEY FIJA: $(cat $IVAR2)\033[0m"
-echo -e "$BARRA"
 echo -e "Reseller: $(cat /etc/SCRIPT/message.txt)"
+echo -e "$BARRA"
+[[ -e $IVAR2 ]] && echo -e "\033[1;32mKEY FIJA: $(cat $IVAR2)\033[0m"
 echo -e "$BARRA"
 SCPT_DIR="/etc/SCRIPT"
 [[ ! -e ${SCPT_DIR} ]] && mkdir ${SCPT_DIR}
