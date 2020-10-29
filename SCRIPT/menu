@@ -93,15 +93,15 @@ declare -A texto
 SCPidioma="${SCPdir}/idioma"
 [[ ! -e ${SCPidioma} ]] && touch ${SCPidioma}
 local LINGUAGE=$(cat ${SCPidioma})
-[[ -z $LINGUAGE ]] && LINGUAGE=pt
-[[ $LINGUAGE = "pt" ]] && echo "$@" && return
+[[ -z $LINGUAGE ]] && LINGUAGE=es
+[[ $LINGUAGE = "es" ]] && echo "$@" && return
 [[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://www.dropbox.com/s/l6iqf5xjtjmpdx5/trans?dl=0 &> /dev/null
 [[ ! -e /etc/texto-adm ]] && touch /etc/texto-adm
 source /etc/texto-adm
 if [[ -z "$(echo ${texto[$@]})" ]]; then
 #ENGINES=(aspell google deepl bing spell hunspell apertium yandex)
 #NUM="$(($RANDOM%${#ENGINES[@]}))"
-retorno="$(source trans -e bing -b pt:${LINGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
+retorno="$(source trans -e bing -b es:${LINGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
 echo "texto[$@]='$retorno'"  >> /etc/texto-adm
 echo "$retorno"
 else
@@ -416,10 +416,10 @@ eth=$(ifconfig | grep -v inet6 | grep -v lo | grep -v 127.0.0.1 | grep "encap:Et
     read -p " [S/N]: " -e -i n sshsn
            [[ "$sshsn" = @(s|S|y|Y) ]] && {
            echo -e "${cor[1]} $(fun_trans "Corrección de problemas de paquetes en SSH...")"
-           echo -e " $(fun_trans "Qual A Taxa RX")"
+           echo -e " $(fun_trans "Cual es la Taza RX")"
            echo -ne "[ 1 - 999999999 ]: "; read rx
            [[ "$rx" = "" ]] && rx="999999999"
-           echo -e " $(fun_trans "Qual A Taxa TX")"
+           echo -e " $(fun_trans "Qual es la Taza TX")"
            echo -ne "[ 1 - 999999999 ]: "; read tx
            [[ "$tx" = "" ]] && tx="999999999"
            apt-get install ethtool -y > /dev/null 2>&1
