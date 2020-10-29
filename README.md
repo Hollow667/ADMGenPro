@@ -30,7 +30,7 @@ apt-get update -y; apt-get upgrade -y; bash <(curl -Ls https://raw.githubusercon
 
 ### Installation Gen
 
-apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/instgerador.sh; chmod 777 instgerador.sh* && ./instgerador.sh
+apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/instgeradork.sh; chmod 777 instgeradork.sh* && ./instgeradork.sh
 
 -------------------------------------------------------------------------------
 
