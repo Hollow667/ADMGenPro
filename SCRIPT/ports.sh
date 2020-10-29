@@ -58,7 +58,7 @@ msg -azu "$(fun_trans "REDEFINIR PUERTOS APACHE")"
 msg -bar
 local CONF="/etc/apache2/ports.conf"
 local NEWCONF="$(cat ${CONF})"
-msg -ne "$(fun_trans "Nuevo Puerto"): "
+msg -ne "$(fun_trans "Nuevos Puertos"): "
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port apache "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
@@ -93,7 +93,7 @@ local CONF="/etc/openvpn/server.conf"
 local CONF2="/etc/openvpn/client-common.txt"
 local NEWCONF="$(cat ${CONF}|grep -v [Pp]ort)"
 local NEWCONF2="$(cat ${CONF2})"
-msg -ne "$(fun_trans "Nova Porta"): "
+msg -ne "$(fun_trans "Nuevos Puertos"): "
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port openvpn "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
@@ -129,7 +129,7 @@ msg -azu "$(fun_trans "REDEFINIR PORTAS DROPBEAR")"
 msg -bar
 local CONF="/etc/default/dropbear"
 local NEWCONF="$(cat ${CONF}|grep -v "DROPBEAR_EXTRA_ARGS")"
-msg -ne "$(fun_trans "Novas Portas"): "
+msg -ne "$(fun_trans "Nuevos Puertos"): "
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port dropbear "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
@@ -197,16 +197,16 @@ let i++
           esac
 done <<< "$(port|cut -d' ' -f1|sort -u)"
 for((a=1; a<=$i; a++)); do
-[[ $squid = $a ]] && echo -ne "\033[1;32m [$squid] > " && msg -azu "$(fun_trans "REDEFINIR PORTAS SQUID")"
-[[ $apache = $a ]] && echo -ne "\033[1;32m [$apache] > " && msg -azu "$(fun_trans "REDEFINIR PORTA APACHE")"
-[[ $openvpn = $a ]] && echo -ne "\033[1;32m [$openvpn] > " && msg -azu "$(fun_trans "REDEFINIR PORTA OPENVPN")"
-[[ $dropbear = $a ]] && echo -ne "\033[1;32m [$dropbear] > " && msg -azu "$(fun_trans "REDEFINIR PORTAS DROPBEAR")"
-[[ $ssh = $a ]] && echo -ne "\033[1;32m [$ssh] > " && msg -azu "$(fun_trans "REDEFINIR PORTAS SSH")"
+[[ $squid = $a ]] && echo -ne "\033[1;32m [$squid] > " && msg -azu "$(fun_trans "REDEFINIR PUERTOS SQUID")"
+[[ $apache = $a ]] && echo -ne "\033[1;32m [$apache] > " && msg -azu "$(fun_trans "REDEFINIR PUERTOS APACHE")"
+[[ $openvpn = $a ]] && echo -ne "\033[1;32m [$openvpn] > " && msg -azu "$(fun_trans "REDEFINIR PUERTOS OPENVPN")"
+[[ $dropbear = $a ]] && echo -ne "\033[1;32m [$dropbear] > " && msg -azu "$(fun_trans "REDEFINIR PUERTOS DROPBEAR")"
+[[ $ssh = $a ]] && echo -ne "\033[1;32m [$ssh] > " && msg -azu "$(fun_trans "REDEFINIR PUERTOS SSH")"
 done
 echo -ne "\033[1;32m [0] > " && msg -azu "$(fun_trans "REGRESAR")"
 msg -bar
 while true; do
-echo -ne "\033[1;37m$(fun_trans "Selecione"): " && read selection
+echo -ne "\033[1;37m$(fun_trans "Selecione"): 》" && read selection
 tput cuu1 && tput dl1
 [[ ! -z $squid ]] && [[ $squid = $selection ]] && edit_squid && break
 [[ ! -z $apache ]] && [[ $apache = $selection ]] && edit_apache && break
