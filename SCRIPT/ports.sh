@@ -28,7 +28,7 @@ elif [[ -e /etc/squid3/squid.conf ]]; then
 local CONF="/etc/squid3/squid.conf"
 fi
 NEWCONF="$(cat ${CONF}|grep -v "http_port")"
-msg -ne "$(fun_trans "Nuevos Puertos"): "
+msg -ne "$(fun_trans "Nuevos Puertos"): 》"
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port squid "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
