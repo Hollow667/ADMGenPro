@@ -42,9 +42,9 @@ echo "127.0.0.1:$(echo $service|cut -d' ' -f2)=$(echo $service|cut -d' ' -f1)" >
 done <<< "$(mportas)"
 screen -dmS getpy python ${SCPinst}/PGet.py -b "0.0.0.0:$1" -p "${SCPinst}/pwd.pwd"
  [[ "$(ps x | grep "PGet.py" | grep -v "grep" | awk -F "pts" '{print $1}')" ]] && {
- echo -e "$(fun_trans "Gettunel Iniciado com Sucesso")"
+ echo -e "$(fun_trans "Gettunel Iniciado con Éxito")"
  msg -bar
- echo -ne "$(fun_trans "Sua Senha Gettunel e"):"
+ echo -ne "$(fun_trans "Su contraseña de GetTunel"):"
  echo -e "\033[1;32m ADMMANAGER"
  } || {
 msg -bar
@@ -99,7 +99,7 @@ msg -ama "$(fun_trans "Escoja un Puerto en el que el Socks Va a Ejecutarse")"
 msg -bar
 porta_socket=
 while [[ -z $porta_socket || ! -z $(mportas|grep -w $porta_socket) ]]; do
-msg -ne " $(fun_trans "Digite a Porta"): " && read porta_socket
+msg -ne " $(fun_trans "Digite un Puerto"): " && read porta_socket
 tput cuu1 && tput dl1
 done
 msg -ama " $(fun_trans "Escoja Un Texto de Conexión")"
