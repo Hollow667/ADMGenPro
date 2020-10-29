@@ -9,15 +9,17 @@ BARRA="\033[1;34m============================================\033[0m"
 echo -e "$BARRA"
 figlet ADMGenPlus | lolcat
 echo -e "$BARRA"
-echo -e "Reseller: $(cat /etc/SCRIPT/message.txt)"
-echo -e "$BARRA"
 cat << EOF
 
-           NEW KEY GENERATOR BY THONYDROID
+           NEW KEY GENERATOR+ BY THONYDROID
            N° DE INSTALACIONES: $(cat $IVAR)
            
 EOF
+echo -e "$BARRA"
 [[ -e $IVAR2 ]] && echo -e "\033[1;32mKEY FIJA: $(cat $IVAR2)\033[0m"
+echo -e "$BARRA"
+echo -e "Reseller: $(cat /etc/SCRIPT/message.txt)"
+echo -e "$BARRA"
 SCPT_DIR="/etc/SCRIPT"
 [[ ! -e ${SCPT_DIR} ]] && mkdir ${SCPT_DIR}
 rm ${SCPT_DIR}/*.x.c &> /dev/null
