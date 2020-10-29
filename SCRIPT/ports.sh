@@ -58,7 +58,7 @@ msg -azu "$(fun_trans "REDEFINIR PUERTOS APACHE")"
 msg -bar
 local CONF="/etc/apache2/ports.conf"
 local NEWCONF="$(cat ${CONF})"
-msg -ne "$(fun_trans "Nuevos Puertos"): "
+msg -ne "$(fun_trans "Nuevos Puertos"): 》"
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port apache "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
@@ -93,7 +93,7 @@ local CONF="/etc/openvpn/server.conf"
 local CONF2="/etc/openvpn/client-common.txt"
 local NEWCONF="$(cat ${CONF}|grep -v [Pp]ort)"
 local NEWCONF2="$(cat ${CONF2})"
-msg -ne "$(fun_trans "Nuevos Puertos"): "
+msg -ne "$(fun_trans "Nuevos Puertos"): 》"
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port openvpn "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
@@ -129,7 +129,7 @@ msg -azu "$(fun_trans "REDEFINIR PORTAS DROPBEAR")"
 msg -bar
 local CONF="/etc/default/dropbear"
 local NEWCONF="$(cat ${CONF}|grep -v "DROPBEAR_EXTRA_ARGS")"
-msg -ne "$(fun_trans "Nuevos Puertos"): "
+msg -ne "$(fun_trans "Nuevos Puertos"): 》"
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port dropbear "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
@@ -160,7 +160,7 @@ msg -azu "$(fun_trans "REDEFINIR PUERTOS OPENSSH")"
 msg -bar
 local CONF="/etc/ssh/sshd_config"
 local NEWCONF="$(cat ${CONF}|grep -v [Pp]ort)"
-msg -ne "$(fun_trans "Nuevos Puertos"): "
+msg -ne "$(fun_trans "Nuevos Puertos"): 》"
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port sshd "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
