@@ -32,7 +32,7 @@ msg -ne "$(fun_trans "Nuevos Puertos"): 》"
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port squid "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
-echo -e "\033[1;33mPort $PTS \033[1;31mFAIL"
+echo -e "\033[1;33mPort $PTS \033[1;31mFALLO"
 return 1
 }
 done
@@ -45,7 +45,7 @@ echo -e "${varline}" >> ${CONF}
   done
  fi
 done <<< "${NEWCONF}"
-msg -azu "$(fun_trans "AGUARDE")"
+msg -azu "$(fun_trans "ESPERE")"
 service squid restart &>/dev/null
 service squid3 restart &>/dev/null
 sleep 1s
@@ -62,7 +62,7 @@ msg -ne "$(fun_trans "Nuevos Puertos"): 》"
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port apache "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
-echo -e "\033[1;33mPort $PTS \033[1;31mFAIL"
+echo -e "\033[1;33mPort $PTS \033[1;31mFALLO"
 return 1
 }
 done
@@ -97,7 +97,7 @@ msg -ne "$(fun_trans "Nuevos Puertos"): 》"
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port openvpn "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
-echo -e "\033[1;33mPort $PTS \033[1;31mFAIL"
+echo -e "\033[1;33mPort $PTS \033[1;31mFALLO"
 return 1
 }
 done
@@ -116,7 +116,7 @@ else
 echo -e "${varline}" >> ${CONF2}
 fi
 done <<< "${NEWCONF2}"
-msg -azu "$(fun_trans "AGUARDE")"
+msg -azu "$(fun_trans "ESPERE")"
 service openvpn restart &>/dev/null
 /etc/init.d/openvpn restart &>/dev/null
 sleep 1s
@@ -133,7 +133,7 @@ msg -ne "$(fun_trans "Nuevos Puertos"): 》"
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port dropbear "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
-echo -e "\033[1;33mPort $PTS \033[1;31mFAIL"
+echo -e "\033[1;33mPort $PTS \033[1;31mFALLO"
 return 1
 }
 done
@@ -164,7 +164,7 @@ msg -ne "$(fun_trans "Nuevos Puertos"): 》"
 read -p "" newports
 for PTS in `echo ${newports}`; do
 verify_port sshd "${PTS}" && echo -e "\033[1;33mPort $PTS \033[1;32mOK" || {
-echo -e "\033[1;33mPort $PTS \033[1;31mFAIL"
+echo -e "\033[1;33mPort $PTS \033[1;31mFALLO"
 return 1
 }
 done
