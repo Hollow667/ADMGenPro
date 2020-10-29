@@ -70,6 +70,9 @@ apt-get install screen -y &>/dev/null
 apt-get install nano -y &>/dev/null
 apt-get install curl -y &>/dev/null
 apt-get install netcat -y &>/dev/null
+apt-get install lolcat -y &>/dev/null
+apt-get install figlet -y &>/dev/null
+apt-get install cowsay -y &>/dev/null
 apt-get install apache2 -y &>/dev/null
 sed -i "s;Listen 80;Listen 81;g" /etc/apache2/ports.conf
 service apache2 restart > /dev/null 2>&1 &
@@ -77,8 +80,8 @@ IVAR2="/etc/key-gerador"
 echo "$Key" > $IVAR2
 rm $HOME/lista-arq
 } || {
-echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
-echo -e "\033[1;33mKey Invalida!"
-echo -e "\033[1;36m--------------------------------------------------------------------\033[0m"
+echo -e "\033[1;34m--------------------------------------------------------------------\033[0m"
+echo -e "\033[1;31mKey Invalida!"
+echo -e "\033[1;34m--------------------------------------------------------------------\033[0m"
 }
 echo -ne "\033[0m"
