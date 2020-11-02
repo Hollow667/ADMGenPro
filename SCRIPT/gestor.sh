@@ -116,6 +116,21 @@ echo -e "${cor[0]} $(fun_trans "Su contraseña ahora es"): ${cor[2]}$pass\n${bar
 return
 }
 
+UNLOCK () {
+sudo apt-get install libpam-cracklib -y > /dev/null 2>&1
+wget https://raw.githubusercontent.com/VPS-MX/VPS-MX-8.0/master/ArchivosUtilitarios/common-password -O /etc/pam.d/common-password > /dev/null 2>&1
+    chmod +x /etc/pam.d/common-password
+msg -bar2
+echo -e "${cor[3]}Pass Alfanumerico Desactivado con EXITO"
+#}
+echo -e "${cor[3]}  Desactivar contraseñas Alfanumericas en VULTR"
+echo -e "\033[1;36m Se podra usar cualquier pass de 6 digitos"
+msg -bar2
+read -p " [ s | n ]: " UNLOCK   
+[[ "$UNLOCK" = "s" || "$UNLOCK" = "S" ]] && UNLOCK
+msg -bar2
+}
+
 rootpass () {
 echo -e "${cor[5]} $(fun_trans "Esta herramienta cambia a usuario root las vps de ")"
 echo -e "${cor[5]} $(fun_trans "Googlecloud y Amazon esta configuracion solo")"
@@ -189,8 +204,12 @@ case $opx in
 	rootpass
 	break;;
         8)
+	UNLOCK
+	break;;
+        9)
 	wget -O /bin/pan_cracklib.sh https://raw.githubusercontent.com/EL-MERCENARIO/ADM-MANAGER-DANKELTHAHER/master/Herramientas/Install-rev/pan_cracklib.sh > /dev/null 2>&1; chmod +x /bin/pan_cracklib.sh; pan_cracklib.sh
 	break;;
+
 esac
 done
 }
