@@ -132,6 +132,39 @@ read -p " [ s | n ]: " UNLOCK
 msg -bar2
 }
 
+#DNS-NETFLIX
+dnsnetflix () {
+echo "nameserver $dnsp" > /etc/resolv.conf
+#echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+/etc/init.d/ssrmu stop &>/dev/null
+/etc/init.d/ssrmu start &>/dev/null
+/etc/init.d/shadowsocks-r stop &>/dev/null
+/etc/init.d/shadowsocks-r start &>/dev/null
+msg -bar2
+echo -e "${cor[4]}  DNS AGREGADOS CON EXITO"
+} 
+dnsnetflix2 () {
+clear
+msg -bar2
+echo -e "\033[1;36m    AGREGARDOR DE DNS PERSONALES By ${cor[2]} [NEW-ADM-PLUS]"
+msg -bar2
+echo -e "\033[1;36m Esta funcion ara que puedas ver Netflix con tu VPS"
+msg -bar2
+echo -e "\033[1;36m ¡ Solo seran utiles si registraste tu IP en el BOT !"
+echo -e "\033[1;36m En APPS como HTTP Inyector,KPN Rev,APKCUSTOM, etc."
+echo -e "\033[1;36m Se deveran agregar en la aplicasion a usar estos DNS."
+echo -e "\033[1;36m En APPS como SS,SSR,V2RAY no es necesario agregarlos."
+msg -bar2
+echo -e "\033[1;36m Recuerde escojer entre 1 DNS ya sea el de USA,BR,MX,CL \n segun le aya comprado."
+echo ""
+echo -e "\033[1;33m Ingrese su DNS a usar: \033[0;32m"; read -p "DNS: 》"  dnsp
+echo ""
+msg -bar2
+read -p " Estas seguro de continuar?  [ s | n ]: " dnsnetflix   
+[[ "$dnsnetflix" = "s" || "$dnsnetflix" = "S" ]] && dnsnetflix
+msg -bar2
+}
+
 rootpass () {
 echo -e "${cor[5]} $(fun_trans "Esta herramienta cambia a usuario root las vps de ")"
 echo -e "${cor[5]} $(fun_trans "Googlecloud y Amazon esta configuracion solo")"
@@ -174,9 +207,10 @@ echo -e "${cor[2]} [4] ${cor[4]}> ${cor[3]}$(fun_trans "Reiniciar VPS")"
 echo -e "${cor[2]} [5] ${cor[4]}> ${cor[3]}$(fun_trans "Cambiar Hora America-Santiago")"
 echo -e "${cor[2]} [6] ${cor[4]}> ${cor[3]}$(fun_trans "Cambiar Contraseña ROOT del VPS")"
 echo -e "${cor[2]} [7] ${cor[4]}> ${cor[3]}$(fun_trans "Permiso ROOT para Googlecloud y Amazon")"
-echo -e "${cor[2]} [8] ${cor[4]}> ${cor[3]}$(fun_trans "LIBERAR VPS VULTR PARA CREAR USUARIOS")"
+echo -e "${cor[2]} [8] ${cor[4]}> ${cor[3]}$(fun_trans "Liberar VPS Vultr Para crear usuarios")"
+echo -e "${cor[2]} [9] ${cor[4]}> ${cor[3]}$(fun_trans "Agregar DNS Para Netflix")"
 echo -e "${cor[2]} [0] > ${cor[0]}$(fun_trans "Regresar")\n${barra}"
-while [[ ${opx} != @(0|[1-8]) ]]; do
+while [[ ${opx} != @(0|[1-9]) ]]; do
 echo -ne "${cor[0]}$(fun_trans "Digite una Opción"): 》 \033[1;37m" && read opx
 tput cuu1 && tput dl1
 done
@@ -208,6 +242,9 @@ case $opx in
 	UNLOCK2
 	break;;
         9)
+        dnsnetflix2
+        break;;
+        10)
 	wget -O /bin/pan_cracklib.sh https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Unlock-Vultr.sh > /dev/null 2>&1; chmod +x /bin/Unlock-Vultr.sh; Unlock-Vultr.sh
 	break;;
 esac
