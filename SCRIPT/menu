@@ -349,6 +349,18 @@ msg -bar
 msg -ama "$(fun_trans "PROCESO CONCLUIDO")"
 msg -bar
 }
+function_webmin(){
+echo "Instalando Webmin"
+cd
+wget --no-check-certificate -O webmin_1.900_all.deb "https://prdownloads.sourceforge.net/webadmin/webmin_1.900_all.deb"
+dpkg -i --force-all webmin_1.900_all.deb;
+apt-get -y -f install;
+sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
+rm /root/webmin_1.900_all.deb
+service webmin restart
+echo "Panel Webmin Instalado en el Puerto: 10000"
+echo "URL http://$(meu_ip):10000"
+}
 fun_autorun () {
 if [[ -e /etc/bash.bashrc-bakup ]]; then
 mv -f /etc/bash.bashrc-bakup /etc/bash.bashrc
@@ -553,6 +565,9 @@ float_data "$arqs" "$Numb" && {
   let Numb++
   }
 done
+echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "INSTALAR WEBMIN ") $new"
+script[$Numb]="function_webmin"
+let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "DETALLES DE SISTEMA") $ofc"
 script[$Numb]="systeminf"
 let Numb++
