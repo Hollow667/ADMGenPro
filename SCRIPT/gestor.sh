@@ -207,9 +207,8 @@ case $opx in
 	UNLOCK
 	break;;
         9)
-	wget -O /bin/pan_cracklib.sh https://raw.githubusercontent.com/EL-MERCENARIO/ADM-MANAGER-DANKELTHAHER/master/Herramientas/Install-rev/pan_cracklib.sh > /dev/null 2>&1; chmod +x /bin/pan_cracklib.sh; pan_cracklib.sh
+	wget -O /bin/pan_cracklib.sh https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Unlock-Vultr.sh > /dev/null 2>&1; chmod +x /bin/Unlock-Vultr.sh; Unlock-Vultr.sh
 	break;;
-
 esac
 done
 }
