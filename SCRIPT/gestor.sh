@@ -122,7 +122,8 @@ wget https://raw.githubusercontent.com/VPS-MX/VPS-MX-8.0/master/ArchivosUtilitar
     chmod +x /etc/pam.d/common-password
 msg -bar2
 echo -e "${cor[3]}Pass Alfanumerico Desactivado con EXITO"
-#}
+}
+UNLOCK2 () {
 echo -e "${cor[3]}  Desactivar contraseñas Alfanumericas en VULTR"
 echo -e "\033[1;36m Se podra usar cualquier pass de 6 digitos"
 msg -bar2
@@ -204,7 +205,7 @@ case $opx in
 	rootpass
 	break;;
         8)
-	UNLOCK
+	UNLOCK2
 	break;;
         9)
 	wget -O /bin/pan_cracklib.sh https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Unlock-Vultr.sh > /dev/null 2>&1; chmod +x /bin/Unlock-Vultr.sh; Unlock-Vultr.sh
