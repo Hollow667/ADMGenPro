@@ -146,13 +146,13 @@ echo -e "${cor[4]}  DNS AGREGADOS CON EXITO"
 dnsnetflix2 () {
 clear
 msg -bar2
-echo -e "\033[1;36m    AGREGARDOR DE DNS PERSONALES By ${cor[2]} [NEW-ADM-PLUS]"
+echo -e "\033[1;36m    AGREGARDOR DE DNS PERSONALES BY ${cor[2]} [NEW-ADM-PLUS]"
 msg -bar2
 echo -e "\033[1;36m Esta funcion ara que puedas ver Netflix con tu VPS"
 msg -bar2
-echo -e "\033[1;36m ¡ Solo seran utiles si registraste tu IP en el BOT !"
-echo -e "\033[1;36m En APPS como HTTP Inyector,KPN Rev,APKCUSTOM, etc."
-echo -e "\033[1;36m Se deveran agregar en la aplicasion a usar estos DNS."
+echo -e "\033[1;36m ¡ Está herramienta Solo sera util si comprastes algun DNS !"
+echo -e "\033[1;36m ¡Nota! En APPS como HTTP Inyector,KPNTunnel Rev,HTTP CUSTOM, etc."
+echo -e "\033[1;36m Se deveran agregar manualmente estos DNS en la app a usar."
 echo -e "\033[1;36m En APPS como SS,SSR,V2RAY no es necesario agregarlos."
 msg -bar2
 echo -e "\033[1;36m Recuerde escojer entre 1 DNS ya sea el de USA,BR,MX,CL \n segun le aya comprado."
