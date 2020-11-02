@@ -209,7 +209,7 @@ echo -e "${cor[2]} [6] ${cor[4]}> ${cor[3]}$(fun_trans "Cambiar Contraseña ROOT
 echo -e "${cor[2]} [7] ${cor[4]}> ${cor[3]}$(fun_trans "Permiso ROOT para Googlecloud y Amazon")"
 echo -e "${cor[2]} [8] ${cor[4]}> ${cor[3]}$(fun_trans "Liberar VPS Vultr Para crear usuarios")"
 echo -e "${cor[2]} [9] ${cor[4]}> ${cor[3]}$(fun_trans "Agregar DNS Para Netflix")"
-echo -e "${cor[2]} [0] > ${cor[0]}$(fun_trans "Regresar")\n${barra}"
+echo -e "${cor[2]} [0] ${cor[4]}> ${cor[0]}$(fun_trans "Regresar")\n${barra}"
 while [[ ${opx} != @(0|[1-9]) ]]; do
 echo -ne "${cor[0]}$(fun_trans "Digite una Opción"): 》 \033[1;37m" && read opx
 tput cuu1 && tput dl1
