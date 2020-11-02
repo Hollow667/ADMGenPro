@@ -1,6 +1,6 @@
 #!/bin/bash
 declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;32m" [3]="\033[1;36m" [4]="\033[1;31m" [5]="\033[1;33m" )
-barra="\033[0m\e[34m=========================================================\033[1;37m"
+barra="\033[0m\e[34m============================================================\033[1;37m"
 SCPdir="/etc/newadm" && [[ ! -d ${SCPdir} ]] && exit
 SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && exit
 SCPinst="/etc/ger-inst" && [[ ! -d ${SCPinst} ]] && exit
@@ -148,10 +148,11 @@ clear
 msg -bar2
 echo -e "\033[1;36m     AGREGADOR DE DNS PERSONALES BY ${cor[2]} [NEW-ADM-PLUS] "
 msg -bar2
-echo -e "\033[1;36m Esta funcion ara que puedas ver Netflix con tu VPS"
+echo -e "\033[1;36m Esta funcion hara que puedas ver Netflix con tu VPS"
 msg -bar2
-echo -e "\033[1;36m ¡ Está herramienta Solo sera util si comprastes algun DNS !"
-echo -e "\033[1;36m ¡Nota! En APPS como HTTP Inyector,KPNTunnel Rev,HTTP CUSTOM, etc."
+echo -e "\033[1;36m ¡Está herramienta Solo sera util si comprastes algun DNS.!"
+echo -e "\033[1;31m ¡Nota!"
+echo -e "\033[1;36m En APPS como HTTP Inyector,KPNTunnel Rev,HTTP CUSTOM, etc."
 echo -e "\033[1;36m Se deveran agregar manualmente estos DNS en la app a usar."
 echo -e "\033[1;36m En APPS como SS,SSR,V2RAY no es necesario agregarlos."
 msg -bar2
