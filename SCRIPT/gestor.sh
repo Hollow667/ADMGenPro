@@ -146,7 +146,7 @@ echo -e "${cor[4]}  DNS AGREGADOS CON EXITO"
 dnsnetflix2 () {
 clear
 msg -bar2
-echo -e "\033[1;36m    AGREGARDOR DE DNS PERSONALES BY ${cor[2]} [NEW-ADM-PLUS]"
+echo -e "\033[1;36m     AGREGADOR DE DNS PERSONALES BY ${cor[2]} [NEW-ADM-PLUS] "
 msg -bar2
 echo -e "\033[1;36m Esta funcion ara que puedas ver Netflix con tu VPS"
 msg -bar2
