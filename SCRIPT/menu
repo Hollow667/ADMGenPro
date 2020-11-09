@@ -567,7 +567,7 @@ float_data "$arqs" "$Numb" && {
   }
 done
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "INSTALAR WEBMIN ") $new"
-script[$Numb]="function_webmin"
+script[$Numb]="webmin"
 let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "DETALLES DE SISTEMA") $ofc"
 script[$Numb]="systeminf"
@@ -588,6 +588,7 @@ selection=$(selection_fun $Numb)
   ${SCPfrm}/${script[$selection]} ${id}
   } || {
   case ${script[$selection]} in
+  "webmin")function_webmin;;
   "agregar")agregar_ferramenta;;
   "remove")remove_ferramenta;;
   "limpar")limpar_caches;;
