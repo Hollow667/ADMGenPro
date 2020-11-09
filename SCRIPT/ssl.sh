@@ -128,7 +128,7 @@ msg -ama " $(fun_trans "LOS PUERTOS SSL SEAN DETENIDO CON EXITO")"
 msg -bar
 }
 inst_sslt () {
-wget -O $HOME/ssl.sh https://raw.githubusercontent.com/ThonyDroidYT/ADMGenPro/master/SCRIPT/ssl-backup.sh &>/dev/null
+wget -O $HOME/ssl.sh https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/ssl.sh &>/dev/null
 chmod +x $HOME/ssl.sh
 cd $HOME
 ./ssl.sh
@@ -182,17 +182,17 @@ msg -ama " $(fun_trans "AGREGADO CON EXITO")"
 msg -bar
 }
 shadow_fun () {
-echo -e " \033[1;36m $(fun_trans "SSL MANAGER OPENSSH") \033[1;32m[NEW-ADM-PLUS]"
+echo -e " \033[1;36m $(fun_trans "SSL MANAGER") \033[1;32m[NEW-ADM-PLUS]"
 echo -e "$barra"
 while true; do
 echo -e "${cor[3]} [1] ${cor[4]}> ${cor[8]}$(fun_trans "INSTALAR SSL NORMAL")"
 echo -e "${cor[3]} [2] ${cor[4]}> ${cor[8]}$(fun_trans "INSTALAR SSL MANUAL-OPENSSH")"
 echo -e "${cor[3]} [3] ${cor[4]}> ${cor[8]}$(fun_trans "ABRIR MAS PUERTOS SSL MANUAL")"
 echo -e "${cor[3]} [4] ${cor[4]}> ${cor[8]}$(fun_trans "REDIRECCIONAR SSL")"
-echo -e "${cor[3]} [5] ${cor[4]}> ${cor[8]}$(fun_trans "DETENER EL PUERTO SSL")"
+echo -e "${cor[3]} [5] ${cor[4]}> ${cor[8]}$(fun_trans "DETENER PUERTOS SSL")"
 echo -e "${cor[3]} [6] ${cor[4]}> ${cor[4]}$(fun_trans "SALIR")"
 echo -e "${cor[3]} [0] ${cor[4]}> ${cor[0]}$(fun_trans "VOLVER")\n${barra}"
-while [[ ${opx} != @(0|[1-6]) ]]; do
+while [[ ${opx} != @(0|[1-7]) ]]; do
 echo -ne "${cor[0]}$(fun_trans "Digite una Opcion"): \033[1;37m" && read opx
 tput cuu1 && tput dl1
 done
@@ -214,8 +214,11 @@ case $opx in
 	5)
 	ssl_del
 	break;;
-   6)
+        6)
 	exit;;
+        7)
+	inst_sslt
+	break;;
   
 esac
 done
