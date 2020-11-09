@@ -533,7 +533,7 @@ case $1 in
 "openvpn.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "OPENVPN $(pid_inst openvpn)";;
 "ssl.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL $(pid_inst stunnel4)";;
 "shadowsocks.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS NORMAL $(pid_inst ssserver)";;
-"shadowsocks-mods.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS R,GO,LIB $(pid_inst ssserver)";;
+"shadowsmods.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS R,GO,LIB $(pid_inst ssserver)";;
 "sockspy.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SOCKS PYTHON $(pid_inst python)";;
 "v2ray.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "V2RAY $(pid_inst v2ray)";;
 "budp.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "BADVPN-(UDP:7300) $(pid_inst badvpn)";;
@@ -692,7 +692,7 @@ sed -i "65d" /bin/monitor.sh
 sed -i '65i EstadoServicio apache2' /bin/monitor.sh
 }
 msg -bar
-echo -e "\033[1;37m       =====>>►► NEW ULTIMATE PLUS ◄◄<<=====       \033[1;37m"
+echo -e "\033[44m       =====>>►► NEW ULTIMATE PLUS ◄◄<<=====       \033[1;37m"
 msg -bar
 echo -e "\033[1;32m          MONITOR DE SERVICIONS PRINCIPALES"
 
