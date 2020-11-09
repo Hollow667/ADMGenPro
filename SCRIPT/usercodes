@@ -933,7 +933,7 @@ msg -bar
 msg -ne "$(fun_trans  "Escriba el mensaje principal del BANNER de preferencia en HTML"): \n" && read banner
 msg -bar
 echo "$banner" >> $local2
-echo '<p style="text-align: center;"><strong><span style="color: blue;">ADM&bull;</span><span style="color: red;">PLUS&reg;</span> |&nbsp;</strong><span style="color: green;"><strong>By: @Thony_DroidYT</strong></span></p>' >> $local2
+echo '<p style="text-align: center;"><strong><font color="red">ADM•</font><font color="blue">PLUS®</font><font color="red"> | </font><font color="green">By:  @Thony_DroidYT</strong></p>' >> $local2
 #echo '<p style="text-align: center;"><strong><span style="color: #ff0000;">ADM&bull;PLUS&reg;</span> |&nbsp;</strong><span style="color: #0000ff;"><strong>By: @Thony_DroidYT</strong></span></p>' >> $local2
 msg -verd "$(fun_trans  "Banner Dropbear Agregado Con ¡¡EXITO!!")" && msg -bar
 service dropbear stop 2>/dev/null
