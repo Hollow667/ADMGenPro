@@ -290,7 +290,7 @@ msg -bar
 fi
 while true; do
      msg -ne "$(fun_trans "Nombre De Nuevo Usuario")"
-     read -p ": " nomeuser
+     read -p ": 》" nomeuser
      nomeuser="$(echo $nomeuser|sed -e 's/[^a-z0-9 -]//ig')"
      if [[ -z $nomeuser ]]; then
      err_fun 1 && continue
@@ -304,7 +304,7 @@ while true; do
      break
 done
 while true; do
-     msg -ne "$(fun_trans "Contraseña  de Nuevo Usuario")"
+     msg -ne "$(fun_trans "Contraseña de Nuevo Usuario")"
      read -p ": 》" senhauser
      if [[ -z $senhauser ]]; then
      err_fun 4 && continue
@@ -350,6 +350,8 @@ done
      msg -ne "$(fun_trans "➾ Fecha de Expiración"): " && echo -e "$(date "+%F" -d " + $diasuser days")"
      msg -ne "$(fun_trans "➾ Limite de Conexión"): " && echo -e "$limiteuser"
      msg -ne "$(fun_trans "➾ Creado Con: NEW-ADM-PLUS") "
+echo""
+
 msg -bar
 add_user "${nomeuser}" "${senhauser}" "${diasuser}" "${limiteuser}" && msg -ama "$(fun_trans "Usuario Creado Con Éxito")" || msg -verm "$(fun_trans "Error, Usuario no creado")"
 [[ $(dpkg --get-selections|grep -w "openvpn"|head -1) ]] && [[ -e /etc/openvpn/openvpn-status.log ]] && newclient "$nomeuser" "$senhauser"
@@ -541,6 +543,8 @@ done
      msg -ne "$(fun_trans "➾ Fecha de Expiración"): " && echo -e "$(date "+%F" -d " + $diasuser days")"
      msg -ne "$(fun_trans "➾ Limite de Conexión"): " && echo -e "$limiteuser"
      msg -ne "$(fun_trans "➾ Editado Con: NEW-ADM-PLUS")"
+echo""
+
 msg -bar
 edit_user_fun "${useredit}" "${senhauser}" "${diasuser}" "${limiteuser}" && msg -ama "$(fun_trans "Usuario Modificado Con Éxito")" || msg -verm "$(fun_trans "Error, Usuario no Modificado")"
 msg -bar
@@ -876,8 +880,10 @@ elif [[ "$sin_nao" = @(n|N) ]]; then
 break
 fi
 done
-#echo '<h8><font color="purple">☆By:ADMPlus☆</font></h8>' >> $local
-#echo '<h1><font color="red">★━━━━━━✩━━━━━━★</font></h1>' >> $local
+#
+echo '<h8><font color="purple">☆By:ADMPlus☆</font></h8>' >> $local
+#
+echo '<h1><font color="red">★━━━━━━✩━━━━━━★</font></h1>' >> $local
 if [[ -e "$local2" ]]; then
 rm $local2  > /dev/null 2>&1
 cp $local $local2 > /dev/null 2>&1
@@ -904,7 +910,8 @@ msg -bar
 msg -ne "$(fun_trans  "Escriba el mensaje principal del BANNER de preferencia en HTML"): \n" && read ban_ner
 msg -bar
 echo "$ban_ner" >> $local
-#echo '<h3><font color="purple">☆By:ADM-Plus☆</font></h3>' >> $local
+#
+echo '<h3><font color="purple">☆By:ADM-Plus☆</font></h3>' >> $local
 if [[ -e "$local2" ]]; then
 rm $local2  > /dev/null 2>&1
 cp $local $local2 > /dev/null 2>&1
