@@ -181,7 +181,7 @@ msg -bar
 msg -ama " $(fun_trans "AGREGADO CON EXITO")"
 msg -bar
 }
-shadow_fun () {
+ssl_manager () {
 echo -e " \033[1;36m $(fun_trans "SSL MANAGER") \033[1;32m[NEW-ADM-PLUS]"
 echo -e "$barra"
 while true; do
@@ -223,4 +223,4 @@ case $opx in
 esac
 done
 }
-shadow_fun
+ssl_manager
