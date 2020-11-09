@@ -81,12 +81,12 @@ msg -bar
 }
 
 ssl_portas () {
-msg -bra "$(fun_trans "Que puerto desea agregar como SSL Openssh")"
+msg -bra "$(fun_trans "Que puerto desea agregar como SSL OpenSSH")"
 msg -bar
     while true; do
     read -p " Puerto SSL: " SSLPORT1
     [[ $(mportas|grep -w "$SSLPORT1") ]] || break
-    echo -e "$(fun_trans "esta puerta está en uso")"
+    echo -e "$(fun_trans "Esta puerto está en uso")"
     unset SSLPORT1
     done
 msg -bar
@@ -133,6 +133,9 @@ chmod +x $HOME/ssl.sh
 cd $HOME
 ./ssl.sh
 rm $HOME/ssl.sh &>/dev/null
+}
+ssl_normal(){
+    bash <(curl -L -s -k "https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/ssl.sh")
 }
 ssl_redir () {
 msg -bra "$(fun_trans "Asigne un nombre para el redirecionador")"
@@ -182,8 +185,8 @@ shadow_fun () {
 echo -e " \033[1;36m $(fun_trans "SSL MANAGER OPENSSH") \033[1;32m[NEW-ADM-PLUS]"
 echo -e "$barra"
 while true; do
-echo -e "${cor[3]} [1] ${cor[4]}> ${cor[8]}$(fun_trans "INSTALAR SSL MANUAL-OPENSSH")"
-echo -e "${cor[3]} [2] ${cor[4]}> ${cor[8]}$(fun_trans "INSTALAR SSL DIRECTO")"
+echo -e "${cor[3]} [1] ${cor[4]}> ${cor[8]}$(fun_trans "INSTALAR SSL NORMAL")"
+echo -e "${cor[3]} [2] ${cor[4]}> ${cor[8]}$(fun_trans "INSTALAR SSL MANUAL-OPENSSH")"
 echo -e "${cor[3]} [3] ${cor[4]}> ${cor[8]}$(fun_trans "ABRIR MAS PUERTOS SSL MANUAL")"
 echo -e "${cor[3]} [4] ${cor[4]}> ${cor[8]}$(fun_trans "REDIRECCIONAR SSL")"
 echo -e "${cor[3]} [5] ${cor[4]}> ${cor[8]}$(fun_trans "DETENER EL PUERTO SSL")"
@@ -197,10 +200,10 @@ case $opx in
 	0)
 	menu;;
 	1)
-	ssl_iniciar
+        ssl_normal
 	break;;
 	2)
-	inst_sslt
+	ssl_iniciar
 	break;;
 	3)
 	ssl_portas
