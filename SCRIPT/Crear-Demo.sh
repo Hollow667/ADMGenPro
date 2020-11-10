@@ -19,7 +19,17 @@ userdel --force $2
 rm -rf /tmp/$2
 exit" > /tmp/$2
 }
-
+#Sistema de Puertos
+puertos_ssh () {
+msg -bar
+echo -e "\033[1;36m PUERTOS ACTIVOS"
+msg -bar2
+PT=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
+for porta in `echo -e "$PT" | cut -d: -f2 | cut -d' ' -f1 | uniq`; do
+svcs=$(echo -e "$PT" | grep -w "$porta" | awk '{print $1}' | uniq)
+echo -e "\033[1;33m ➾ \e[1;31m $svcs :\033[1;33m ➢ \e[1;32m $porta   "
+done
+}
 tmpusr2 () {
 time="$1"
 timer=$(( $time * 60 ))
@@ -76,6 +86,7 @@ echo -e "\033[1;36m⇛ Usuario: \033[0m$name"
 echo -e "\033[1;36m⇛ Contraseña: \033[0m$pass"
 echo -e "\033[1;36m⇛ Minutos de Duración: \033[0m$tmp"
 echo -e "\033[1;36m⇛ SSH Creado Con: \033[0mNEW-ADM-PlUS"
+puertos_ssh
 msg -bar2
 exit
 fi
