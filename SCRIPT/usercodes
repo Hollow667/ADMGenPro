@@ -89,7 +89,7 @@ fi
 #Sistema de Puertos
 puertos_ssh () {
 msg -bar
-echo -e "\033[1;31m PUERTOS ACTIVOS"
+echo -e "\033[1;36m PUERTOS ACTIVOS"
 msg -bar2
 PT=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
 for porta in `echo -e "$PT" | cut -d: -f2 | cut -d' ' -f1 | uniq`; do
