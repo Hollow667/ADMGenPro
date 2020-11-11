@@ -49,6 +49,19 @@ msg -ama " $(fun_trans "PUERTOS COREGIDAS DROPBEAR")"
 msg -bar
 }
 
+elimi_apache () {
+msg -bar
+msg -ama " $(fun_trans "CORRIGIENDO ERRORES APACHE")"
+msg -bar
+service apache2 stop
+apt-get remove apache2 -y
+apt-get purge apache2 -y
+rm -rf /etc/default/apache2
+msg -bar
+msg -ama " $(fun_trans "PUERTOS APACHE CORREGIDOS")"
+msg -bar
+}
+
 corre_squid () {
 msg -bar
 msg -ama " $(fun_trans "CORRIGIENDO LOS PUERTOS SQUID")"
@@ -57,8 +70,9 @@ apt-get remove squid -y
 apt-get purge squid -y
 rm -rf /etc/squid
 msg -bar
-msg -ama " $(fun_trans "ELIMINANDO PUERTOS SQUI3")"
-msg -bapt-get remove squid3 -y
+msg -ama " $(fun_trans "ELIMINANDO PUERTOS SQUID3")"
+msg -bar
+apt-get remove squid3 -y
 apt-get purge squid3 -y
 rm -rf /etc/squid3
 msg -bar
@@ -80,7 +94,7 @@ msg -ama " $(fun_trans "LOS PUERTOS SSL SEAN DETENIDO CON EXITO")"
 msg -bar
 }
 corregir_fun () {
-echo -e " \033[1;36m $(fun_trans "CORREGIR PUERTOS DROPBEAR,SQUID,SSL") \033[1;32m[NEW-ADM]"
+echo -e " \033[1;36m $(fun_trans "CORREGIR PUERTOS DROPBEAR/SQUID/SSL") \033[1;32m[NEW-ADM-PLUS]"
 echo -e "$barra"
 while true; do
 echo -e "${cor[4]} [1] > ${cor[5]}$(fun_trans "CORREGIR ERROR DE DROPBEAR")"
@@ -101,10 +115,10 @@ case $opx in
 	2)
 	corre_squid
 	break;;
-    3)
+        3)
 	ssl_del
 	break;;
-    4)
+        4)
 	exit;;
   
 esac
