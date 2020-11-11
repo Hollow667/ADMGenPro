@@ -116,13 +116,13 @@ ssl_redir() {
 msg -bra "$(fun_trans "Asigne un nombre para el redirecionador")"
 msg -bra "$(fun_trans "letras sin espacio ejem: shadow,openvpn,etc...")"
 msg -bar
-read -p " nombre: " namer
+read -p " Nombre: 》" namer
 msg -bar
 msg -bra "$(fun_trans "A que puerto redirecionara el puerto SSL")"
 msg -bra "$(fun_trans "Es decir un puerto abierto en su servidor")"
 msg -bra "$(fun_trans "ejemplo: openvpn,shadowsocks,dropbear etc...")"
 msg -bar
-read -p " Local-Port: " portd
+read -p " Local-Port: 》" portd
 msg -bar
 msg -bra "$(fun_trans "Que puerto desea agregar como SSL")"
 msg -bar
@@ -164,8 +164,8 @@ msg -verd "[3] = REDIRECIONAR SSL"
 msg -verm2 "[4] = DETENER PUERTO SSL"
 msg -bra "[0] = SALIR"
 msg -bar
-while [[ ${varread} != @([0-3]) ]]; do
-read -p "Opcion: " varread
+while [[ ${varread} != @([0-4]) ]]; do
+read -p "Opcion: 》" varread
 done
 msg -bar
 if [[ ${varread} = 0 ]]; then
