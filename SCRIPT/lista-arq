@@ -17,7 +17,9 @@ dropbear.sh
 apacheon.sh
 openvpn.sh
 shadowsocks.sh
+shadowmods.sh
 ssl.sh
+sslm.sh
 squid.sh
 fai2ban.sh
 GENERADOR_BIN.sh
@@ -27,6 +29,7 @@ payySND.sh
 ultrahost
 v2ray.sh
 v2ui.sh
+trojan.sh
 budp.sh
 version.txt
 monitor.sh
