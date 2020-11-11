@@ -13,6 +13,7 @@ speedtest.py
 speed.sh
 utils.sh
 dados.sh
+blockBT.sh
 dropbear.sh
 apacheon.sh
 openvpn.sh
