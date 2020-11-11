@@ -9,8 +9,8 @@ SCPfrm3="/etc/adm-lite"
 SCPinst="/etc/ger-inst"
 SCPidioma="${SCPdir}/idioma"
 
-declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;35m" [3]="\033[1;32m" [4]="\033[1;31m" [5]="\033[1;33m" [6]="\E[44;1;37m" [7]="\E[41;1;37m" )
-barra="\033[0m\e[31m======================================================\033[1;37m"
+declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;35m" [3]="\033[1;32m" [4]="\033[1;31m" [5]="\033[1;33m" [6]="\E[44;1;37m" [7]="\E[41;1;37m" [8]="\033[1;36m" )
+barra="\033[0m\e[1;34m======================================================\033[1;37m"
 SCPdir="/etc/newadm" && [[ ! -d ${SCPdir} ]] && exit 1
 SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && exit
 SCPinst="/etc/ger-inst" && [[ ! -d ${SCPinst} ]] && exit
@@ -97,12 +97,13 @@ corregir_fun () {
 echo -e " \033[1;36m $(fun_trans "CORREGIR PUERTOS DROPBEAR/SQUID/SSL") \033[1;32m[NEW-ADM-PLUS]"
 echo -e "$barra"
 while true; do
-echo -e "${cor[4]} [1] > ${cor[5]}$(fun_trans "CORREGIR ERROR DE DROPBEAR")"
-echo -e "${cor[4]} [2] > ${cor[5]}$(fun_trans "CORREGIR ERROR SQUID")"
-echo -e "${cor[4]} [3] > ${cor[5]}$(fun_trans "ELIMINAR PUERTOS SSL")"
-echo -e "${cor[4]} [4] > ${cor[0]}$(fun_trans "SALIR")"
+echo -e "${cor[8]} [1] > ${cor[5]}$(fun_trans "CORREGIR ERROR DE DROPBEAR")"
+echo -e "${cor[8]} [2] > ${cor[5]}$(fun_trans "CORREGIR ERROR APACHE")"
+echo -e "${cor[8]} [3] > ${cor[5]}$(fun_trans "CORREGIR ERROR SQUID")"
+echo -e "${cor[8]} [4] > ${cor[5]}$(fun_trans "CORREGIR PUERTOS SSL")"
+echo -e "${cor[4]} [5] > ${cor[0]}$(fun_trans "SALIR")"
 echo -e "${cor[4]} [0] > ${cor[0]}$(fun_trans "VOLVER")\n${barra}"
-while [[ ${opx} != @(0|[1-4]) ]]; do
+while [[ ${opx} != @(0|[1-5]) ]]; do
 echo -ne "${cor[0]}$(fun_trans "Digite una Opcion"): \033[1;37m" && read opx
 tput cuu1 && tput dl1
 done
@@ -112,13 +113,16 @@ case $opx in
 	1)
 	elimi_dropbear
 	break;;
-	2)
+        2)
+	elimi_apache
+	break;;
+	3)
 	corre_squid
 	break;;
-        3)
+        4)
 	ssl_del
 	break;;
-        4)
+        5)
 	exit;;
   
 esac
