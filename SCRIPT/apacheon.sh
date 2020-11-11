@@ -50,7 +50,7 @@ i=1
     arquivo_move="${select_arc[$slct]}"
     [[ -d /var/www/html ]] && [[ -e /var/www/html/$arquivo_move ]] && rm -rf /var/www/html/$arquivo_move > /dev/null 2>&1
     [[ -e /var/www/$arquivo_move ]] && rm -rf /var/www/$arquivo_move > /dev/null 2>&1
-    echo -e "${cor[5]}$(fun_trans "Sucesso!")"
+    echo -e "${cor[5]}$(fun_trans "Éxito!")"
     echo -e "$barra"
     }
 ;;    
