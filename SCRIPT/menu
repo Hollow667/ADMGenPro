@@ -134,7 +134,7 @@ fi
 funcao_idioma () {
 tput cuu1 && tput dl1
 msg -bar2
-declare -A idioma=( [1]="en Inglés" [2]="fr Frances" [3]="de Germano" [4]="it Italiano" [5]="pl Polish" [6]="pt Español" [7]="es Portugués" [8]="tr Turko" )
+declare -A idioma=( [1]="en Inglés" [2]="fr Frances" [3]="de Germano" [4]="it Italiano" [5]="pl Polish" [6]="es Español" [7]="pt Portugués" [8]="tr Turko" )
 for ((i=1; i<=12; i++)); do
 valor1="$(echo ${idioma[$i]}|cut -d' ' -f2)"
 [[ -z $valor1 ]] && break
@@ -217,7 +217,7 @@ v2ray)
 [[ -z $V2R ]] && local V2R="\033[1;31mV2RAY: \033[1;32m"
 V2R+="$Port ";;
 wireguard)
-[[ -z $WG ]] && local WG="\033[1;31mWireGuard: \033[1;32m"
+[[ -z $WG ]] && local WG="\033[1;31mWIREGUARD: \033[1;32m"
 WG+="$Port ";;
 esac
 done <<< "${portasVAR}"
@@ -532,6 +532,7 @@ case $1 in
 "dropbear.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "DROPBEAR $(pid_inst dropbear)";;
 "openvpn.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "OPENVPN $(pid_inst openvpn)";;
 "ssl.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL $(pid_inst stunnel4)";;
+"sslm.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL MANAGER $(pid_inst stunnel4)";;
 "shadowsocks.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS NORMAL $(pid_inst ssserver)";;
 "shadowsmods.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS R,GO,LIB $(pid_inst ssserver)";;
 "sockspy.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SOCKS PYTHON $(pid_inst python)";;
