@@ -17,7 +17,7 @@ dropbear.sh
 apacheon.sh
 openvpn.sh
 shadowsocks.sh
-shadowmods.sh
+shadowsmods.sh
 ssl.sh
 sslm.sh
 squid.sh
