@@ -137,11 +137,22 @@ bad_ssh () {
 echo -e "\e[1;97mBADVPN:\e[0m" "$badvpn"
 echo -e "\033[1;97mSSH REG:\033[1;92m $_sshtotal $(fun_trans "CUENTAS")"
 }
+#Sistema de Puertos
+puertos_ssh () {
+msg -bar
+echo -e "\033[1;36m PUERTOS ACTIVOS"
+msg -bar2
+PT=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
+for porta in `echo -e "$PT" | cut -d: -f2 | cut -d' ' -f1 | uniq`; do
+svcs=$(echo -e "$PT" | grep -w "$porta" | awk '{print $1}' | uniq)
+echo -e "\033[1;33m ➾ \e[1;31m $svcs :\033[1;33m ➢ \e[1;32m $porta   "
+done
+}
 atualiza_fun () {
 cd $HOME
 tput cuu1 && tput dl1
 msg -bar2
-msg -ama "$(fun_trans "ACTUALIZADOR DE SCRIPT ADM-PLUS"): \033[1;31m[NEW-ULTIMATE]"
+msg -ama "$(fun_trans "ACTUALIZADOR DE SCRIPT ADM-PLUS"): \033[1;32m[NEW-ULTIMATE]"
 msg -verm "$(fun_trans "Al Proseguir los Datos como Tiempo de uso Seran Perdidos"): "
 msg -bar2
 while [[ $Key != @(s|S|y|Y|n|N) ]]; do
@@ -391,8 +402,9 @@ apt-get -y -f install;
 sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
 rm /root/webmin_1.900_all.deb
 service webmin restart
-echo "Panel Webmin Instalado en el Puerto: 10000"
-echo "URL http://$(meu_ip):10000"
+clear
+echo "\033[1;32Panel Webmin Instalado en el Puerto: \033[1;31m10000\033[0m"
+echo "\033[1;33URL \033[1;31http://$(meu_ip):10000"
 }
 fun_autorun () {
 if [[ -e /etc/bash.bashrc-bakup ]]; then
@@ -542,7 +554,7 @@ ofc="\033[0m${gren}(#OFC)"
 dev="\033[0m${yellow}(#DEV)"
 new="\033[0m${red}(#NEW)"
 pre="\033[1;34(#PREMIUN)"
-infobt="\033[0m${yellow}(Bloquear Acceso a Sitio Web)"
+infobt="\033[0m${yellow}(Blockear Acceso a Sitio Web)"
 case $1 in
 "ADMbot.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "BOT DE ADMINISTRACION") TELEGRAN $ofc";;
 "GENERADOR_BIN.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "GENERADOR DE CC") $dev";;
@@ -550,7 +562,7 @@ case $1 in
 "ports.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "SISTEMA DE PUERTOS") $ofc";;
 "fixports.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "CORRECCION DE PUERTOS") $dev";;
 "fai2ban.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "FAIL2BAN PROTECCION") $ofc";;
-"blockBT.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "FIREWALL PARA VPS") $infobt $new";;
+"blockBT.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "FIREWALL VPS") $infobt $new";;
 "ultrahost")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ESCANER DE SUBDOMINIOS") $ofc";;
 "toolmaster.py")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TOOLMASTER HOST") $dev";;
 "Real-Host.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "REAL-HOST TOOL") $new";;
@@ -607,6 +619,9 @@ float_data "$arqs" "$Numb" && {
   let Numb++
   }
 done
+echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "VER TODOS LOS PUERTOS ACTIVOS ") $dev"
+script[$Numb]="puertos"
+let Numb++
 echo -ne "$(msg -verd "[$Numb]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "INSTALAR WEBMIN ") $new"
 script[$Numb]="webmin"
 let Numb++
@@ -630,6 +645,7 @@ selection=$(selection_fun $Numb)
   } || {
   case ${script[$selection]} in
   "webmin")function_webmin;;
+  "puertos")puertos_ssh;;
   "agregar")agregar_ferramenta;;
   "remove")remove_ferramenta;;
   "limpar")limpar_caches;;
