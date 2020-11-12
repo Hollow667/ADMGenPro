@@ -51,7 +51,7 @@ echo -ne "\033[1;32m [7] > " && msg -azu "$(fun_trans "MENU SECRETO V2RAY")"
 echo -ne "\033[1;32m [0] > " && msg -bra "$(fun_trans "REGRESAR")"
 msg -bar
 while [[ ${arquivoonlineadm} != @(0|[1-7]) ]]; do
-read -p "[0-6]: " arquivoonlineadm
+read -p "[0-7]: 》" arquivoonlineadm
 tput cuu1 && tput dl1
 done
 case $arquivoonlineadm in
