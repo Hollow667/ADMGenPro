@@ -61,7 +61,7 @@ case $arquivoonlineadm in
 4)tls;;
 5)infocuenta;;
 6)unistallv2;;
-7)menu_v2ray
+7)menu_v2ray;;
 0)exit;;
 esac
 msg -bar
