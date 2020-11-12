@@ -41,14 +41,14 @@ bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main
 
 msg -ama "$(fun_trans "MENU DE INSTALACIÓN V2RAY")"
 msg -bar
-echo -ne "\033[1;32m [1] > " && msg -azu "$(fun_trans "INSTALAR V2RAY") "
-echo -ne "\033[1;32m [2] > " && msg -azu "$(fun_trans "PANEL WEB V2RAY") "
-echo -ne "\033[1;32m [3] > " && msg -azu "$(fun_trans "CAMBIAR PROTOCOLO") "
-echo -ne "\033[1;32m [4] > " && msg -azu "$(fun_trans "ACTIVAR TLS") "
-echo -ne "\033[1;32m [5] > " && msg -azu "$(fun_trans "INFORMACION DE CUENTA")"
-echo -ne "\033[1;32m [6] > " && msg -azu "$(fun_trans "DESINTALAR V2RAY")"
-echo -ne "\033[1;32m [7] > " && msg -azu "$(fun_trans "MENU SECRETO V2RAY")"
-echo -ne "\033[1;32m [0] > " && msg -bra "$(fun_trans "REGRESAR")"
+echo -ne "\033[1;32m [1] \033[1;31m> " && msg -azu "$(fun_trans "INSTALAR V2RAY") "
+echo -ne "\033[1;32m [2] \033[1;31m> " && msg -azu "$(fun_trans "PANEL WEB V2RAY") "
+echo -ne "\033[1;32m [3] \033[1;31m> " && msg -azu "$(fun_trans "CAMBIAR PROTOCOLO") "
+echo -ne "\033[1;32m [4] \033[1;31m> " && msg -azu "$(fun_trans "ACTIVAR TLS") "
+echo -ne "\033[1;32m [5] \033[1;31m> " && msg -azu "$(fun_trans "INFORMACION DE CUENTA")"
+echo -ne "\033[1;32m [6] \033[1;31m> " && msg -azu "$(fun_trans "DESINTALAR V2RAY")"
+echo -ne "\033[1;32m [7] \033[1;31m> " && msg -azu "$(fun_trans "MENU V2RAY SECUNDARIO")"
+echo -ne "\033[1;32m [0] \033[1;31m> " && msg -bra "$(fun_trans "REGRESAR")"
 msg -bar
 while [[ ${arquivoonlineadm} != @(0|[1-7]) ]]; do
 read -p "[0-7]: 》" arquivoonlineadm
