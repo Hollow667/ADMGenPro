@@ -8,7 +8,7 @@
 
 # Detect Debian users running the script with "sh" instead of bash
 if readlink /proc/$$/exe | grep -q "dash"; then
-	echo 'This installer needs to be run with "bash", not "sh".'
+	echo 'Este instalador debe ejecutarse con "bash", no con "sh".'
 	exit
 fi
 
@@ -178,7 +178,7 @@ EOF
 if [[ ! -e /etc/wireguard/wg0.conf ]]; then
 	clear
         echo -e "\033[1;34m======================================================\033[0m"
-	echo -e "\033[1;33mBienvenido este es el instalador de WireGuard de [NEW-ADM-PLUS]!"
+	echo -e "\033[1;33mBienvenido a WireGuard \033[1;32m[NEW-ADM-PLUS]\033[0m!"
 	echo -e "\033[1;34m======================================================\033[0m"
         # If system has a single IPv4, it is selected automatically. Else, ask the user
 	if [[ $(ip -4 addr | grep inet | grep -vEc '127(\.[0-9]{1,3}){3}') -eq 1 ]]; then
