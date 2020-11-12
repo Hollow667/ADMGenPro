@@ -621,7 +621,7 @@ install_select(){
         echo -e "${green}[${red}${i}${green}] ${red}> ${cyan} ${hint} ${plain}"
         echo -e "${blue}${barra}${plain}"
     done
-    echo -e "${green}[${red}Nota${green}] ${red}Para Salir del Script ${green}CRTL+C ${plain}"
+    echo -e "${green}[${red}Nota${green}] ${red}Para Salir del Script ${green}CTRL+C ${plain}"
     echo -e "${blue}${barra}${plain}"
     read -p "Escoge una Opcion (Por defecto 4): 》" selected
     [ -z "${selected}" ] && selected="1"
