@@ -537,24 +537,28 @@ float_data () {
 ofc="\033[0m${gren}(#OFC)"
 dev="\033[0m${yellow}(#DEV)"
 new="\033[0m${red}(#NEW)"
+pre="\033[1;34(#PREMIUN)"
+infobt="\033[0m${yellow}(Bloquear Acceso a Sitio Web)"
 case $1 in
-"ADMbot.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "BOT DE ADMINISTRACIÓN") TELEGRAN $ofc";;
+"ADMbot.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "BOT DE ADMINISTRACION") TELEGRAN $ofc";;
 "GENERADOR_BIN.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "GENERADOR DE CC") $dev";;
 "MasterBin.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "CHECKER DE BIN") $ofc";;
 "ports.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "SISTEMA DE PUERTOS") $ofc";;
-"fixports.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "CORRECCIÓN DE PUERTOS") $dev";;
-"fai2ban.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "FAIL2BAN PROTECCIÓN") $ofc";;
-"ultrahost")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ESCÁNER DE SUBDOMINIOS") $ofc";;
+"fixports.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "CORRECCION DE PUERTOS") $dev";;
+"fai2ban.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "FAIL2BAN PROTECCION") $ofc";;
+"blockBT.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "FIREWALL PARA VPS") $infobt $new";;
+"ultrahost")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ESCANER DE SUBDOMINIOS") $ofc";;
+"toolmaster.py")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TOOLMASTER HOST") $dev";;
+"Real-Host.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "REAL-HOST TOOL") $new";;
 "payySND.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PAYLOAD FUERZA BRUTA PYTHON") $ofc";;
 "paysnd.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PAYLOAD FUERZA BRUTA") $ofc";;
 "apacheon.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "COMPARTIR ARCHIVO ONLINE") $ofc";;
-"utils.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "(Badvpn/tcp-Speed/SquidCache/Torrent) $ofc";;
+"utils.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "(BadVPN/TCP-SPEED/SQUIDCACHE/TORRENT) $ofc";;
 "dados.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "MONITOR DE CONSUMO") $ofc";;
 "speed.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TEST DE VELOCIDAD") $ofc";;
 "gestor.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "ADMINISTRAR SERVIDOR VPS") $new";;
 "speed_v2.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "TEST DE VELOCIDAD SECUNDARIO") $new";;
 "ehi_panel.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PANEL DE SUBIDA DE EHI") $new";;
-"Real-Host.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "Real-Host Tool") $new";;
 "Panelweb.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "PANELWEB-SSHPlus (DEBIAN8)") $new";;
 "hora.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "CAMBIAR ZONA HORARIA") $new";;
 "openssh.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "OPENSSH $(pid_inst sshd)";;
@@ -696,14 +700,16 @@ tput cuu1 >&2 && tput dl1 >&2
 done
 echo $selection
 }
+
 # EXECU��O MENU
-export -f msg
-export -f selection_fun
-export -f fun_trans
-export -f  menu_func
-export -f meu_ip
-export -f fun_ip
-clear
+#export -f msg
+#export -f selection_fun
+#export -f fun_trans
+#export -f  menu_func
+#export -f meu_ip
+#export -f fun_ip
+#clear
+
 #MONITOR DE SERVICIOS
 monservi_fun () {
 clear
@@ -774,14 +780,11 @@ sed -i "65d" /bin/monitor.sh
 sed -i '65i #EstadoServicio apache2' /bin/monitor.sh
 [[ "$monapache" = "s" || "$monapache" = "S" ]] && monapache
 
-
-
 #echo "screen -dmS very3 /etc/newadm/menu monitorservi" >> /bin/resetsshdrop
 cd ${SCPdir}
 screen -dmS very3 ${SCPdir}/menu monitorservi
 screen -dmS monis2 ${SCPdir}/menu moni2
 else
-
 
 for pid in $(echo $PIDVRF3); do
 kill -9 $pid &>/dev/null
@@ -791,7 +794,6 @@ done
 for pid in $(echo $PIDVRF5); do
 kill -9 $pid &>/dev/null
 done
-
 
 fi
 msg -bar
@@ -831,7 +833,16 @@ if [[ "$1" = "moni2" ]]; then
 monitorport_fun
 exit
 fi
+# FIN MONITOR SERVICIOS
 
+# EXECU��O MENU
+export -f msg
+export -f selection_fun
+export -f fun_trans
+export -f  menu_func
+export -f meu_ip
+export -f fun_ip
+clear
 # MENU PRINCIPAL
 msg -bar
 msg -ama "$(fun_trans "PUERTOS ACTIVOS Y INFORMACION DEL SERVIDOR VPS!")"
