@@ -1,5 +1,6 @@
 menu
 PGet.py
+fixports.sh
 ports.sh
 ADMbot.sh
 message.txt
