@@ -139,13 +139,13 @@ echo -e "\033[1;97mSSH REG:\033[1;92m $_sshtotal $(fun_trans "CUENTAS")"
 }
 #Sistema de Puertos
 puertos_ssh () {
-msg -bar
 echo -e "\033[1;36m PUERTOS ACTIVOS"
 msg -bar2
 PT=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
 for porta in `echo -e "$PT" | cut -d: -f2 | cut -d' ' -f1 | uniq`; do
 svcs=$(echo -e "$PT" | grep -w "$porta" | awk '{print $1}' | uniq)
 echo -e "\033[1;33m ➾ \e[1;31m $svcs :\033[1;33m ➢ \e[1;32m $porta   "
+msg -bar2
 done
 }
 atualiza_fun () {
@@ -753,7 +753,7 @@ sed -i "65d" /bin/monitor.sh
 sed -i '65i EstadoServicio apache2' /bin/monitor.sh
 }
 msg -bar
-echo -e "\033[44m       =====>>►► NEW ULTIMATE PLUS ◄◄<<=====       \033[1;37m"
+echo -e "\033[44m        =====>>►►   NEW ULTIMATE PLUS   ◄◄<<=====        \033[1;37m"
 msg -bar
 echo -e "\033[1;32m          MONITOR DE SERVICIONS PRINCIPALES"
 
