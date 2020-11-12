@@ -258,6 +258,9 @@ V2R+="$Port ";;
 wireguard|wg)
 [[ -z $WG ]] && local WG="\033[1;31mWIREGUARD: \033[1;32m"
 WG+="$Port ";;
+miniserv)
+[[ -z $WBM ]] && local WBM="\033[1;31mWEBMIN: \033[1;32m"
+WBM+="$Port ";;
 trojan|trojanserver)
 [[ -z $TJ ]] && local TJ="\033[1;31mTROJAN: \033[1;32m"
 TJ+="$Port ";;
@@ -274,6 +277,7 @@ done <<< "${portasVAR}"
 [[ ! -z $SSV ]] && echo -e $SSV
 [[ ! -z $V2R ]] && echo -e $V2R 
 [[ ! -z $WG ]] && echo -e $WG
+[[ ! -z $WBM ]] && echo -e $WBM
 [[ ! -z $TJ ]] && echo -e $TJ
 }
 ofus () {
