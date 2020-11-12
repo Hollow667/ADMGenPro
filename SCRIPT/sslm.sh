@@ -157,6 +157,9 @@ msg -ama " $(fun_trans "AGREGADO CON EXITO")"
 msg -bar
 }
 
+sslm_menu () {
+msg -bar
+echo -e "\033[1;36m SSL MANAGER \033m[1;32[NEW-ADM-PLUS]\033[0m"
 msg -bar
 msg -bra "[1] = ABRIR PUERTO SSL"
 msg -bra "[2] = AGREGAR MAS PUERTOS SSL"
@@ -180,3 +183,5 @@ elif [[ ${varread} = 4 ]]; then
 ssl_stunel
 fi
 msg -bar
+}
+sslm_menu
