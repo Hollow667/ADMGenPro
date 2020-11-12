@@ -584,9 +584,11 @@ case $1 in
 # MENU DE INSTALACIONES
 "openssh.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "OPENSSH $(pid_inst sshd)";;
 "squid.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SQUID $(pid_inst squid)";;
+"squidpass.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "AUTENTIFICAR PROXY SQUID $(pid_inst squid)";;
 "dropbear.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "DROPBEAR $(pid_inst dropbear)";;
 "openvpn.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "OPENVPN $(pid_inst openvpn)";;
-"ssl.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL NORMAL $(pid_inst stunnel4)";;
+"ssl.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL $(pid_inst stunnel4)";;
+"sslm.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL MANAGER $(pid_inst stunnel4)";;
 "shadowsocks.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS NORMAL $(pid_inst ssserver)";;
 "shadowsmods.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS R,GO,LIB $(pid_inst ssserver)";;
 "sockspy.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SOCKS PYTHON $(pid_inst python)";;
@@ -595,7 +597,6 @@ case $1 in
 "Proxy-Publico.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Privado $(pid_inst python)";;
 "wg.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "WIREGUARD $(pid_inst wg)";;
 "trojan.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "TROJAN $(pid_inst trojan)";;
-"sslm.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL MANAGER $(pid_inst stunnel4)";;
 "budp.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "BADVPN-(UDP:7300) $(pid_inst badvpn)";;
 #FIN MENU INSTALACIONES
 "Crear-Demo.sh")return 1;;
