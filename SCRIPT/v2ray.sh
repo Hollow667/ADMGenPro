@@ -35,6 +35,9 @@ bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/
 infocuenta () {
 v2ray info
 }
+menu_v2ray () {
+bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/v2ray-Menu.sh)
+}
 
 msg -ama "$(fun_trans "MENU DE INSTALACIÓN V2RAY")"
 msg -bar
@@ -44,9 +47,10 @@ echo -ne "\033[1;32m [3] > " && msg -azu "$(fun_trans "CAMBIAR PROTOCOLO") "
 echo -ne "\033[1;32m [4] > " && msg -azu "$(fun_trans "ACTIVAR TLS") "
 echo -ne "\033[1;32m [5] > " && msg -azu "$(fun_trans "INFORMACION DE CUENTA")"
 echo -ne "\033[1;32m [6] > " && msg -azu "$(fun_trans "DESINTALAR V2RAY")"
+echo -ne "\033[1;32m [7] > " && msg -azu "$(fun_trans "MENU SECRETO V2RAY")"
 echo -ne "\033[1;32m [0] > " && msg -bra "$(fun_trans "REGRESAR")"
 msg -bar
-while [[ ${arquivoonlineadm} != @(0|[1-6]) ]]; do
+while [[ ${arquivoonlineadm} != @(0|[1-7]) ]]; do
 read -p "[0-6]: " arquivoonlineadm
 tput cuu1 && tput dl1
 done
@@ -57,6 +61,7 @@ case $arquivoonlineadm in
 4)tls;;
 5)infocuenta;;
 6)unistallv2;;
+7)menu_v2ray
 0)exit;;
 esac
 msg -bar
