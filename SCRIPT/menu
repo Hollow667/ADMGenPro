@@ -113,6 +113,7 @@ else
 echo "${texto[$@]}"
 fi
 }
+#memorias
 memorias_fun () {
 msg -bar
 echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESADOR "
@@ -120,6 +121,11 @@ echo -e "\033[1;31mFecha: \033[1;37m$_fecha  \033[1;31mTotal:\033[1;37m$_ram \03
 echo -e "\033[1;31mHora:\033[1;37m $_hora     \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
 echo -e "\033[1;31mSO: \033[1;37m"$(os_system)" \033[1;31mIP: \033[1;37m"$(meu_ip)"\033[0m"
 msg -bar
+}
+#BadSSH
+bad_ssh () {
+echo -e "\e[1;97mBADVPN:\e[0m" "$badvpn"
+echo -e "\033[1;97mSSH REG:\033[1;92m $_sshtotal $(fun_trans "CUENTAS")"
 }
 atualiza_fun () {
 cd $HOME
@@ -823,10 +829,9 @@ msg -bar
 msg -ama "$(fun_trans "PUERTOS ACTIVOS Y INFORMACION DEL SERVIDOR VPS!")"
 msg -bar
 mine_port
-#memorias fun
+# MEMORIAS
 memorias_fun
-echo -e "\e[1;97mBADVPN:\e[0m" "$badvpn"
-echo -e "\033[1;97mSSH REG:\033[1;92m $_sshtotal $(fun_trans "CUENTAS")"
+bad_ssh
 [[ -e ${SCPdir}/USRonlines ]] && msg -ne "$(fun_trans "USUARIOS CONECTADOS"): " && msg -bra "$(cat ${SCPdir}/USRonlines) $(fun_trans "Usuarios")"
 [[ -e ${SCPdir}/USRexpired ]] && msg -ne "$(fun_trans "USUARIOS EXPIRADOS"): " && msg -bra "$(cat ${SCPdir}/USRexpired) $(fun_trans "Usuarios")"
 [[ -e ${SCPdir}/message.txt ]] && msg -bar && msg -bra "MENSAJE: $(cat ${SCPdir}/message.txt)"
