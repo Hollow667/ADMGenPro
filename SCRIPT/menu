@@ -588,13 +588,13 @@ case $1 in
 "dropbear.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "DROPBEAR $(pid_inst dropbear)";;
 "openvpn.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "OPENVPN $(pid_inst openvpn)";;
 "ssl.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL $(pid_inst stunnel4)";;
-"sslm.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL MANAGER $(pid_inst stunnel4)";;
+"sslm.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL MANAGER $(pid_inst stunnel)";;
 "shadowsocks.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS NORMAL $(pid_inst ssserver)";;
-"shadowsmods.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS R,GO,LIB $(pid_inst ssserver)";;
+"shadowsmods.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS R,GO,LIB $(pid_inst ssrserver)";;
 "sockspy.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SOCKS PYTHON $(pid_inst python)";;
 "v2ray.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "V2RAY $(pid_inst v2ray)";;
-"Proxy-Privado.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Publico $(pid_inst python)";;
-"Proxy-Publico.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Privado $(pid_inst python)";;
+"Proxy-Privado.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Publico $(pid_inst python2)";;
+"Proxy-Publico.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Privado $(pid_inst python3)";;
 "wg.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "WIREGUARD $(pid_inst wg)";;
 "trojan.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "TROJAN $(pid_inst trojan)";;
 "budp.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "BADVPN-(UDP:7300) $(pid_inst badvpn)";;
