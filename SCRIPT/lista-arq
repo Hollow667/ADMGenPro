@@ -21,7 +21,6 @@ openvpn.sh
 shadowsocks.sh
 shadowsmods.sh
 ssl.sh
-sslm.sh
 squid.sh
 fai2ban.sh
 GENERADOR_BIN.sh
@@ -46,3 +45,4 @@ Proxy-Privado.sh
 Real-Host.sh
 toolmaster.py
 wg.sh
+sslm.sh
