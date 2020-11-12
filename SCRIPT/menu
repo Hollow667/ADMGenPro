@@ -238,15 +238,18 @@ PY3+="$Port ";;
 badvpn-ud)
 [[ -z $BAD ]] && local BAD="\033[1;31mBADVPN: \033[1;32m"
 BAD+="$Port ";;
-ssserver)
+ssserver|ssrserver)
 [[ -z $SSV ]] && local SSV="\033[1;31mSHADOWSOCKS: \033[1;32m"
 SSV+="$Port ";;
-v2ray)
+v2ray|v2rayssr)
 [[ -z $V2R ]] && local V2R="\033[1;31mV2RAY: \033[1;32m"
 V2R+="$Port ";;
-wireguard)
+wireguard|wg)
 [[ -z $WG ]] && local WG="\033[1;31mWIREGUARD: \033[1;32m"
 WG+="$Port ";;
+trojan|trojanserver)
+[[ -z $TJ ]] && local TJ="\033[1;31mTROJAN: \033[1;32m"
+TJ+="$Port ";;
 esac
 done <<< "${portasVAR}"
 [[ ! -z $SQD ]] && echo -e $SQD
@@ -260,6 +263,7 @@ done <<< "${portasVAR}"
 [[ ! -z $SSV ]] && echo -e $SSV
 [[ ! -z $V2R ]] && echo -e $V2R 
 [[ ! -z $WG ]] && echo -e $WG
+[[ ! -z $TJ ]] && echo -e $TJ
 }
 ofus () {
 unset txtofus
@@ -573,7 +577,7 @@ case $1 in
 "v2ray.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "V2RAY $(pid_inst v2ray)";;
 "Proxy-Privado.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Publico $(pid_inst python)";;
 "Proxy-Publico.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Privado $(pid_inst python)";;
-"wg.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "WIREGUARD $(pid_inst wg0)";;
+"wg.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "WIREGUARD $(pid_inst wg)";;
 "trojan.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "TROJAN $(pid_inst trojan)";;
 "sslm.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL MANAGER $(pid_inst stunnel4)";;
 "budp.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "BADVPN-(UDP:7300) $(pid_inst badvpn)";;
