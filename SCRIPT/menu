@@ -252,9 +252,12 @@ BAD+="$Port ";;
 ssserver|ssrserver)
 [[ -z $SSV ]] && local SSV="\033[1;31mSHADOWSOCKS: \033[1;32m"
 SSV+="$Port ";;
-v2ray|v2rayssr)
+v2ray|v2ray-v2-)
 [[ -z $V2R ]] && local V2R="\033[1;31mV2RAY: \033[1;32m"
 V2R+="$Port ";;
+v2-ui|v2ray-v2-ui)
+[[ -z $V2UI ]] && local V2UI="\033[1;31mV2RAY-UI: \033[1;32m"
+V2UI+="$Port ";;
 wireguard|wg)
 [[ -z $WG ]] && local WG="\033[1;31mWIREGUARD: \033[1;32m"
 WG+="$Port ";;
@@ -275,7 +278,8 @@ done <<< "${portasVAR}"
 [[ ! -z $PY3 ]] && echo -e $PY3
 [[ ! -z $BAD ]] && echo -e $BAD
 [[ ! -z $SSV ]] && echo -e $SSV
-[[ ! -z $V2R ]] && echo -e $V2R 
+[[ ! -z $V2R ]] && echo -e $V2R
+[[ ! -z $V2UI ]] && echo -e $V2UI
 [[ ! -z $WG ]] && echo -e $WG
 [[ ! -z $WBM ]] && echo -e $WBM
 [[ ! -z $TJ ]] && echo -e $TJ
@@ -888,15 +892,15 @@ msg -bar
 selection=$(selection_fun 10)
 case ${selection} in
 1)${SCPusr}/usercodes "${idioma}";;
-2)bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Shadown/ShadowsMods.sh);;
-3)ferramentas_fun;;
-4)menu_inst;;
-5)atualiza_fun;;
-6)remove_script;;
-7)fun_autorun;;
-8)funcao_idioma;;
-9)canbio_color;;
-10)monservi_fun;;
+# 2)bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Shadown/ShadowsMods.sh);;
+2)ferramentas_fun;;
+3)menu_inst;;
+4)atualiza_fun;;
+5)remove_script;;
+6)fun_autorun;;
+7)funcao_idioma;;
+8)canbio_color;;
+9)monservi_fun;;
 0)cd $HOME && exit 0;;
 esac
 msg -ne "$(fun_trans "Enter Para Continuar")" && read enter
