@@ -749,6 +749,13 @@ echo $selection
 
 #MONITOR DE SERVICIOS
 monservi_fun () {
+# MONITOR
+wget -O /var/www/html/estilos.css https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Monitor/estilos.css &> /dev/null
+chmod 777 /var/www/html/estilos.css
+#Estilos CSS
+wget -O /bin/monitor.sh https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Monitor/monitor.sh &> /dev/null
+chmod 777 /bin/monitor.sh
+# FIN MONITOR
 clear
 monssh () {
 sed -i "57d" /bin/monitor.sh
