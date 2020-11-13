@@ -1,6 +1,6 @@
 #!/bin/bash
-declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;35m" [3]="\033[1;32m" [4]="\033[1;31m" [5]="\033[1;33m" [6]="\E[44;1;37m" [7]="\E[41;1;37m" )
-barra="\033[0m\e[31m======================================================\033[1;37m"
+declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;35m" [3]="\033[1;32m" [4]="\033[1;31m" [5]="\033[1;33m" [6]="\E[44;1;37m" [7]="\E[41;1;37m" [8]="\033[1;36m" )
+barra="\033[0m\e[1;34m=========================================================\033[1;37m"
 fun_bar () {
 comando="$1"
  _=$(
@@ -51,24 +51,24 @@ echo -e "$barra"
 menu
 }
 act_hora5 () {
-echo "America/Mexico_City" > /etc/timezone
-ln -fs /usr/share/zoneinfo/America/Mexico_City /etc/localtime > /dev/null 2>&1
+echo "America/Lima" > /etc/timezone
+ln -fs /usr/share/zoneinfo/America/Lima /etc/localtime > /dev/null 2>&1
 dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1 && echo -e "\033[1;32m [OK]" || echo -e "\033[1;31m [FAIL]"
 echo -e "$barra"
 menu
 }
 shadowe_fun () {
-echo -e " \033[1;36m $(fun_trans "ZONA HORARIO") \033[1;32m[NEW-ADM-PLUS]"
+echo -e " \033[1;36m $(fun_trans "ZONA HORARIA") \033[1;32m[NEW-ADM-PLUS]"
 echo -e "$barra"
 while true; do
-echo -e "${cor[4]} [1] > ${cor[5]}$(fun_trans "ACTUALIZAR HORARIO  CHICHUAHUA")"
-echo -e "${cor[4]} [2] > ${cor[5]}$(fun_trans "ACTUALIZAR HORARIO  MEXICO")"
-echo -e "${cor[4]} [3] > ${cor[5]}$(fun_trans "ACTUALIZAR HORARIO  HERMOSILLO")"
-echo -e "${cor[4]} [4] > ${cor[5]}$(fun_trans "ACTUALIZAR HORARIO  AMERICA/SANTIAGO")"
-echo -e "${cor[4]} [4] > ${cor[5]}$(fun_trans "ACTUALIZAR HORARIO  AMERICA/PERÚ")"
-echo -e "${cor[4]} [0] > ${cor[0]}$(fun_trans "SALIR")\n${barra}"
+echo -e "${cor[4]} [1] ${cor[4]}> ${cor[8]}$(fun_trans "ACTUALIZAR HORARIO  CHICHUAHUA")"
+echo -e "${cor[4]} [2] ${cor[4]}> ${cor[8]}$(fun_trans "ACTUALIZAR HORARIO  MEXICO")"
+echo -e "${cor[4]} [3] ${cor[4]}> ${cor[8]}$(fun_trans "ACTUALIZAR HORARIO  HERMOSILLO")"
+echo -e "${cor[4]} [4] ${cor[4]}> ${cor[8]}$(fun_trans "ACTUALIZAR HORARIO  AMERICA/SANTIAGO")"
+echo -e "${cor[4]} [5] ${cor[4]}> ${cor[8]}$(fun_trans "ACTUALIZAR HORARIO  AMERICA/PERÚ")"
+echo -e "${cor[4]} [0] ${cor[4]}> ${cor[0]}$(fun_trans "SALIR")\n${barra}"
 while [[ ${opx} != @(0|[1-5]) ]]; do
-echo -ne "${cor[0]}$(fun_trans "Digite una Opcion"): \033[1;37m" && read opx
+echo -ne "${cor[0]}$(fun_trans "Digite una Opcion"): 》\033[1;37m" && read opx
 tput cuu1 && tput dl1
 done
 case $opx in
@@ -83,7 +83,7 @@ case $opx in
 	3)
 	act_hora2
 	break;;
-    4)
+        4)
 	act_hora3
 	break;;
 	5)
