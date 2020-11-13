@@ -36,10 +36,10 @@ on="\033[1;32m[ON]" && off="\033[1;31m[OFF]"
 _system=$(printf '%-14s' "$system")
 _ram=$(printf ' %-9s' "$(free -h | grep -i mem | awk {'print $2'})")
 _usor=$(printf '%-8s' "$(free -m | awk 'NR==2{printf "%.2f%%", $3*100/$2 }')")
-
-[[ -z ${VERY3} ]] && monitorservi="\033[1;32m[ACTIVADO]" || monitorservi="\033[1;32m[DESACTIVADO]"
-if [[ -e /etc/bash.bashrc-bakup ]]; then AutoRun="\033[1;32m[ACTIVADO]"
-elif [[ -e /etc/bash.bashrc ]]; then AutoRun="\033[1;31m[DESACTIVADO]"
+# PID-AutoRun Monitor
+[[ -z ${VERY3} ]] && monitorservi="\033[1;32m[ON]" || monitorservi="\033[1;32m[OFF]"
+if [[ -e /etc/bash.bashrc-bakup ]]; then AutoRun="\033[1;32m[ON]"
+elif [[ -e /etc/bash.bashrc ]]; then AutoRun="\033[1;31m[OFF]"
 fi
 # Funcoes Globais
 msg () {
@@ -146,6 +146,15 @@ echo -e "\033[1;32mSISTEMA            MEMORIA RAM      PROCESADOR "
 echo -e "\033[1;31mFecha: \033[1;37m$_fecha  \033[1;31mTotal:\033[1;37m$_ram \033[1;31mNucleos: \033[1;37m$_core\033[0m"
 echo -e "\033[1;31mHora:\033[1;37m $_hora     \033[1;31mEn uso: \033[1;37m$_usor \033[1;31mEn uso: \033[1;37m$_usop\033[0m"
 echo -e "\033[1;31mSO: \033[1;37m"$(os_system)" \033[1;31mIP: \033[1;37m"$(meu_ip)"\033[0m"
+msg -bar
+}
+# MEMORIAS 2
+memorias_fun2 () {
+msg -bar
+echo -e "\033[1;32m$(fun_trans "SISTEMA")           $(fun_trans "MEMORIA RAM")      $(fun_trans "PROCESADOR ")"
+echo -e "\033[1;31m$(fun_trans "Fecha"): \033[1;37m$_fecha  \033[1;31m$(fun_trans "Total"):\033[1;37m$_ram \033[1;31m$(fun_trans "Nucleos"): \033[1;37m$_core\033[0m"
+echo -e "\033[1;31m$(fun_trans "Hora"):\033[1;37m $_hora     \033[1;31m$(fun_trans "En uso"): \033[1;37m$_usor \033[1;31m$(fun_trans "En uso"): \033[1;37m$_usop\033[0m"
+echo -e "\033[1;31m$(fun_trans "OS"): \033[1;37m"$(os_system)" \033[1;31m$(fun_trans "IP"): \033[1;37m"$(meu_ip)"\033[0m"
 msg -bar
 }
 #BadSSH
@@ -892,7 +901,7 @@ msg -ama "$(fun_trans "PUERTOS ACTIVOS Y INFORMACION DEL SERVIDOR VPS!")"
 msg -bar
 mine_port
 # MEMORIAS
-memorias_fun
+memorias_fun2
 bad_ssh
 [[ -e ${SCPdir}/USRonlines ]] && msg -ne "$(fun_trans "USUARIOS CONECTADOS"): " && msg -bra "$(cat ${SCPdir}/USRonlines) $(fun_trans "Usuarios")"
 [[ -e ${SCPdir}/USRexpired ]] && msg -ne "$(fun_trans "USUARIOS EXPIRADOS"): " && msg -bra "$(cat ${SCPdir}/USRexpired) $(fun_trans "Usuarios")"
