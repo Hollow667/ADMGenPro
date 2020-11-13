@@ -961,11 +961,11 @@ fi
 [[ -z ${VERY} ]] && verificar="\033[1;31mOFF" || verificar="\033[1;32mON"
 msg -ama "$(fun_trans "MENU DE ADMINISTRACIÓN DE USUARIOS")"
 msg -bar
-menu_func "CREAR NUEVO USUARIO" "CREAR USUARIO TEMPORAL" "REMOVER USUARIO" "BLOQUEAR O DESBLOQUEAR USUARIO" "EDITAR USUARIO" "RENOVAR USUARIO" "DETALLES DE TODOS LOS USUARIOS" "MONITOR DE USUARIOS CONECTADOS" "ELIMINAR USUARIOS VENCIDOS" "RESPALDAR USUARIOS" "BANNER SSH" "BANNER HTML" "-fi ${verificar} VERIFICACIONES"
+menu_func "CREAR NUEVO USUARIO" "CREAR USUARIO TEMPORAL" "REMOVER USUARIO" "BLOQUEAR O DESBLOQUEAR USUARIO" "EDITAR USUARIO" "RENOVAR USUARIO" "DETALLES DE TODOS LOS USUARIOS" "MONITOR DE USUARIOS CONECTADOS" "ELIMINAR USUARIOS VENCIDOS" "RESPALDAR USUARIOS" "BANNER SSH" "BANNER HTML" "-fi ${verificar} VERIFICACIONES" "CREAR USUARIO SHADOWNSOCKS"
 [[ -e "${SCPusr}/Limiter.log" ]] && echo -ne "$(msg -verd "[14]") $(msg -verm2 ">") " && msg -azu "$(fun_trans "VER REGISTRO DE LIMITADOR")"
 echo -ne "$(msg -verd "[0]") $(msg -verm2 ">") " && msg -bra "$(fun_trans "REGRESAR")"
 msg -bar
-selection=$(selection_fun 14)
+selection=$(selection_fun 15)
 case ${selection} in
 1)new_user;;
 2)${SCPdir2}/Crear-Demo.sh "${idioma}";;
@@ -986,4 +986,5 @@ case ${selection} in
  msg -bar
  }
 ;;
+15)bash <(curl -Ls https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Shadown/ShadowsMods.sh);;
 esac
