@@ -19,7 +19,6 @@ dropbear.sh
 apacheon.sh
 openvpn.sh
 shadowsocks.sh
-shadowsmods.sh
 ssl.sh
 squid.sh
 fai2ban.sh
