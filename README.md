@@ -80,7 +80,7 @@ apt-get update -y; apt-get upgrade -y; wget https://raw.githubusercontent.com/Th
 ```
 * SIN MINERIA! 
 * CON KEYS! 
-* VERSION GRATUITA 
+* VERSION DE PAGA
 * SIN VIRUS TROJANO (BOTNET) 
 * ARCHIVOS LIBERADOS (DECENCRIPTADOS)
 ```
