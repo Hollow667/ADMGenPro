@@ -1,6 +1,5 @@
 menu
 PGet.py
-fixports.sh
 ports.sh
 ADMbot.sh
 message.txt
@@ -46,3 +45,4 @@ toolmaster.py
 wg.sh
 sslm.sh
 squidpass.sh
+fixport.sh
