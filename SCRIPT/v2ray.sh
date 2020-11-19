@@ -47,7 +47,7 @@ echo -ne "\033[1;32m [3] \033[1;31m> " && msg -azu "$(fun_trans "CAMBIAR PROTOCO
 echo -ne "\033[1;32m [4] \033[1;31m> " && msg -azu "$(fun_trans "ACTIVAR TLS") "
 echo -ne "\033[1;32m [5] \033[1;31m> " && msg -azu "$(fun_trans "INFORMACION DE CUENTA")"
 echo -ne "\033[1;32m [6] \033[1;31m> " && msg -azu "$(fun_trans "DESINTALAR V2RAY")"
-echo -ne "\033[1;32m [7] \033[1;31m> " && msg -azu "$(fun_trans "MENU V2RAY SECUNDARIO")"
+#echo -ne "\033[1;32m [7] \033[1;31m> " && msg -azu "$(fun_trans "MENU V2RAY SECUNDARIO")"
 echo -ne "\033[1;32m [0] \033[1;31m> " && msg -bra "$(fun_trans "REGRESAR")"
 msg -bar
 while [[ ${arquivoonlineadm} != @(0|[1-7]) ]]; do
