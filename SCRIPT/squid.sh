@@ -2,6 +2,29 @@
 declare -A cor=( [0]="\033[1;37m" [1]="\033[1;34m" [2]="\033[1;32m" [3]="\033[1;36m" [4]="\033[1;31m" )
 SCPfrm="/etc/ger-frm" && [[ ! -d ${SCPfrm} ]] && exit
 SCPinst="/etc/ger-inst" && [[ ! -d ${SCPinst} ]] && exit
+# FUN TRANS
+fun_trans () { 
+local texto
+local retorno
+declare -A texto
+SCPidioma="${SCPdir}/idioma"
+[[ ! -e ${SCPidioma} ]] && touch ${SCPidioma}
+local LINGUAGE=$(cat ${SCPidioma})
+[[ -z $LINGUAGE ]] && LINGUAGE=es
+[[ $LINGUAGE = "es" ]] && echo "$@" && return
+[[ ! -e /usr/bin/trans ]] && wget -O /usr/bin/trans https://www.dropbox.com/s/l6iqf5xjtjmpdx5/trans?dl=0 &> /dev/null
+[[ ! -e /etc/texto-adm ]] && touch /etc/texto-adm
+source /etc/texto-adm
+if [[ -z "$(echo ${texto[$@]})" ]]; then
+#ENGINES=(aspell google deepl bing spell hunspell apertium yandex)
+#NUM="$(($RANDOM%${#ENGINES[@]}))"
+retorno="$(source trans -e bing -b es:${LINGUAGE} "$@"|sed -e 's/[^a-z0-9 -]//ig' 2>/dev/null)"
+echo "texto[$@]='$retorno'"  >> /etc/texto-adm
+echo "$retorno"
+else
+echo "${texto[$@]}"
+fi
+}
 #LISTA PORTAS
 mportas () {
 unset portas
@@ -32,7 +55,7 @@ fun_squid  () {
 msg -ama  " $(fun_trans "INSTALADOR SQUID ADM-ULTIMATE-PLUS")"
 msg -bar
 fun_ip
-msg -ne " $(fun_trans "Confirme seu ip")"; read -p ": " -e -i $IP ip
+msg -ne " $(fun_trans "Confirme su ip")"; read -p ": " -e -i $IP ip
 msg -ama " $(fun_trans "Ahora Escoja los Puertos que Desea Usar Squid")"
 msg -ama " $(fun_trans "Escoja los Puertos En Orden Secuencial Ejemplo: 80 8080 8799 3128")"
 msg -ne " $(fun_trans "Digite los Puertos:") "; read portasx
@@ -60,7 +83,7 @@ msg -bar
 echo -e ".bookclaro.com.br/\n.claro.com.ar/\n.claro.com.br/\n.claro.com.co/\n.claro.com.ec/\n.entel.p/\n.internetclaro.com.pe/\n.whatsapp.net/\n.kproxy.com/\n.autoatencion.entel.pe/\n.autoatencion.entel.pe/recarga/\n.entel.bo/\n.www.gob.pe/\n.www.gob.bo/\n.gob.mx/\n.gob.co/\n.gob.ar/\n.yomequedoencasa.pe/\n.aprendoencasa.pe/\n.bonouniversalfamiliar.pe/\n.bonoyomequedoencasa.pe/\n.gob.pe/coronavirus/\n.alfa.com.mx/\n.movistar.com.mx/\n.movistar.com.pe/\n.bitel.com.pe/\n.flashmobile.pe/\n.whatsapp.com/\n.mobile.terra.com/\n.instagram.com/\n.claro.com.gt/\n.cloudfront.net/\n.claro.com.ni/\n.claro.com.pe/\n.claro.com.sv/\n.claro.cr/\n.clarocurtas.com.br/\n.claroideas.com/\n.claroideias.com.br/\n.claromusica.com/\n.clarosomdechamada.com.br/\n.clarovideo.com/\n.facebook.net/\n.facebook.com/\n.netclaro.com.br/\n.oi.com.br/\n.oimusica.com.br/\n.speedtest.net/\n.tim.com.br/\n.timanamaria.com.br/\n.vivo.com.br/\n.rdio.com/\n.compute-1.amazonaws.com/\n.portalrecarga.vivo.com.br/\n.vivo.ddivulga.com/" > /etc/payloads
 msg -ama " $(fun_trans "Ahora Escoja Una Conf Para Su Proxy")"
 msg -bar
-msg -ama  "|1| $(fun_trans "Comum")"
+msg -ama  "|1| $(fun_trans "Común")"
 msg -ama  "|2| $(fun_trans "Personalizado") -\033[1;31m $(fun_trans "Usuario Debe Ajustar")\033[1;37m"
 msg -bar
 read -p "[1/2]: " -e -i 1 proxy_opt
