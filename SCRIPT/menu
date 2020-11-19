@@ -143,6 +143,10 @@ echo -e "\033[1;31mOS: \033[1;37m"$(os_system)" \033[1;31mIP: \033[1;37m"$(meu_i
 #echo -e "\033[1;31m$(fun_trans "OS"): \033[1;37m"$(os_system)" \033[1;31m$(fun_trans "IP"): \033[1;37m"$(meu_ip)"\033[0m"
 msg -bar
 }
+#INFO USUARIOS
+user_info () {
+echo -e "\033[1;31$(fun_trans "USUARIOS TOTALES") \033[0m$_sshtotal \033[1;31USUARIOS CONECTADOS: \033[0m$(cat ${SCPdir}/USRonlines $(fun_trans "Usuarios") \033[1;31USUARIOS EXPIRADOS: \033[0m$(cat ${SCPdir}/USRexpired) $(fun_trans "Usuarios")"
+}
 #BadSSH
 bad_ssh () {
 echo -e "\e[1;97mBADVPN:\e[0m" "$badvpn"
@@ -897,9 +901,10 @@ mine_port
 # MEMORIAS
 memorias_fun2
 bad_ssh
-[[ -e ${SCPdir}/USRonlines ]] && msg -ne "$(fun_trans "USUARIOS CONECTADOS"): " && msg -bra "$(cat ${SCPdir}/USRonlines) $(fun_trans "Usuarios")"
-[[ -e ${SCPdir}/USRexpired ]] && msg -ne "$(fun_trans "USUARIOS EXPIRADOS"): " && msg -bra "$(cat ${SCPdir}/USRexpired) $(fun_trans "Usuarios")"
-[[ -e ${SCPdir}/message.txt ]] && msg -bar && msg -bra "MENSAJE: $(cat ${SCPdir}/message.txt)"
+#[[ -e ${SCPdir}/USRonlines ]] && msg -ne "$(fun_trans "USUARIOS CONECTADOS"): " && msg -bra "$(cat ${SCPdir}/USRonlines) $(fun_trans "Usuarios")"
+#[[ -e ${SCPdir}/USRexpired ]] && msg -ne "$(fun_trans "USUARIOS EXPIRADOS"): " && msg -bra "$(cat ${SCPdir}/USRexpired) $(fun_trans "Usuarios")"
+user_info
+[[ -e ${SCPdir}/message.txt ]] && msg -bar && msg -bra "$(fun_trans "MENSAJE"): $(cat ${SCPdir}/message.txt)"
 [[ -e ${SCPdir}/key.txt ]] && msg -bar && msg -bra "KEY: $(cat ${SCPdir}/key.txt)"
 # NOVO SISTEMA DE MENUS
 msg -bar
@@ -911,7 +916,7 @@ menu_func "ADMINISTRAR USUARIOS" "HERRAMIENTAS" "-rj MENU INSTALACIÓNES" "-vd A
 echo -e "\033[1;32m[0] \033[1;31m> $(fun_trans "SALIR DEL SCRIPT")"
 msg -bar
 # FIN
-selection=$(selection_fun 10)
+selection=$(selection_fun 12)
 case ${selection} in
 1)${SCPusr}/usercodes "${idioma}";;
 2)ferramentas_fun;;
@@ -922,6 +927,7 @@ case ${selection} in
 7)funcao_idioma;;
 8)canbio_color;;
 9)monservi_fun;;
+10)echo "es" > /etc/newadm/idioma && chmod +x /etc/newadm/idioma && echo -e "\033[1;32mIdioma Corregido";;
 0)cd $HOME && exit 0;;
 esac
 msg -ne "$(fun_trans "Enter Para Continuar")" && read enter
