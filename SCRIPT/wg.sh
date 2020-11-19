@@ -501,7 +501,7 @@ EOF
 else
 	clear
         echo -e "\033[1;34m======================================================\033[0m"
-	echo -e "\033[1;33m     WireGuard [NEW-ADM-PLUS] ya está instalado. "
+	echo -e "\033[1;33m     WireGuard \033[1;32m[NEW-ADM-PLUS] \033[1;33mya está instalado. "
         echo -e "\033[1;34m======================================================\033[0m"
 	echo
 	echo -e "\033[1;33mSeleccione una opción"
