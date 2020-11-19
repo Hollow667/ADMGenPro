@@ -139,7 +139,8 @@ msg -bar
 echo -e "\033[1;32m$(fun_trans "SISTEMA")           $(fun_trans "MEMORIA RAM")      $(fun_trans "PROCESADOR ")"
 echo -e "\033[1;31m$(fun_trans "Fecha"): \033[1;37m$_fecha  \033[1;31m$(fun_trans "Total"):\033[1;37m$_ram \033[1;31m$(fun_trans "Nucleos"): \033[1;37m$_core\033[0m"
 echo -e "\033[1;31m$(fun_trans "Hora"):\033[1;37m $_hora     \033[1;31m$(fun_trans "En uso"): \033[1;37m$_usor \033[1;31m$(fun_trans "En uso"): \033[1;37m$_usop\033[0m"
-echo -e "\033[1;31m$(fun_trans "OS"): \033[1;37m"$(os_system)" \033[1;31m$(fun_trans "IP"): \033[1;37m"$(meu_ip)"\033[0m"
+echo -e "\033[1;31mOS: \033[1;37m"$(os_system)" \033[1;31mIP: \033[1;37m"$(meu_ip)"\033[0m"
+#echo -e "\033[1;31m$(fun_trans "OS"): \033[1;37m"$(os_system)" \033[1;31m$(fun_trans "IP"): \033[1;37m"$(meu_ip)"\033[0m"
 msg -bar
 }
 #BadSSH
