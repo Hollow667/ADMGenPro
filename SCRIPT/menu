@@ -613,10 +613,10 @@ case $1 in
 "trojan.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "TROJAN $(pid_inst trojan)";;
 "budp.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "BADVPN-(UDP:7300) $(pid_inst badvpn)";;
 #HERRAMIENTAS QUE NO SIRVEN
-"sslm.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL MANAGER $(pid_inst stunnel)";;
-"shadowsmods.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS R,GO,LIB $(pid_inst ssrserver)";;
-"Proxy-Privado.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Publico $(pid_inst python2)";;
-"Proxy-Publico.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Privado $(pid_inst python3)";;
+"sslm.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SSL MANAGER $(pid_inst sslm)";;
+"shadowsmods.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "SHADOWSOCKS R,GO,LIB $(pid_inst shadowsmods)";;
+"Proxy-Privado.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Privado $(pid_inst proxy-privado)";;
+"Proxy-Publico.sh")echo -ne "$(msg -verd "[$2]") $(msg -verm2 ">") " && msg -azu "Proxy-Publico $(pid_inst proxy-publico)";;
 #FIN MENU INSTALACIONES
 "Crear-Demo.sh")return 1;;
 "v2ui.sh")return 1;;
