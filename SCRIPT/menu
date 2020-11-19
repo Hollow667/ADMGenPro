@@ -273,7 +273,7 @@ V2UI+="$Port ";;
 wireguard|wg)
 [[ -z $WG ]] && local WG="\033[1;31mWIREGUARD: \033[1;32m"
 WG+="$Port ";;
-miniserv)
+miniserv.)
 [[ -z $WBM ]] && local WBM="\033[1;31mWEBMIN: \033[1;32m"
 WBM+="$Port ";;
 trojan|trojanserver)
