@@ -145,7 +145,7 @@ msg -bar
 }
 #INFO USUARIOS
 user_info () {
-echo -e "\033[1;31$(fun_trans "TOTALES"): \033[0m$_sshtotal $(fun_trans "Usuarios") \033[1;31$(fun_trans "CONECTADOS"): \033[0m$(cat ${SCPdir}/USRonlines $(fun_trans "Usuarios") \033[1;31$(fun_trans "EXPIRADOS"): \033[0m$(cat ${SCPdir}/USRexpired) $(fun_trans "Usuarios")""
+echo -e "\033[1;31$(fun_trans "TOTALES"): \033[0m$_sshtotal $(fun_trans "Usuarios") \033[1;31$(fun_trans "CONECTADOS"): \033[0m$(cat ${SCPdir}/USRonlines) $(fun_trans "Usuarios") \033[1;31$(fun_trans "EXPIRADOS"): \033[0m$(cat ${SCPdir}/USRexpired) $(fun_trans "Usuarios")"
 }
 #BadSSH
 bad_ssh () {
