@@ -146,7 +146,7 @@ msg -bar
 }
 #INFO USUARIOS
 user_info () {
-echo -e "\033[1;33m$(fun_trans "USUARIOS"): \033[0m$_sshtotal   \033[1;32m$(fun_trans "CONECTADOS"): \033[0m$(cat ${SCPdir}/USRonlines)   \033[1;31m$(fun_trans "EXPIRADOS"): \033[0m$(cat ${SCPdir}/USRexpired)"
+echo -e "\033[1;33m$(fun_trans "USUARIOS"): \033[0m$_sshtotal     \033[1;32m$(fun_trans "CONECTADOS"): \033[0m$(cat ${SCPdir}/USRonlines)     \033[1;31m$(fun_trans "EXPIRADOS"): \033[0m$(cat ${SCPdir}/USRexpired)"
 }
 #BadSSH
 bad_ssh () {
@@ -223,7 +223,7 @@ echo -e "$valor3"
 done
 msg -bar2
 unset selection
-while [[ ${selection} != @([1-8]) ]]; do
+while [[ ${selection} != @([1-9]) ]]; do
 echo -ne "\033[1;37m$(fun_trans "Selecione a Opción"):》 " && read selection
 tput cuu1 && tput dl1
 done
@@ -428,7 +428,7 @@ rm /root/webmin_1.900_all.deb
 service webmin restart
 clear
 msg -verd "$(fun_trans "Panel Webmin Instalado en el Puerto"): \033[1;31m10000\033[0m"
-echo -e "\033[1;33URL \033[1;31http://$(meu_ip):10000"
+echo -e "\033[1;33mURL \033[1;31mhttp://$(meu_ip):10000"
 }
 fun_autorun () {
 if [[ -e /etc/bash.bashrc-bakup ]]; then
