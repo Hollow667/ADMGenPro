@@ -154,7 +154,6 @@ echo -e "\e[1;97mBADVPN:\e[0m" "$badvpn"
 }
 #Sistema de Puertos
 puertos_ssh () {
-# echo -e "\033[1;36m PUERTOS ACTIVOS"
 msg -ama "$(fun_trans "PUERTOS ACTIVOS")"
 msg -bar2
 PT=$(lsof -V -i tcp -P -n | grep -v "ESTABLISHED" |grep -v "COMMAND" | grep "LISTEN")
@@ -932,7 +931,6 @@ case ${selection} in
 7)funcao_idioma;;
 8)canbio_color;;
 9)monservi_fun;;
-10)echo "es" > /etc/newadm/idioma && chmod +x /etc/newadm/idioma && echo -e "\033[1;32mIdioma Corregido";;
 0)cd $HOME && exit 0;;
 esac
 msg -ne "$(fun_trans "Enter Para Continuar")" && read enter
