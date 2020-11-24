@@ -145,12 +145,12 @@ msg -bar
 }
 #INFO USUARIOS
 user_info () {
-echo -e "\033[1;31m$(fun_trans "USUARIOS TOTALES"): \033[0m$_sshtotal \033[1;31m$(fun_trans "CONECTADOS"): \033[0m$(cat ${SCPdir}/USRonlines) \033[1;31m$(fun_trans "EXPIRADOS"): \033[0m$(cat ${SCPdir}/USRexpired)"
+echo -e "\033[1;31m$(fun_trans "USUARIOS"): \033[0m$_sshtotal \033[1;31m$(fun_trans "CONECTADOS"): \033[0m$(cat ${SCPdir}/USRonlines) \033[1;31m$(fun_trans "EXPIRADOS"): \033[0m$(cat ${SCPdir}/USRexpired)"
 }
 #BadSSH
 bad_ssh () {
 echo -e "\e[1;97mBADVPN:\e[0m" "$badvpn"
-echo -e "\033[1;97mSSH REG:\033[1;92m $_sshtotal $(fun_trans "CUENTAS")"
+#echo -e "\033[1;97mSSH REG:\033[1;92m $_sshtotal $(fun_trans "CUENTAS")"
 }
 #Sistema de Puertos
 puertos_ssh () {
@@ -428,9 +428,8 @@ sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
 rm /root/webmin_1.900_all.deb
 service webmin restart
 clear
-# echo "\033[1;32Panel Webmin Instalado en el Puerto: \033[1;31m10000\033[0m"
 msg -verd "$(fun_trans "Panel Webmin Instalado en el Puerto"): \033[1;31m10000\033[0m"
-echo "\033[1;33URL \033[1;31http://$(meu_ip):10000"
+echo -e "\033[1;33URL \033[1;31http://$(meu_ip):10000"
 }
 fun_autorun () {
 if [[ -e /etc/bash.bashrc-bakup ]]; then
