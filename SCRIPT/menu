@@ -757,6 +757,7 @@ echo $selection
 #MONITOR DE SERVICIOS
 monservi_fun () {
 # MONITOR
+echo -e "\033[1;34m$(fun_trans "Descargando Archivos Necesarios")\033[0m"
 wget -O /var/www/html/estilos.css https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Monitor/estilos.css &> /dev/null
 chmod 777 /var/www/html/estilos.css
 #Estilos CSS
@@ -789,7 +790,7 @@ sed -i '65i EstadoServicio apache2' /bin/monitor.sh
 msg -bar
 echo -e "\033[44m        =====>>►►   NEW ULTIMATE PLUS   ◄◄<<=====        \033[1;37m"
 msg -bar
-echo -e "\033[1;32m          MONITOR DE SERVICIONS PRINCIPALES"
+echo -e "\033[1;32m          $(fun_trans "MONITOR DE SERVICIONS PRINCIPALES")"
 
 PIDVRF3="$(ps aux|grep "${SCPdir}/menu monitorservi"|grep -v grep|awk '{print $2}')"
 
@@ -798,35 +799,35 @@ PIDVRF5="$(ps aux|grep "${SCPdir}/menu moni2"|grep -v grep|awk '{print $2}')"
 if [[ -z $PIDVRF3 ]]; then
 sed -i '5a\screen -dmS very3 /etc/newadm/menu monitorservi' /bin/resetsshdrop
 msg -bar
-echo -e "\033[1;34m          ¿Monitorear Protocolo SSH/SSHD?"
+echo -e "\033[1;34m          $(fun_trans "¿Monitorear Protocolo SSH/SSHD?")"
 msg -bar
 read -p "                    [ s | n ]: " monssh  
 sed -i "57d" /bin/monitor.sh
 sed -i '57i #EstadoServicio ssh' /bin/monitor.sh 
 [[ "$monssh" = "s" || "$monssh" = "S" ]] && monssh
 msg -bar
-echo -e "\033[1;34m          ¿Monitorear Protocolo DROPBEAR?"
+echo -e "\033[1;34m          $(fun_trans "¿Monitorear Protocolo DROPBEAR?")"
 msg -bar
 read -p "                    [ s | n ]: " mondropbear  
 sed -i "59d" /bin/monitor.sh
 sed -i '59i #EstadoServicio dropbear' /bin/monitor.sh
 [[ "$mondropbear" = "s" || "$mondropbear" = "S" ]] && mondropbear
 msg -bar
-echo -e "\033[1;34m            ¿Monitorear Protocolo SSL?"
+echo -e "\033[1;34m            $(fun_trans "¿Monitorear Protocolo SSL?")"
 msg -bar
 read -p "                    [ s | n ]: " monssl  
 sed -i "61d" /bin/monitor.sh
 sed -i '61i #EstadoServicio stunnel4' /bin/monitor.sh
 [[ "$monssl" = "s" || "$monssl" = "S" ]] && monssl
 msg -bar
-echo -e "\033[1;34m            ¿Monitorear Protocolo SQUID?"
+echo -e "\033[1;34m            $(fun_trans "¿Monitorear Protocolo SQUID?")"
 msg -bar
 read -p "                    [ s | n ]: " monsquid  
 sed -i "63d" /bin/monitor.sh
 sed -i '63i #[[ $(EstadoServicio squid) ]] && EstadoServicio squid3' /bin/monitor.sh
 [[ "$monsquid" = "s" || "$monsquid" = "S" ]] && monsquid
 msg -bar
-echo -e "\033[1;34m            ¿Monitorear Protocolo APACHE?"
+echo -e "\033[1;34m            $(fun_trans "¿Monitorear Protocolo APACHE?")"
 msg -bar
 read -p "                    [ s | n ]: " monapache  
 sed -i "65d" /bin/monitor.sh
@@ -850,10 +851,10 @@ done
 
 fi
 msg -bar
-echo -e "             Puedes Monitorear desde:\n       \033[1;32m http://$(meu_ip):81/monitor.html"
+echo -e "             $(fun_trans "Puedes Monitorear desde"):\n       \033[1;32m http://$(meu_ip):81/monitor.html"
 msg -bar
-[[ -z ${VERY3} ]] && monitorservi="\033[1;32m ACTIVADO " || monitorservi="\033[1;31m DESACTIVADO "
-echo -e "            $monitorservi  --  CON EXITO"
+[[ -z ${VERY3} ]] && monitorservi="\033[1;32m $(fun_trans "ACTIVADO") " || monitorservi="\033[1;31m $(fun_trans "DESACTIVADO") "
+echo -e "            $monitorservi  --  $(fun_trans "CON EXITO")"
 msg -bar
 
 }
