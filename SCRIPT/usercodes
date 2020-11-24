@@ -980,8 +980,7 @@ case ${selection} in
 11)baner_fun;;
 12)banner_dropbear;;
 13)verif_funx;;
-14)
-[[ -e "${SCPusr}/Limiter.log" ]] && {
+14)[[ -e "${SCPusr}/Limiter.log" ]] && {
  cat ${SCPusr}/Limiter.log
  msg -bar
  }
