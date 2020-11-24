@@ -145,7 +145,7 @@ msg -bar
 }
 #INFO USUARIOS
 user_info () {
-echo -e "\033[1;31m$(fun_trans "USUARIOS"): \033[0m$_sshtotal \033[1;31m$(fun_trans "CONECTADOS"): \033[0m$(cat ${SCPdir}/USRonlines) \033[1;31m$(fun_trans "EXPIRADOS"): \033[0m$(cat ${SCPdir}/USRexpired)"
+echo -e "\033[1;33m$(fun_trans "USUARIOS"): \033[0m$_sshtotal \033[1;32m$(fun_trans "CONECTADOS"): \033[0m$(cat ${SCPdir}/USRonlines) \033[1;31m$(fun_trans "EXPIRADOS"): \033[0m$(cat ${SCPdir}/USRexpired)"
 }
 #BadSSH
 bad_ssh () {
@@ -417,7 +417,6 @@ msg -ama "$(fun_trans "PROCESÓ CONCLUIDO")"
 msg -bar
 }
 function_webmin(){
-# echo "Instalando Webmin"
 msg -ama "$(fun_trans "Instalando Webmin")"
 cd
 wget --no-check-certificate -O webmin_1.900_all.deb "https://prdownloads.sourceforge.net/webadmin/webmin_1.900_all.deb"
