@@ -479,7 +479,7 @@ EOF
 	echo
         clear
 	qrencode -t UTF8 < ~/"$client.conf"
-	echo -e '\xE2\x86\x91 Este es un código QR que contiene la configuración del cliente.'
+	echo -e '\xE2\x86\x91 Este es un código QR que contiene la configuración de su cliente.'
 	echo
 	# If the kernel module didn't load, system probably had an outdated kernel
 	# We'll try to help, but will not will not force a kernel upgrade upon the user
