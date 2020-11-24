@@ -428,7 +428,7 @@ rm /root/webmin_1.900_all.deb
 service webmin restart
 clear
 msg -verd "$(fun_trans "Panel Webmin Instalado en el Puerto"): \033[1;31m10000\033[0m"
-echo -e "\033[1;33mURL \033[1;31mhttp://$(meu_ip):10000"
+echo -e "\033[1;33mURL \033[1;34mhttp://$(meu_ip):10000"
 }
 fun_autorun () {
 if [[ -e /etc/bash.bashrc-bakup ]]; then
@@ -760,6 +760,8 @@ echo $selection
 monservi_fun () {
 # MONITOR
 echo -e "\033[1;34m$(fun_trans "Descargando Archivos Necesarios")\033[0m"
+apt-get install screen -y
+clear
 wget -O /var/www/html/estilos.css https://raw.githubusercontent.com/ThonyDroidYT/Herramientas/main/Monitor/estilos.css &> /dev/null
 chmod 777 /var/www/html/estilos.css
 #Estilos CSS
